@@ -142,7 +142,7 @@ if (isset($_POST["login"])) {
                         <!-- /.col -->
                         <div class="col">
                             <button type="submit" class="btn btn-block btn-primary" name="login">Masuk</button>
-                            <!-- <a href="register.php" class="btn btn-block btn-danger">Buat Akun</a> -->
+                            <a href="peserta/index.php" class="btn btn-block btn-success">Masuk Sebagai Peserta</a>
                         </div>
                     </div>
                 </form>

@@ -8,19 +8,16 @@ $id = $_GET["id"];
 $query_peserta = "SELECT 
 peserta_daftar.*, 
 kegiatan.nama_kegiatan, 
-peserta.nama_peserta  
+peserta.*  
 FROM 
 peserta_daftar, kegiatan, peserta 
 WHERE 
 kegiatan.id = peserta_daftar.id_kegiatan AND
 peserta.id = peserta_daftar.id_peserta AND 
-peserta_daftar.id = $id
+peserta_daftar.id_peserta = '$id'
 ORDER BY nama_peserta ASC";
 $result_peserta = mysqli_query($conn, $query_peserta);
 $row_peserta = mysqli_fetch_assoc($result_peserta);
-
-// $query = "SELECT * FROM peserta ORDER BY nama_peserta ASC";
-// $result = mysqli_query($conn, $query);
 
 $html = '<!DOCTYPE html>
 <html lang="en">
@@ -81,7 +78,7 @@ $html = '<!DOCTYPE html>
                 <td>Jenjang</td>
                 <td>:</td>
                 <td>'. $row_peserta["jenjang"] .'</td>
-            </tr>        
+            </tr>
             <tr>
                 <td>Jabatan</td>
                 <td>:</td>
@@ -96,16 +93,59 @@ $html = '<!DOCTYPE html>
                 <td>Agama</td>
                 <td>:</td>
                 <td>'. $row_peserta["agama"] .'</td>
-            </tr>            
+            </tr>
             <tr>
                 <td>Kab / Kota</td>
                 <td>:</td>
-                <td>'. $row_peserta["kabKota"] .'</td>
+                <td>'; 
+                $kabKota = $row_peserta['kabKota']; 
+                switch ($kabKota) {
+                    case 'bjm':
+                        $html .= "Banjarmasin";
+                        break;
+                    case 'bjb':
+                        $html .= "Banjarbaru";
+                        break;
+                    case 'banjar':
+                        $html .= "Banjar";
+                        break;
+                    case 'tapin':
+                        $html .= "Tapin";
+                        break;
+                    case 'hss':
+                        $html .= "Hulu Sungai Selatan";
+                        break;
+                    case 'hst':
+                        $html .= "Hulu Sungai Tengah";
+                        break;
+                    case 'hsu':
+                        $html .= "Hulu Sungai Utara";
+                        break;
+                    case 'balangan':
+                        $html .= "Balangan";
+                        break;
+                    case 'tabalong':
+                        $html .= "Tabalong";
+                        break;
+                    case 'barito kuala':
+                        $html .= "Barito Kuala";
+                        break;
+                    case 'tanah laut':
+                        $html .= "Tanah Laut";
+                        break;
+                    case 'tanah bumbu':
+                        $html .= "Tanah Bumbu";
+                        break;
+                    default:
+                        $html .= "Kotabaru";
+                        break;
+                }
+            $html .= '</td>
             </tr>            
             <tr>
                 <td>Unit Kerja</td>
                 <td>:</td>
-                <td>'. $row_peserta["unitKerja"] .'</td>
+                <td>'. $row_peserta["asalSekolah"] .'</td>
             </tr>
             <tr>
                 <td>Alamat Sekolah</td>
@@ -115,12 +155,7 @@ $html = '<!DOCTYPE html>
             <tr>
                 <td>No Hp</td>
                 <td>:</td>
-                <td>'. $row_peserta["hp"] .'</td>
-            </tr>
-            <tr>
-                <td>Surat SK</td>
-                <td>:</td>
-                <td>'. $row_peserta["suratSK"] .'</td>
+                <td>'. $row_peserta["noTelp"] .'</td>
             </tr>
             <tr>
                 <td>Status</td>

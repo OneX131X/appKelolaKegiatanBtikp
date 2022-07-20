@@ -3,25 +3,15 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 include 'koneksi.php';
-$status_ = $_GET["status_"];
-$query = "SELECT 
-peserta_daftar.*, 
-kegiatan.nama_kegiatan, 
-peserta.* 
-FROM 
-peserta_daftar, kegiatan, peserta 
-WHERE 
-kegiatan.id = peserta_daftar.id_kegiatan AND
-peserta.id = peserta_daftar.id_peserta AND 
-status_ = '$status_'
-ORDER BY nama_peserta ASC";
+$jenisKamar = $_GET["jenisKamar"];
+$query = "SELECT * FROM kamar WHERE jenisKamar = '$jenisKamar' ORDER BY no_kamar ASC";
 $result = mysqli_query($conn, $query);
 
 $html = '<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Daftar Peserta</title>
+        <title>Daftar Kamar</title>
         <style>
             table {
             font-family: arial, sans-serif;
@@ -31,10 +21,13 @@ $html = '<!DOCTYPE html>
 
             td, th {
             border: 1px solid #000000;
-            text-align: left;
+            text-align: center;
             padding: 8px;
             }
 
+            td:nth-child(3){
+                width: 30%;
+            }
             tr:nth-child(even) {
             background-color: #dddddd;
             }
@@ -58,41 +51,54 @@ $html = '<!DOCTYPE html>
             </div>
         </div>
     <hr>
-    <h4 class="heading">DAFTAR PESERTA DITERIMA</h4>
+    <h4 class="heading">DAFTAR KAMAR</h4>
     <table align="center" border="1" cellpadding="10" cellspacing="0">
 
         <tr>
             <th>No.</th>
-            <th>Nama Peserta</th>
-            <th>Kegiatan</th>
-            <th>Jenjang</th>
-            <th>Jabatan</th>
-            <th>Kab/Kota</th>
-            <th>Unit Kerja</th>
-            <th>No. Hp</th>
-            <th>Status</th>
-            <th>Keterangan</th>
+            <th>No Kamar</th>
+            <th>Jenis Kamar</th>
+            <th>Letak Lantai</th>
+            <th>Kuantitas</th>
+            <th>Tersedia</th>
         </tr>';
 
         $i = 1;
         foreach( $result as $row ) {
             $html .= '<tr>
-                    <td align="center">'. $i++ .'</td>
-                    <td>'. $row["nama_peserta"] .'</td>
-                    <td>'. $row["nama_kegiatan"] .'</td>
-                    <td>'. $row["jenjang"] .'</td>
-                    <td>'. $row["jabatan"] .'</td>
-                    <td>'. $row["kabKota"] .'</td>
-                    <td>'. $row["asalSekolah"] .'</td>
-                    <td>'. $row["hp"] .'</td>
-                    <td>'. $row["status_"] .'</td>
-                    <td>'. $row["keterangan"] .'</td>
+                    <td>'. $i++ .'</td>
+                    <td>'. $row["no_kamar"] .'</td>
+                    <td>'; 
+                    if ($row["jenisKamar"] == "L") {
+                        $html .= "Kamar Laki-laki";
+                    } else {
+                        $html .= "Kamar Perempuan";
+                    }
+            $html .= '</td>
+                    <td>Lantai '. $row["letakLantai"] .'</td>
+                    <td>'. $row["kuantitas"] .' orang</td>
+                    <td>'; 
+                    $q = mysqli_query($conn, "SELECT
+                                                kamar.kuantitas, 
+                                                reservasi.kamar_id 
+                                                FROM kamar, reservasi 
+                                                WHERE kamar.id = reservasi.kamar_id AND
+                                                reservasi.kamar_id = '$row[id]'");
+                    $j = mysqli_num_rows($q);
+                    $qk = mysqli_query($conn, "SELECT kuantitas FROM kamar WHERE id = $row[id]");
+                    $jk = mysqli_fetch_assoc($qk);
+                    $html .= $jk["kuantitas"] - $j . " orang"; 
+            $html .= '</td>
             </tr>';
         }
         
 $html .= '</table>
         <div align="right">
         <p>
+            <br>
+            <br>
+            <br>
+            <br>
             <br>
             <br>
         </p>
@@ -111,8 +117,7 @@ $html .= '</table>
 </html>';
 
 $mpdf = new \Mpdf\Mpdf();
-// $mpdf->AddPage('L');
 $mpdf->WriteHTML($html);
-$mpdf->Output('daftar-peserta-diterima', 'I');
+$mpdf->Output('daftar-kamar', 'I');
 
 ?>
