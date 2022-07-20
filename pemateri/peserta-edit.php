@@ -40,7 +40,7 @@ if (isset($_POST["submit"])) {
     if ($edit) {
         echo "<script type='text/javascript'>
                 alert('Data berhasil disimpan...!');
-                document.location.href = 'peserta.php';
+                document.location.href = 'peserta.php?id=$row_peserta[id_kegiatan]';
             </script>";
         } else {
         echo "<script type='text/javascript'>
@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Peserta | APPKelolaKegiatanBTIKP</title>
+    <title>Penilaian Peserta | APPKelolaKegiatanBTIKP</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
@@ -75,13 +75,15 @@ if (isset($_POST["submit"])) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Data Peserta</h1>
+                            <h1>Penilaian Peserta</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item"><a href="peserta.php">Peserta</a></li>
-                                <li class="breadcrumb-item active">Edit Peserta</li>
+                                <li class="breadcrumb-item active">Penilaian</li>
+                                <li class="breadcrumb-item"><a href="kegiatan.php">List Kegiatan</a></li>
+                                <li class="breadcrumb-item"><a href="peserta.php?id=<?= $row_peserta["id_kegiatan"]; ?>">List Peserta</a></li>
+                                <li class="breadcrumb-item active">Penilaian Peserta</li>
                             </ol>
                         </div>
                     </div>
@@ -96,7 +98,7 @@ if (isset($_POST["submit"])) {
                             <!-- general form elements -->
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Tambah Data</h3>
+                                    <h3 class="card-title">Edit Data</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
@@ -133,7 +135,7 @@ if (isset($_POST["submit"])) {
 
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary mr-1" name="submit">Simpan</button>
-                                        <a href="peserta.php" class="btn btn-secondary">Cancel</a>
+                                        <a href="peserta.php?id=<?= $row_peserta["id_kegiatan"]; ?>" class="btn btn-secondary">Cancel</a>
                                     </div>
                                 </form>
                             </div>

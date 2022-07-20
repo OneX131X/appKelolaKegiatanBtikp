@@ -71,7 +71,7 @@ $result = mysqli_query($conn, $query);
                         <div class="col-12">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">List Kegiatan</h3>
+                                    <h3 class="card-title fs-title"><a href="index.php" class="btn bg-primary btn-sm mr-2"><i class="fa fa-chevron-left"></i></a> List Kegiatan</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">

@@ -31,6 +31,7 @@ $query = "SELECT
             kegiatan.id = '$id'
             ORDER BY nama_kegiatan ASC";
 $result = mysqli_query($conn, $query);
+$row_keg = mysqli_fetch_assoc(mysqli_query($conn, "SELECT kegiatan.* FROM kegiatan WHERE id = '$id'"));
 
 
 ?>
@@ -76,7 +77,8 @@ $result = mysqli_query($conn, $query);
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active">Peserta</li>
+                                <li class="breadcrumb-item active">Penilaian</li>
+                                <li class="breadcrumb-item"><a href="kegiatan.php">List Kegiatan</a></li>
                                 <li class="breadcrumb-item active">List Peserta</li>
                             </ol>
                         </div>
@@ -89,13 +91,15 @@ $result = mysqli_query($conn, $query);
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
+                            <div class="card card-primary">
                                 <div class="card-header">
+                                    <h3 class="card-title"><?php echo $row_keg["nama_kegiatan"]; ?></h3>
                                     <!-- <a href="peserta-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
                                     <a href="../cetak-peserta.php" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Cetak Data</a> -->
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
+                                    <a href="kegiatan.php" class="btn bg-lightblue"><i class="fa fa-chevron-left"></i></a>
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -116,7 +120,7 @@ $result = mysqli_query($conn, $query);
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
                                                     <td>
-                                                        <center><a href="peserta-edit.php?id=<?php echo $row["id"]; ?>" class="tomb btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
+                                                        <center><a href="peserta-edit.php?id=<?php echo $row["id"]; ?>" class="tomb btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Edit</a>
                                                         <a href="peserta-detail.php?id=<?php echo $row["id"]; ?>" class="tomb btn btn-info btn-xs mr-1"><i class="fa fa-info"></i> Detail</a></center>
                                                         <!-- <a href="peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a> -->
                                                     </td>

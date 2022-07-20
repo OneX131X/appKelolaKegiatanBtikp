@@ -23,7 +23,7 @@ $query_detail = "SELECT
         detail_kegiatan, kegiatan 
         WHERE 
         kegiatan.id = detail_kegiatan.id_kegiatan AND
-        detail_kegiatan.id_kegiatan = $id";
+        detail_kegiatan.id_kegiatan = '$id'";
 $result_detail = mysqli_query($conn, $query_detail);
 
 $query_k = "SELECT * FROM kegiatan WHERE id = $id";
@@ -60,6 +60,9 @@ $row_k = mysqli_fetch_assoc($result_k);
             justify-content: center;
             align-items: center;
             /* border-radius: 10px; */
+        }
+        .fs-title {
+            font-size: 22px;
         }
     </style>
 </head>
@@ -101,7 +104,7 @@ $row_k = mysqli_fetch_assoc($result_k);
                                 <div class="card">
                                     <div class="card card-primary">
                                         <div class="card-header">
-                                            <h3 class="card-title">Detail Kegiatan</h3>
+                                            <h3 class="card-title fs-title"><a href="kegiatan.php" class="btn bg-primary mr-2"><i class="fa fa-chevron-left"></i></a> <?= $row_k["nama_kegiatan"]; ?></h3>
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body">
