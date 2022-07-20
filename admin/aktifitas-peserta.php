@@ -108,7 +108,7 @@ $result = mysqli_query($conn, $query);
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
                                                     <td>
-                                                        <a href="aktifitas-peserta-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
+                                                        <a href="aktifitas-peserta-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Edit</a>
                                                         <a href="aktifitas-peserta-detail.php?id=<?php echo $row["id"]; ?>" class="btn btn-xs bg-info mr-1" ><i class="fa fa-info"></i> Detail</a>
                                                         <a href="aktifitas-peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                     </td>

@@ -187,7 +187,7 @@ $countRsv = mysqli_num_rows($getReservasi);
                         <div class="col-lg-7 col-6">
                             <div class="card card-maroon" style="height: 100%;">
                                 <div class="card-header">
-                                    <h3 class="card-title">Pie Chart</h3>
+                                    <h3 class="card-title">Kegiatan</h3>
                                 </div>
                                 <div class="card-body">
                                 <table id="example1" class="tb-data table-bordered table-striped">

@@ -82,6 +82,10 @@ if (isset($_POST["submit"])) {
         td:nth-child(6) {
             width: 30%;
         }
+        .b-right {
+            /* float: right; */
+            position: absolute;
+        }
     </style>
 </head>
 
@@ -171,6 +175,7 @@ if (isset($_POST["submit"])) {
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body">
+                                            <a class="btn btn-warning b-right" href="../cetak-kegiatan-detail.php"><i class="fa fa-print"></i> Cetak Detail</a>
                                             <table id="example1" class="table table-bordered table-striped">
                                                 <thead>
                                                     <tr>

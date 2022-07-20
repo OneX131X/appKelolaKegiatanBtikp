@@ -106,8 +106,8 @@ $result_reservasi = mysqli_query($conn, $query_reservasi);
                             <div class="card">
                                 <div class="card-header">
                                     <!-- <a href="../cetak-reservasi.php" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Cetak Data</a> -->
+                                    <a href="reservasi-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
                                     <div class="btn-group">
-                                        <a href="reservasi-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
                                         <button type="button" class="btn bg-teal dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak [Per Kegiatan]</button>
                                         <ul class="dropdown-menu">
                                         <?php 
@@ -116,6 +116,8 @@ $result_reservasi = mysqli_query($conn, $query_reservasi);
                                             <li class="dropdown-item"><a style="color: green;" href="../cetak-reservasi.php?nama_kegiatan=<?= $row_cetak["nama_kegiatan"] ?>" target="_blank"><?= $row_cetak["nama_kegiatan"] ?></a></li>
                                         <?php } ?>
                                         </ul>
+                                    </div>
+                                    <div class="btn-group">
                                         <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak [Per Jenis Kamar]</button>
                                         <ul class="dropdown-menu">
                                             <li class="dropdown-item"><a style="color: blue;" href="../cetak-reservasi-jKamar.php?jenisKamar=L" target="_blank">Kamar Laki-Laki</a></li>

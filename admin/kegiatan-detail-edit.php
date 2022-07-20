@@ -38,10 +38,6 @@ $query_detail = "SELECT
 $result_detail = mysqli_query($conn, $query_detail);
 $row_detail = mysqli_fetch_assoc($result_detail);
 
-$query_k = "SELECT * FROM kegiatan WHERE id = $id";
-$result_k = mysqli_query($conn, $query_k);
-$row_k = mysqli_fetch_assoc($result_k);
-
 if (isset($_POST["submit"])) {
 
     // $id_kegiatan = htmlspecialchars($_POST["id_kegiatan"]);
@@ -176,7 +172,7 @@ if (isset($_POST["submit"])) {
                     <!-- /.container-fluid -->
                 </section>
                 <!-- /.content -->
-                <section class="content">
+                <!-- <section class="content">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
@@ -185,7 +181,6 @@ if (isset($_POST["submit"])) {
                                         <div class="card-header">
                                             <h3 class="card-title">Detail Kegiatan</h3>
                                         </div>
-                                        <!-- /.card-header -->
                                         <div class="card-body">
                                             <table id="example1" class="table table-bordered table-striped">
                                                 <thead>
@@ -199,8 +194,6 @@ if (isset($_POST["submit"])) {
                                                 </thead>
                                                 <tbody>
                                                     <?php $no = 1;
-                                                    // $hari = mysqli_query($conn, "SELECT hari_satu, hari_dua, hari_tiga FROM detail_kegiatan");
-                                                    // $rh = mysqli_fetch_assoc($hari);
                                                     while ($row = mysqli_fetch_assoc($result_detail)) { ?>
                                                         <tr>
                                                             <td><?php echo $no; ?></td>
@@ -244,16 +237,11 @@ if (isset($_POST["submit"])) {
                                             </table>
                                         </div>
                                     </div>
-                                    <!-- /.card-body -->
                                 </div>
-                                <!-- /.card -->
                             </div>
-                            <!-- /.col -->
                         </div>
-                        <!-- /.row -->
                     </div>
-                    <!-- /.container-fluid -->
-                </section>
+                </section> -->
                 <!-- /.content -->
             </div>
             <!-- /.content -->

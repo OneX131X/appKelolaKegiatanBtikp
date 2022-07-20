@@ -95,8 +95,8 @@ $result = mysqli_query($conn, $query);
                                     <div class="btn-group">
                                         <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak Peserta</button>
                                         <ul class="dropdown-menu">
-                                        <li class="dropdown-item"><a style="color: green;" href="../cetak-pendaftaran-peserta.php" target="_blank">Diterima <i class="fas fa-check"></i></a></li>
-                                        <li class="dropdown-item"><a style="color: red;" href="../cetak-pendaftaran-peserta-ditolak.php" target="_blank">Ditolak <i class="far fa-times-circle"></i></a></li>
+                                        <li class="dropdown-item"><a style="color: green;" href="../cetak-pendaftaran-peserta.php?status_=diterima" target="_blank">Diterima <i class="fas fa-check"></i></a></li>
+                                        <li class="dropdown-item"><a style="color: red;" href="../cetak-pendaftaran-peserta-ditolak.php?status_=ditolak" target="_blank">Ditolak <i class="far fa-times-circle"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>

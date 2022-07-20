@@ -28,7 +28,7 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Registrasi Peserta | APPKelolaKegiatanBTIKP</title>
+    <title>Data Peserta Teregistrasi | APPKelolaKegiatanBTIKP</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -62,13 +62,13 @@ $result = mysqli_query($conn, $query);
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Data Registrasi Peserta</h1>
+                            <h1>Data Peserta Teregistrasi</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active">Peserta</li>
-                                <li class="breadcrumb-item active">Data Registrasi Peserta</li>
+                                <li class="breadcrumb-item active">Data Peserta Teregistrasi</li>
                             </ol>
                         </div>
                     </div>
@@ -84,8 +84,8 @@ $result = mysqli_query($conn, $query);
                                 <div class="card-header">
                                     <a href="peserta-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
                                     <a href="../cetak-peserta-reg.php" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Cetak Data</a>
-                                    <!-- <div class="btn-group">
-                                        <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak</button>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak [Per Kegiatan]</button>
                                         <ul class="dropdown-menu">
                                         <?php 
                                         $r_cetak = mysqli_query($conn, "SELECT kegiatan.nama_kegiatan FROM kegiatan ");
@@ -93,7 +93,7 @@ $result = mysqli_query($conn, $query);
                                             <li class="dropdown-item"><a style="color: green;" href="../cetak-peserta.php?nama_kegiatan=<?= $row_cetak["nama_kegiatan"] ?>" target="_blank"><?= $row_cetak["nama_kegiatan"] ?></a></li>
                                         <?php } ?>
                                         </ul>
-                                    </div> -->
+                                    </div>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
