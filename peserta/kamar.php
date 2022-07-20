@@ -1,16 +1,16 @@
 <?php
 session_start();
-if ($_SESSION["peran"] == "ADMIN") {
-    header("Location: logout.php");
-    exit;
-} elseif ($_SESSION["peran"] == "PEMATERI") {
-    header("Location: logout.php");
-    exit;
-}
-if (!isset($_SESSION["login"])) {
-    header("Location: ../index.php");
-    exit;
-}
+// if ($_SESSION["peran"] == "ADMIN") {
+//     header("Location: logout.php");
+//     exit;
+// } elseif ($_SESSION["peran"] == "PEMATERI") {
+//     header("Location: logout.php");
+//     exit;
+// }
+// if (!isset($_SESSION["login"])) {
+//     header("Location: ../index.php");
+//     exit;
+// }
 
 include '../koneksi.php';
 
@@ -36,6 +36,10 @@ $result = mysqli_query($conn, $query);
         td:nth-child(1) {
             width: 2%;
             text-align: center;
+        }
+        .back {
+            /* position: absolute;  */
+            /* padding: 15px 0px 0px 20px; */
         }
     </style>
 </head>
@@ -72,21 +76,23 @@ $result = mysqli_query($conn, $query);
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <!-- <div class="card-header">
-                                    <a href="kamar-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
-                                </div> -->
+                                <!-- <div class="card-header"> -->
+                                    <!-- <a href="kamar-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a> -->
+                                <!-- </div> -->
                                 <!-- /.card-header -->
+                                <div class="back">
+                                    <a href="index.php" class="btn bg-maroon"><i class="fa fa-chevron-left"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <!-- <th>Action</th> -->
-                                                <!-- <th>Nama Lokasi</th> -->
                                                 <th>No Kamar</th>
-                                                <th>Kuantitas</th>
                                                 <th>Jenis Kamar</th>
                                                 <th>Letak Lantai</th>
+                                                <th>Kuantitas</th>
+                                                <th>Tersedia</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -94,12 +100,7 @@ $result = mysqli_query($conn, $query);
                                             while ($row = mysqli_fetch_assoc($result)) {?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
-                                                    <!-- <td>
-                                                        <a href="kamar-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
-                                                        <a href="kamar-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
-                                                    </td> -->
                                                     <td><?php echo $row["no_kamar"]; ?></td>
-                                                    <td><?php echo $row["kuantitas"]; ?> orang</td>
                                                     <td>
                                                         <?php 
                                                         if ($row["jenisKamar"] == "L") {
@@ -110,6 +111,19 @@ $result = mysqli_query($conn, $query);
                                                         ?>
                                                     </td>
                                                     <td>Lantai <?php echo $row["letakLantai"]; ?></td>
+                                                    <td><?php echo $row["kuantitas"]; ?> orang</td>
+                                                    <td><?php 
+                                                        $q = mysqli_query($conn, "SELECT
+                                                                                    kamar.kuantitas, 
+                                                                                    reservasi.kamar_id 
+                                                                                    FROM kamar, reservasi 
+                                                                                    WHERE kamar.id = reservasi.kamar_id AND
+                                                                                    reservasi.kamar_id = '$row[id]'");
+                                                        $j = mysqli_num_rows($q);
+                                                        $qk = mysqli_query($conn, "SELECT kuantitas FROM kamar WHERE id = $row[id]");
+                                                        $jk = mysqli_fetch_assoc($qk);
+                                                        echo $jk["kuantitas"] - $j . " orang";
+                                                    ?></td>
                                                     <!-- <td><span class="badge bg-warning">Status</span></td> -->
                                                 </tr>
                                             <?php $no++;
@@ -118,12 +132,11 @@ $result = mysqli_query($conn, $query);
                                         <tfoot>
                                             <tr>
                                                 <th>No</th>
-                                                <!-- <th>Action</th> -->
-                                                <!-- <th>Nama Lokasi</th> -->
                                                 <th>No Kamar</th>
-                                                <th>Kuantitas</th>
                                                 <th>Jenis Kamar</th>
                                                 <th>Letak Lantai</th>
+                                                <th>Kuantitas</th>
+                                                <th>Tersedia</th>
                                             </tr>
                                         </tfoot>
                                     </table>

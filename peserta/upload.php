@@ -5,7 +5,7 @@ $directory = "../file-upload/";
 $file_name = $_FILES['suratSK']['name'];
 move_uploaded_file($_FILES['suratSK']['tmp_name'], $directory.$file_name);
 
-$query = "INSERT INTO peserta_daftar VALUES ('', '$_POST[namaPeserta]', '$_POST[namaKegiatan]', '$_POST[jenjang]', '$_POST[jabatan]', '$_POST[golongan]', '$_POST[agama]', '$_POST[kabKota]', '$_POST[unitKerja]', '$_POST[alamatSekolah]', '$_POST[hp]', '$file_name', '')";
+$query = "INSERT INTO peserta_daftar VALUES ('', '$_POST[id_peserta]', '$_POST[id_kegiatan]', '$_POST[jenjang]', '$_POST[jabatan]', '$_POST[golongan]', '$_POST[agama]', '$_POST[kabKota]', '', '$_POST[alamatSekolah]', '', '$file_name', '', '')";
 
 $simpan = mysqli_query($conn, $query);
 if ($simpan)

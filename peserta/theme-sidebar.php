@@ -43,12 +43,12 @@
                                 <i class="right fas fa-angle-left"></i>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a href="peserta.php" class="nav-link" style="color: white;">
                                         <i class="ml-4"></i>
                                         <p>List Peserta</p>
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                     <a href="registrasi-peserta-tambah.php" class="nav-link" style="color: white;">
                                         <i class="ml-4"></i>

@@ -1,16 +1,16 @@
 <?php
 session_start();
-if ($_SESSION["peran"] == "ADMIN") {
-    header("Location: logout.php");
-    exit;
-} elseif ($_SESSION["peran"] == "PEMATERI") {
-    header("Location: logout.php");
-    exit;
-}
-if (!isset($_SESSION["login"])) {
-    header("Location: ../index.php");
-    exit;
-}
+// if ($_SESSION["peran"] == "ADMIN") {
+//     header("Location: logout.php");
+//     exit;
+// } elseif ($_SESSION["peran"] == "PEMATERI") {
+//     header("Location: logout.php");
+//     exit;
+// }
+// if (!isset($_SESSION["login"])) {
+//     header("Location: ../index.php");
+//     exit;
+// }
 
 include '../koneksi.php';
 

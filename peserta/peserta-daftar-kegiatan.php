@@ -1,48 +1,52 @@
 <?php
 session_start();
-if ($_SESSION["peran"] == "ADMIN") {
-    header("Location: logout.php");
-    exit;
-} elseif ($_SESSION["peran"] == "PEMATERI") {
-    header("Location: logout.php");
-    exit;
-}
-if (!isset($_SESSION["login"])) {
-    header("Location: ../index.php");
-    exit;
-}
+// if ($_SESSION["peran"] == "ADMIN") {
+//     header("Location: logout.php");
+//     exit;
+// } elseif ($_SESSION["peran"] == "PEMATERI") {
+//     header("Location: logout.php");
+//     exit;
+// }
+// if (!isset($_SESSION["login"])) {
+//     header("Location: ../index.php");
+//     exit;
+// }
 
 include '../koneksi.php';
 
 $nama_peserta = $_GET["nama_peserta"];
-$query_peserta = "SELECT * FROM peserta WHERE nama_peserta = $nama_peserta";
+$query_peserta = "SELECT kegiatan.nama_kegiatan, peserta.id_kegiatan, peserta.nama_peserta, peserta.id 
+                    FROM kegiatan, peserta 
+                    WHERE kegiatan.id = peserta.id_kegiatan AND 
+                    peserta.nama_peserta = '$nama_peserta'";
 $result_peserta = mysqli_query($conn, $query_peserta);
+$row_p = mysqli_fetch_assoc($result_peserta);
 
 if (isset($_POST["submit"])) {
-    $namaPeserta = htmlspecialchars($_POST["namaPeserta"]);
-    $namaKegiatan = htmlspecialchars($_POST["namaKegiatan"]);
+    $id_peserta = htmlspecialchars($_POST["id_peserta"]);
+    $id_kegiatan = htmlspecialchars($_POST["id_kegiatan"]);
     $jenjang = htmlspecialchars($_POST["jenjang"]);
     $jabatan = htmlspecialchars($_POST["jabatan"]);
     $golongan = htmlspecialchars($_POST["golongan"]);
     $agama = htmlspecialchars($_POST["agama"]);
     $kabKota = htmlspecialchars($_POST["kabKota"]);
-    $unitKerja = htmlspecialchars($_POST["unitKerja"]);
+    // $asalSekolah = htmlspecialchars($_POST["asalSekolah"]);
     $alamatSekolah = htmlspecialchars($_POST["alamatSekolah"]);
-    $hp = htmlspecialchars($_POST["hp"]);
+    // $hp = htmlspecialchars($_POST["hp"]);
     $suratSK = htmlspecialchars($_POST["suratSK"]);
 
-    $query = "INSERT INTO peserta_daftar VALUES ('', '$namaPeserta', '$namaKegiatan', '$jenjang', '$jabatan', '$golongan', '$agama', '$kabKota', '$unitKerja', '$alamatSekolah', '$hp', '$suratSK', '')";
+    $query = "INSERT INTO peserta_daftar VALUES ('', '$id_peserta', '$id_kegiatan', '$jenjang', '$jabatan', '$golongan', '$agama', '$kabKota', '', '$alamatSekolah', '', '$suratSK', '', '')";
     $simpan = mysqli_query($conn, $query);
 
     if ($simpan) {
         echo "<script type='text/javascript'>
                 alert('Data berhasil dikirim...!');
-                document.location.href = 'peserta-cek-nama.php?';
+                document.location.href = 'peserta-cek-nama.php';
                 </script>";
     } else {    
         echo "<script type='text/javascript'>
                 alert('Data GAGAL disimpan...!');
-                document.location.href = 'peserta-cek-nama.php';
+                document.location.href = 'peserta-daftar-kegiatan.php?nama_peserta=$nama_peserta';
             </script>";;
     }
 }
@@ -104,13 +108,14 @@ if (isset($_POST["submit"])) {
                                     <div class="card-body">
                                         <p class="login-box-msg">Lengkapi Data Anda</p>
                                             <div class="input-group mb-3">
-                                                <label for="namaPeserta">Nama Peserta :</label>
-                                                <input type="text" class="form-control ml-2" name="namaPeserta" value="<?php echo $nama_peserta;?>" readonly>
+                                                <label for="id_peserta">Nama Peserta :</label>
+                                                <input type="text" class="form-control ml-2" value="<?php echo $nama_peserta . " || ". $row_p["nama_kegiatan"];?>" readonly>
+                                                <input type="hidden" class="form-control ml-2" name="id_peserta" value="<?php echo $row_p["id"];?>" readonly>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <label for="namaKegiatan">Pilih Kegiatan :</label>
-                                                <!-- <input type="text" class="form-control ml-2" name="namaKegiatan" value="<?php echo $row_peserta["kegiatan"]; ?>" readonly> -->
-                                                <select class="form-control ml-2" id="namaKegiatan" name="namaKegiatan" required>
+                                                <label for="id_kegiatan">Pilih Kegiatan :</label>
+                                                <!-- <input type="text" class="form-control ml-2" name="id_kegiatan" value="<?php echo $row_peserta["kegiatan"]; ?>" readonly> -->
+                                                <select class="form-control ml-2" id="id_kegiatan" name="id_kegiatan" required>
                                                     <option value="">-- Pilih Kegiatan --</option>
                                                     <?php
                                                     $query_keg = "SELECT * FROM kegiatan";
@@ -171,10 +176,10 @@ if (isset($_POST["submit"])) {
                                                     <option value="kotabaru">Kotabaru</option>
                                                 </select>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <label for="unitKerja">Unit Kerja :</label>
-                                                <input type="text" class="form-control ml-2" name="unitKerja" placeholder="Unit Kerja/Sekolah">
-                                                <!-- <select class="form-control ml-2" id="unitKerja" name="unitKerja" required>
+                                            <!-- <div class="input-group mb-3">
+                                                <label for="asalSekolah">Unit Kerja :</label>
+                                                <input type="text" class="form-control ml-2" name="asalSekolah" placeholder="Unit Kerja/Sekolah"> -->
+                                                <!-- <select class="form-control ml-2" id="asalSekolah" name="asalSekolah" required>
                                                     <option value="">-- Unit Kerja / Sekolah --</option>
                                                     <?php
                                                     $query_unit = "SELECT * FROM peserta";
@@ -185,15 +190,15 @@ if (isset($_POST["submit"])) {
                                                         <?php echo $row_unit["asalSekolah"]; ?></option>
                                                     <?php } ?>
                                                 </select> -->
-                                            </div>
+                                            <!-- </div> -->
                                             <div class="input-group mb-3">
                                                 <label for="alamatSekolah">Alamat Sekolah :</label>
                                                 <input type="text" class="form-control ml-2" name="alamatSekolah" placeholder="Alamat Sekolah">
                                             </div>
-                                            <div class="input-group mb-3">
+                                            <!-- <div class="input-group mb-3">
                                                 <label for="hp">No HP :</label>
                                                 <input type="text" class="form-control ml-2" name="hp" maxlength="13" placeholder="Nomor HP / WA" required>
-                                            </div>
+                                            </div> -->
                                             <div class="input-group mb-3">
                                                 <!-- <label for="suratSK">No HP :</label> -->
                                                     Pilih file :
@@ -203,14 +208,6 @@ if (isset($_POST["submit"])) {
                                                         <span class="ml-1">upload file</span>
                                                     </input>
                                             </div>
-                                            <!-- <div class="input-group mb-3">
-                                                <input type="password" class="form-control" name="password" placeholder="Password" required>
-                                                <div class="input-group-append">
-                                                    <div class="input-group-text">
-                                                        <span class="fas fa-lock"></span>
-                                                    </div>
-                                                </div>
-                                            </div> -->
                                             <div class="row">
                                                 <!-- /.col -->
                                                 <div class="col">
@@ -218,12 +215,6 @@ if (isset($_POST["submit"])) {
                                                     <!-- <a href="register.php" class="btn btn-block btn-danger">Buat Akun</a> -->
                                                 </div>
                                             </div>
-
-                                        <!-- /.social-auth-links -->
-
-                                        <p class="mt-3">
-                                            <!-- <a href="lupa-password.php">Lupa Password?</a> -->
-                                        </p>
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="card-footer">

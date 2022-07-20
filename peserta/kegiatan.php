@@ -1,16 +1,16 @@
 <?php
 session_start();
-if ($_SESSION["peran"] == "ADMIN") {
-    header("Location: logout.php");
-    exit;
-} elseif ($_SESSION["peran"] == "PEMATERI") {
-    header("Location: logout.php");
-    exit;
-}
-if (!isset($_SESSION["login"])) {
-    header("Location: ../index.php");
-    exit;
-}
+// if ($_SESSION["peran"] == "ADMIN") {
+//     header("Location: logout.php");
+//     exit;
+// } elseif ($_SESSION["peran"] == "PEMATERI") {
+//     header("Location: logout.php");
+//     exit;
+// }
+// if (!isset($_SESSION["login"])) {
+//     header("Location: ../index.php");
+//     exit;
+// }
 
 include '../koneksi.php';
 
@@ -23,7 +23,7 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jadwal Kegiatan | APPGAJI</title>
+    <title>Jadwal Kegiatan | APPKelolaKegiatanBimtekBTIKP</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -86,6 +86,9 @@ $result = mysqli_query($conn, $query);
                                                 <th>Tanggal Mulai</th>
                                                 <th>Tanggal Selesai</th>
                                                 <th>Jumlah Sesi</th>
+                                                <th>Quota</th>
+                                                <th>Quota Tersedia</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -98,9 +101,47 @@ $result = mysqli_query($conn, $query);
                                                         <a href="kegiatan-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                     </td> -->
                                                     <td><?php echo $row["nama_kegiatan"]; ?></td>
-                                                    <td><?php echo date('d-m-Y', strtotime($row["tglMulai"])); ?></td>
-                                                    <td><?php echo date('d-m-Y', strtotime($row["tglSelesai"])); ?></td>
-                                                    <td><?php echo $row["jumlahSesi"]; ?><span> sesi</span></td>
+                                                    <td><?php echo date("d m Y", strtotime(($row["tglMulai"]))); ?></td>
+                                                    <td><?php echo date("d m Y", strtotime(($row["tglSelesai"]))); ?></td>
+                                                    <td>
+                                                        <?php 
+                                                            // echo $row["jumlahSesi"];
+                                                            // jumlah sesi
+                                                            $q = mysqli_query($conn, "SELECT kegiatan.id, detail_kegiatan.* 
+                                                                                        FROM kegiatan, detail_kegiatan 
+                                                                                        WHERE kegiatan.id = detail_kegiatan.id_kegiatan 
+                                                                                        AND detail_kegiatan.id_kegiatan = '$row[id]'");
+                                                            if ($q) {
+                                                                while ($r = mysqli_fetch_array($q)) {
+                                                                    $ex1 = count(explode(",", $r["hari_satu"]));
+                                                                    $ex2 = count(explode(",", $r["hari_dua"]));
+                                                                    $ex3 = count(explode(",", $r["hari_tiga"]));
+                                                                    $jSesi = $ex1 + $ex2 + $ex3;
+                                                                    echo $jSesi;
+                                                                }
+                                                            } else {
+                                                                echo "Kosong";
+                                                            }
+                                                        ?>
+                                                    </td>
+                                                    <td><?= $row["quota"]; ?> </td>
+                                                    <td>
+                                                        <?php 
+                                                            // jumlah peserta kegiatan
+                                                            $q = mysqli_query($conn, "SELECT 
+                                                                                        kegiatan.id, 
+                                                                                        peserta.id_kegiatan 
+                                                                                        FROM 
+                                                                                        kegiatan, peserta 
+                                                                                        WHERE 
+                                                                                        kegiatan.id = peserta.id_kegiatan AND 
+                                                                                        peserta.id_kegiatan = '$row[id]'");
+                                                            $j = mysqli_num_rows($q);
+                                                            $qq = mysqli_query($conn, "SELECT quota FROM kegiatan WHERE id = $row[id]");
+                                                            $jq = mysqli_fetch_assoc($qq);
+                                                            echo $jq["quota"] - $j;
+                                                        ?>
+                                                    </td>
                                                 </tr>
                                             <?php $no++;
                                             } ?>
@@ -113,6 +154,9 @@ $result = mysqli_query($conn, $query);
                                                 <th>Tanggal Mulai</th>
                                                 <th>Tanggal Selesai</th>
                                                 <th>Jumlah Sesi</th>
+                                                <th>Quota</th>
+                                                <th>Quota Tersedia</th>
+
                                             </tr>
                                         </tfoot>
                                     </table>
