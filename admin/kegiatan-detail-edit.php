@@ -15,19 +15,28 @@ if (!isset($_SESSION["login"])) {
 include '../koneksi.php';
 
 $id = $_GET["id"];
+// $query_detail = "SELECT 
+//         detail_kegiatan.id, 
+//         detail_kegiatan.id_kegiatan, 
+//         kegiatan.nama_kegiatan, 
+//         detail_kegiatan.hari_satu, 
+//         detail_kegiatan.hari_dua, 
+//         detail_kegiatan.hari_tiga 
+//         FROM 
+//         detail_kegiatan, kegiatan 
+//         WHERE 
+//         kegiatan.id = detail_kegiatan.id_kegiatan AND
+//         detail_kegiatan.id_kegiatan = $id";
 $query_detail = "SELECT 
-        detail_kegiatan.id, 
-        detail_kegiatan.id_kegiatan, 
-        kegiatan.nama_kegiatan, 
-        detail_kegiatan.hari_satu, 
-        detail_kegiatan.hari_dua, 
-        detail_kegiatan.hari_tiga 
+        detail_kegiatan.*,
+        kegiatan.nama_kegiatan 
         FROM 
         detail_kegiatan, kegiatan 
         WHERE 
         kegiatan.id = detail_kegiatan.id_kegiatan AND
-        detail_kegiatan.id_kegiatan = $id";
+        detail_kegiatan.id = '$id'";
 $result_detail = mysqli_query($conn, $query_detail);
+$row_detail = mysqli_fetch_assoc($result_detail);
 
 $query_k = "SELECT * FROM kegiatan WHERE id = $id";
 $result_k = mysqli_query($conn, $query_k);
@@ -35,22 +44,26 @@ $row_k = mysqli_fetch_assoc($result_k);
 
 if (isset($_POST["submit"])) {
 
-    $id_kegiatan = htmlspecialchars($_POST["id_kegiatan"]);
+    // $id_kegiatan = htmlspecialchars($_POST["id_kegiatan"]);
     $hari_satu = htmlspecialchars($_POST["hari_satu"]);
     $hari_dua = htmlspecialchars($_POST["hari_dua"]);
     $hari_tiga = htmlspecialchars($_POST["hari_tiga"]);
-    $query = "INSERT INTO detail_kegiatan VALUES ('', '$id_kegiatan', '$hari_satu', '$hari_dua', '$hari_tiga')";
+    $query = "UPDATE detail_kegiatan SET 
+                hari_satu = '$hari_satu',
+                hari_dua = '$hari_dua',
+                hari_tiga = '$hari_tiga'
+                WHERE id = '$id'";
     $simpan = mysqli_query($conn, $query);
 
     if ($simpan) {
         echo "<script type='text/javascript'>
                 alert('Data berhasil disimpan...!');
-                document.location.href = 'kegiatan-detail.php?id=$id';
+                document.location.href = 'kegiatan-detail.php?id=$row_detail[id_kegiatan]';
             </script>";
         } else {
         echo "<script type='text/javascript'>
                 alert('Data GAGAL disimpan...!');
-                document.location.href = 'kegiatan-detail.php?id=$id';
+                // document.location.href = 'kegiatan-detail-edit.php?id=$id';
                 </script>";        
         }
 }
@@ -81,6 +94,9 @@ if (isset($_POST["submit"])) {
         }
         td:nth-child(6) {
             width: 30%;
+        }
+        .hari {
+            height: 80px;
         }
     </style>
 </head>
@@ -129,21 +145,21 @@ if (isset($_POST["submit"])) {
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="nama_kegiatan">Nama Kegiatan :</label>
-                                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" value="<?php echo $row_k["nama_kegiatan"]; ?>" readonly>
+                                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" value="<?php echo $row_detail["nama_kegiatan"]; ?>" readonly>
                                         </div>
                                         <div class="form-group">
                                             <label for="hari_satu">Hari I :</label>
-                                            <textarea type="text" class="form-control" id="hari_satu" name="hari_satu" placeholder="Kegiatan-kegiatan di hari pertama" rows="3" required></textarea>
+                                            <input type="text" class="form-control hari" id="hari_satu" name="hari_satu" placeholder="Kegiatan-kegiatan di hari pertama" value="<?= $row_detail["hari_satu"]; ?>" required></input>
                                         </div>
                                         <div class="form-group">
                                             <label for="hari_dua">Hari II :</label>
-                                            <textarea type="text" class="form-control" id="hari_dua" name="hari_dua" placeholder="Kegiatan-kegiatan di hari kedua" rows="3" required></textarea>
+                                            <input type="text" class="form-control hari" id="hari_dua" name="hari_dua" placeholder="Kegiatan-kegiatan di hari kedua" value="<?= $row_detail["hari_dua"]; ?>" required></input>
                                         </div>
                                         <div class="form-group">
                                             <label for="hari_tiga">Hari III :</label>
-                                            <textarea type="text" class="form-control" id="hari_tiga" name="hari_tiga" placeholder="Kegiatan-kegiatan di hari ketiga" rows="3" required></textarea>
+                                            <input type="text" class="form-control hari" id="hari_tiga" name="hari_tiga" placeholder="Kegiatan-kegiatan di hari ketiga" value="<?= $row_detail["hari_tiga"]; ?>" required></input>
                                         </div>
-                                        <input type="hidden" name="id_kegiatan" value="<?php echo $id; ?>">
+                                        <!-- <input type="hidden" name="id_kegiatan" value="<?php echo $id; ?>"> -->
                                     </div>
                                     <!-- /.card-body -->
 
@@ -175,7 +191,6 @@ if (isset($_POST["submit"])) {
                                                 <thead>
                                                     <tr>
                                                         <th>No</th>
-                                                        <th>Action</th>
                                                         <th>Nama Kegiatan</th>
                                                         <th>Hari I</th>
                                                         <th>Hari II</th>
@@ -189,10 +204,6 @@ if (isset($_POST["submit"])) {
                                                     while ($row = mysqli_fetch_assoc($result_detail)) { ?>
                                                         <tr>
                                                             <td><?php echo $no; ?></td>
-                                                            <td>
-                                                                <a href="kegiatan-detail-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onclick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
-                                                                <a href="kegiatan-detail-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
-                                                            </td>
                                                             <td><?php echo $row["nama_kegiatan"]; ?></td>
                                                             <td>
                                                                 <?php 
@@ -224,7 +235,6 @@ if (isset($_POST["submit"])) {
                                                 <tfoot>
                                                 <tr>
                                                         <th>No</th>
-                                                        <th>Action</th>
                                                         <th>Nama Kegiatan</th>
                                                         <th>Hari I</th>
                                                         <th>Hari II</th>
