@@ -23,13 +23,20 @@ $html = '<!DOCTYPE html>
             text-align: left;
             padding: 8px;
             }
-
+            td:nth-child(1), td:nth-child(5), td:nth-child(6), td:nth-child(7) {
+                text-align: center;
+            }
             tr:nth-child(even) {
             background-color: #dddddd;
             }
             .heading{
                 text-align: center;
                 text-decoration: underline;
+            }
+            .right {
+                position: absolute;
+                bottom: 3%;
+                left: 70%;
             }
         </style>
     </head>
@@ -56,6 +63,8 @@ $html = '<!DOCTYPE html>
             <th>Tanggal Mulai</th>
             <th>Tanggal Selesai</th>
             <th>Jumlah Sesi</th>
+            <th>Quota</th>
+            <th>Quota Tersedia</th>
         </tr>';
 
         $i = 1;
@@ -63,24 +72,47 @@ $html = '<!DOCTYPE html>
             $html .= '<tr>
                     <td>'. $i++ .'</td>
                     <td>'. $row["nama_kegiatan"] .'</td>
-                    <td>'. $row["tglMulai"] .'</td>
-                    <td>'. $row["tglSelesai"] .'</td>
-                    <td>'. $row["jumlahSesi"] .'</td>
+                    <td>'. date("m-d-Y", strtotime($row["tglMulai"])) .'</td>
+                    <td>'. date("m-d-Y", strtotime($row["tglSelesai"])) .'</td>
+                    <td>'; 
+                        $q = mysqli_query($conn, "SELECT kegiatan.id, detail_kegiatan.* 
+                        FROM kegiatan, detail_kegiatan 
+                        WHERE kegiatan.id = detail_kegiatan.id_kegiatan 
+                        AND detail_kegiatan.id_kegiatan = '$row[id]'");
+                        while ($r = mysqli_fetch_array($q)) {
+                            $ex1 = count(explode(",", $r["hari_satu"]));
+                            $ex2 = count(explode(",", $r["hari_dua"]));
+                            $ex3 = count(explode(",", $r["hari_tiga"]));
+                            $jSesi = $ex1 + $ex2 + $ex3;
+                            if (!$jSesi) {
+                                $html .= '-';
+                            } else {
+                                $html .= $jSesi;
+                            }
+                        }
+            $html .= '</td> 
+                    <td>'. $row["quota"] .'</td>
+                    <td>';
+                    $q = mysqli_query($conn, "SELECT 
+                                                kegiatan.id, 
+                                                peserta.id_kegiatan 
+                                                FROM 
+                                                kegiatan, peserta 
+                                                WHERE 
+                                                kegiatan.id = peserta.id_kegiatan AND 
+                                                peserta.id_kegiatan = '$row[id]'");
+                    $j = mysqli_num_rows($q);
+                    $qq = mysqli_query($conn, "SELECT quota FROM kegiatan WHERE id = $row[id]");
+                    $jq = mysqli_fetch_assoc($qq);
+                    $html .= $jq["quota"] - $j; 
+            $html .= '</td>
             </tr>';
         }
         
 $html .= '</table>
-        <div align="right">
-        <p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </p>
-            Kepala Balai Teknologi Informasi
-            <br>Dan Komunikasi Pendidikan
+        <br>
+        <div class="right">
+            Kepala BTIKP
             <br>Provinsi Kalimantan Selatan,
             <br>
             <br>
@@ -94,6 +126,7 @@ $html .= '</table>
 </html>';
 
 $mpdf = new \Mpdf\Mpdf();
+// $mpdf->AddPage('L');
 $mpdf->WriteHTML($html);
 $mpdf->Output('daftar-kegiatan', 'I');
 

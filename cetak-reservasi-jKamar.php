@@ -3,14 +3,32 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 include 'koneksi.php';
-$query = "SELECT * FROM kamar ORDER BY no_kamar ASC";
-$result = mysqli_query($conn, $query);
+$jenisKamar = $_GET["jenisKamar"];
+$query_reservasi = "SELECT 
+reservasi.id, 
+reservasi.peserta_id, 
+peserta.nama_peserta, 
+kamar.no_kamar, 
+kamar.jenisKamar, 
+kegiatan.nama_kegiatan, 
+reservasi.checkin, 
+reservasi.checkout  
+FROM 
+reservasi, peserta, kamar, kegiatan 
+WHERE 
+peserta.id = reservasi.peserta_id AND 
+kamar.id = reservasi.kamar_id AND 
+kegiatan.id = reservasi.kegiatan_id AND 
+kamar.jenisKamar = '$jenisKamar'
+ORDER BY
+no_kamar ASC";
+$result_reservasi = mysqli_query($conn, $query_reservasi);
 
 $html = '<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Daftar Kamar</title>
+        <title>Daftar Reservasi</title>
         <style>
             table {
             font-family: arial, sans-serif;
@@ -20,12 +38,17 @@ $html = '<!DOCTYPE html>
 
             td, th {
             border: 1px solid #000000;
-            text-align: center;
+            text-align: left;
             padding: 8px;
             }
-
-            td:nth-child(3){
-                width: 30%;
+            td:nth-child(2) {
+                width: 17%;
+            }
+            td:nth-child(3) {
+                width: 10%;
+            }
+            th:nth-child(3), th:nth-child(5), th:nth-child(6) {
+                text-align: center;
             }
             tr:nth-child(even) {
             background-color: #dddddd;
@@ -33,6 +56,11 @@ $html = '<!DOCTYPE html>
             .heading{
                 text-align: center;
                 text-decoration: underline;
+            }
+            .right {
+                // position: absolute;
+                // bottom: 3%;
+                margin: 20px 0px 0px 70%;
             }
         </style>
     </head>
@@ -50,59 +78,34 @@ $html = '<!DOCTYPE html>
             </div>
         </div>
     <hr>
-    <h4 class="heading">DAFTAR KAMAR</h4>
+    <h4 class="heading">DAFTAR RESERVASI</h4>
     <table align="center" border="1" cellpadding="10" cellspacing="0">
 
         <tr>
             <th>No.</th>
+            <th>Nama Peserta</th>
             <th>No Kamar</th>
-            <th>Jenis Kamar</th>
-            <th>Letak Lantai</th>
-            <th>Kuantitas</th>
-            <th>Tersedia</th>
+            <th>Nama Kegiatan</th>
+            <th>Check In</th>
+            <th>Check Out</th>
         </tr>';
 
         $i = 1;
-        foreach( $result as $row ) {
+        foreach( $result_reservasi as $row ) {
             $html .= '<tr>
-                    <td>'. $i++ .'</td>
-                    <td>'. $row["no_kamar"] .'</td>
-                    <td>'; 
-                    if ($row["jenisKamar"] == "L") {
-                        $html .= "Kamar Laki-laki";
-                    } else {
-                        $html .= "Kamar Perempuan";
-                    }
-            $html .= '</td>
-                    <td>Lantai '. $row["letakLantai"] .'</td>
-                    <td>'. $row["kuantitas"] .' orang</td>
-                    <td>'; 
-                    $q = mysqli_query($conn, "SELECT
-                                                kamar.kuantitas, 
-                                                reservasi.kamar_id 
-                                                FROM kamar, reservasi 
-                                                WHERE kamar.id = reservasi.kamar_id AND
-                                                reservasi.kamar_id = '$row[id]'");
-                    $j = mysqli_num_rows($q);
-                    $qk = mysqli_query($conn, "SELECT kuantitas FROM kamar WHERE id = $row[id]");
-                    $jk = mysqli_fetch_assoc($qk);
-                    $html .= $jk["kuantitas"] - $j . " orang"; 
-            $html .= '</td>
+                    <td align="center">'. $i++ .'</td>
+                    <td>'. $row["nama_peserta"] .'</td>
+                    <td align="center">'. $row["no_kamar"] . ' || ' . $row["jenisKamar"] .'</td>
+                    <td>'. $row["nama_kegiatan"] .'</td>
+                    <td>'. date("d-m-Y", strtotime($row["checkin"])) .'</td>
+                    <td>'. date("d-m-Y", strtotime($row["checkout"])) .'</td>
             </tr>';
         }
         
 $html .= '</table>
-        <div align="right">
-        <p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </p>
-            Kepala Balai Teknologi Informasi
-            <br>Dan Komunikasi Pendidikan
+        <br>
+        <div class="right">
+            Kepala BTIKP
             <br>Provinsi Kalimantan Selatan,
             <br>
             <br>
@@ -117,6 +120,6 @@ $html .= '</table>
 
 $mpdf = new \Mpdf\Mpdf();
 $mpdf->WriteHTML($html);
-$mpdf->Output('daftar-kamar', 'I');
+$mpdf->Output('daftar-peserta', 'I');
 
 ?>

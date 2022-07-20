@@ -19,10 +19,10 @@ if (isset($_POST["submit"])) {
     $nama_kegiatan = htmlspecialchars($_POST["nama_kegiatan"]);
     $tglMulai = htmlspecialchars($_POST["tglMulai"]);
     $tglSelesai = htmlspecialchars($_POST["tglSelesai"]);
-    $jumlahSesi = htmlspecialchars($_POST["jumlahSesi"]);
+    // $jumlahSesi = htmlspecialchars($_POST["jumlahSesi"]);
     $quota = htmlspecialchars($_POST["quota"]);
 
-    $query = "INSERT INTO kegiatan VALUES ('', '$nama_kegiatan', '$tglMulai', '$tglSelesai', '$jumlahSesi', '$quota')";
+    $query = "INSERT INTO kegiatan VALUES ('', '$nama_kegiatan', '$tglMulai', '$tglSelesai', '', '$quota')";
     $simpan = mysqli_query($conn, $query);
 
     if ($simpan) {
@@ -105,13 +105,13 @@ if (isset($_POST["submit"])) {
                                             <label for="tglSelesai">Tanggal Selesai :</label>
                                             <input type="date" class="form-control" id="tglSelesai" name="tglSelesai" placeholder="Tanggal Selesai" required>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label for="jumlahSesi">Jumlah Sesi :</label>
                                             <input type="text" class="form-control" id="jumlahSesi" name="jumlahSesi" maxlength="1" placeholder="Jumlah Sesi" required>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <label for="quota">Quota :</label>
-                                            <input type="text" class="form-control" id="quota" name="quota" maxlength="1" placeholder="Quota" required>
+                                            <input type="text" class="form-control" id="quota" name="quota" maxlength="2" placeholder="Quota" required>
                                         </div>
 
                                         <!-- <div class="form-group">

@@ -16,22 +16,17 @@ include '../koneksi.php';
 
 $id = $_GET["id"];
 $query_reservasi = "SELECT 
-reservasi.id, 
-reservasi.peserta_id, 
-reservasi.kamar_id, 
-reservasi.kegiatan_id, 
+reservasi.*, 
 peserta.nama_peserta, 
 kamar.no_kamar, 
-kegiatan.nama_kegiatan, 
-reservasi.checkin, 
-reservasi.checkout  
+kegiatan.nama_kegiatan   
 FROM 
 reservasi, peserta, kamar, kegiatan
 WHERE 
 peserta.id = reservasi.peserta_id AND 
 kamar.id = reservasi.kamar_id AND 
 kegiatan.id = reservasi.kegiatan_id AND  
-reservasi.id = $id";
+reservasi.id = '$id'";
 $result_reservasi = mysqli_query($conn, $query_reservasi);
 $row_reservasi = mysqli_fetch_assoc($result_reservasi);
 
@@ -125,28 +120,20 @@ if (isset($_POST["submit"])) {
                                         <div class="form-group">
                                             <label for="peserta_id">Nama Peserta :</label>
                                             <select class="form-control" id="peserta_id" name="peserta_id" required>
-                                                <option value="<?php echo $row_reservasi["peserta_id"]; ?>"><?php echo $row_reservasi["nama_peserta"]; ?></option>
+                                                <option value="">-- Pilih Peserta --</option>
                                                 <?php
-                                                $query_peserta = "SELECT peserta_daftar.*, peserta.nama_peserta FROM peserta, peserta_daftar WHERE peserta.id = peserta_daftar.id_peserta AND peserta_daftar.status_ = 'diterima'";
+                                                $query_peserta = "SELECT 
+                                                                    peserta_daftar.*, peserta.nama_peserta, kegiatan.nama_kegiatan 
+                                                                    FROM peserta, peserta_daftar, kegiatan
+                                                                    WHERE peserta.id = peserta_daftar.id_peserta AND 
+                                                                    kegiatan.id = peserta.id_kegiatan AND
+                                                                    peserta.id_kegiatan = peserta_daftar.id_kegiatan AND
+                                                                    peserta_daftar.status_ = 'diterima'";
                                                 $result_peserta = mysqli_query($conn, $query_peserta);
                                                 while ($row_peserta = mysqli_fetch_assoc($result_peserta)) {
                                                 ?>
-                                                    <option value="<?php echo $row_peserta["id"]; ?>">
-                                                    <?php echo $row_peserta["nama_peserta"]; ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="kamar_id">Nama Nomor Kamar :</label>
-                                            <select class="form-control" id="kamar_id" name="kamar_id" required>
-                                                <option value="<?php echo $row_reservasi["kamar_id"]; ?>"><?php echo $row_reservasi["no_kamar"]; ?></option>
-                                                <?php
-                                                $query_kamar = "SELECT * FROM kamar";
-                                                $result_kamar = mysqli_query($conn, $query_kamar);
-                                                while ($row_kamar = mysqli_fetch_assoc($result_kamar)) {
-                                                ?>
-                                                    <option value="<?php echo $row_kamar["id"]; ?>">
-                                                    <?php echo $row_kamar["no_kamar"]; ?></option>
+                                                    <option value="<?php echo $row_peserta["id_peserta"]; ?>" <?php if ($row_reservasi["peserta_id"] == $row_peserta["id_peserta"]) { echo "selected"; }?>>
+                                                    <?php echo $row_peserta["nama_peserta"] . " || " . $row_peserta["nama_kegiatan"] ; ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -169,6 +156,36 @@ if (isset($_POST["submit"])) {
                                                     ?>
                                                 </option>
                                                 <option value=""></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="kamar_id">Nama Nomor Kamar :</label>
+                                            <select class="form-control" id="kamar_id" name="kamar_id" required>
+                                                <option value="">-- Pilih No Kamar --</option>
+                                                <?php
+                                                // $q = mysqli_query($conn, "SELECT
+                                                //                             kamar.id, 
+                                                //                             reservasi.kamar_id 
+                                                //                             FROM kamar, reservasi 
+                                                //                             WHERE kamar.id = reservasi.kamar_id AND
+                                                //                             reservasi.kamar_id = '$row_reservasi[kamar_id]'");
+                                                $query_kamar = "SELECT * FROM kamar ORDER BY no_kamar";
+                                                $result_kamar = mysqli_query($conn, $query_kamar);
+                                                while ($row_kamar = mysqli_fetch_assoc($result_kamar)) {
+                                                    $q = mysqli_query($conn, "SELECT
+                                                                                kamar.jenisKamar, 
+                                                                                reservasi.kamar_id 
+                                                                                FROM kamar, reservasi 
+                                                                                WHERE kamar.id = reservasi.kamar_id AND
+                                                                                reservasi.kamar_id = '$row_kamar[id]'");
+                                                    $j = mysqli_num_rows($q);
+                                                    $qk = mysqli_query($conn, "SELECT * FROM kamar WHERE id = '$row_kamar[id]'");
+                                                    $jk = mysqli_fetch_assoc($qk);
+                                                    $ada = $jk["kuantitas"] - $j;
+                                                    ?>
+                                                        <option value="<?php echo $row_kamar["id"]; ?>" <?php if ($row_kamar["id"] == $row_reservasi["kamar_id"]) { echo "selected"; } ?>>
+                                                        <?php echo $row_kamar["no_kamar"]. " || " .$row_kamar["jenisKamar"]. " || " .$ada. " Tersedia" ; ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>

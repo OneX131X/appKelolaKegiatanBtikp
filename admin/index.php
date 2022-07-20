@@ -75,7 +75,7 @@ $countRsv = mysqli_num_rows($getReservasi);
         .tb-data td:nth-child(1) {
             width: 8%;
         }
-        .tb-data td:nth-child(1), td:nth-child(3), th:nth-child(1), th:nth-child(3) {
+        .tb-data td:nth-child(1), td:nth-child(3), td:nth-child(4), th:nth-child(1), th:nth-child(3), th:nth-child(4) {
             text-align: center;
         }
     </style>
@@ -194,8 +194,8 @@ $countRsv = mysqli_num_rows($getReservasi);
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <!-- <th>Action</th> -->
                                                 <th>Nama Kegiatan</th>
+                                                <th>Quota Tersedia</th>
                                                 <th>Jumlah Peserta</th>
                                             </tr>
                                         </thead>
@@ -204,14 +204,27 @@ $countRsv = mysqli_num_rows($getReservasi);
                                             while ($row = mysqli_fetch_assoc($result)) { ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
-                                                    <!-- <td>
-                                                        <a href="kegiatan-diikuti-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
-                                                        <a href="kegiatan-diikuti-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
-                                                    </td> -->
                                                     <td><?php echo $row["nama_kegiatan"]; ?></td>
                                                     <td>
+                                                    <?php 
+                                                            // query jumlah peserta kegiatan
+                                                            $q = mysqli_query($conn, "SELECT 
+                                                                                        kegiatan.id, 
+                                                                                        peserta.id_kegiatan 
+                                                                                        FROM 
+                                                                                        kegiatan, peserta 
+                                                                                        WHERE 
+                                                                                        kegiatan.id = peserta.id_kegiatan AND 
+                                                                                        peserta.id_kegiatan = '$row[id]'");
+                                                            $j = mysqli_num_rows($q);
+                                                            $qq = mysqli_query($conn, "SELECT quota FROM kegiatan WHERE id = $row[id]");
+                                                            $jq = mysqli_fetch_assoc($qq);
+                                                            echo $jq["quota"] - $j;
+                                                        ?>
+                                                    </td>
+                                                    <td>
                                                         <?php 
-                                                            // echo $row["id"]; 
+                                                            // Jumlah Peserta; 
                                                             $q = mysqli_query($conn, "SELECT 
                                                                                         kegiatan.id, 
                                                                                         peserta.id_kegiatan 
@@ -231,8 +244,8 @@ $countRsv = mysqli_num_rows($getReservasi);
                                         <tfoot>
                                             <tr>
                                                 <th>No</th>
-                                                <!-- <th>Action</th> -->
                                                 <th>Nama Kegiatan</th>
+                                                <th>Quota Tersedia</th>
                                                 <th>Jumlah Peserta</th>
                                             </tr>
                                         </tfoot>

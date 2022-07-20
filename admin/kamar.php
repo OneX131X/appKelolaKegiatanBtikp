@@ -79,9 +79,10 @@ $result = mysqli_query($conn, $query);
                                                 <th>No</th>
                                                 <th>Action</th>
                                                 <th>No Kamar</th>
-                                                <th>Kuantitas</th>
                                                 <th>Jenis Kamar</th>
                                                 <th>Letak Lantai</th>
+                                                <th>Kuantitas</th>
+                                                <th>Tersedia</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -94,7 +95,6 @@ $result = mysqli_query($conn, $query);
                                                         <a href="kamar-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                     </td>
                                                     <td><?php echo $row["no_kamar"]; ?></td>
-                                                    <td><?php echo $row["kuantitas"]; ?> orang</td>
                                                     <td>
                                                         <?php 
                                                         if ($row["jenisKamar"] == "L") {
@@ -105,6 +105,19 @@ $result = mysqli_query($conn, $query);
                                                         ?>
                                                     </td>
                                                     <td>Lantai <?php echo $row["letakLantai"]; ?></td>
+                                                    <td><?php echo $row["kuantitas"]; ?> orang</td>
+                                                    <td><?php 
+                                                        $q = mysqli_query($conn, "SELECT
+                                                                                    kamar.kuantitas, 
+                                                                                    reservasi.kamar_id 
+                                                                                    FROM kamar, reservasi 
+                                                                                    WHERE kamar.id = reservasi.kamar_id AND
+                                                                                    reservasi.kamar_id = '$row[id]'");
+                                                        $j = mysqli_num_rows($q);
+                                                        $qk = mysqli_query($conn, "SELECT kuantitas FROM kamar WHERE id = $row[id]");
+                                                        $jk = mysqli_fetch_assoc($qk);
+                                                        echo $jk["kuantitas"] - $j . " orang";
+                                                    ?></td>
                                                     <!-- <td><span class="badge bg-warning">Status</span></td> -->
                                                 </tr>
                                             <?php $no++;
@@ -115,9 +128,10 @@ $result = mysqli_query($conn, $query);
                                                 <th>No</th>
                                                 <th>Action</th>
                                                 <th>No Kamar</th>
-                                                <th>Kuantitas</th>
                                                 <th>Jenis Kamar</th>
                                                 <th>Letak Lantai</th>
+                                                <th>Kuantitas</th>
+                                                <th>Tersedia</th>
                                             </tr>
                                         </tfoot>
                                     </table>

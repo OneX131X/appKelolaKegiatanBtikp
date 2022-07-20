@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2022 at 08:12 PM
+-- Generation Time: Jul 20, 2022 at 06:15 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -71,7 +71,9 @@ CREATE TABLE `detail_kegiatan` (
 
 INSERT INTO `detail_kegiatan` (`id`, `id_kegiatan`, `hari_satu`, `hari_dua`, `hari_tiga`) VALUES
 (2, 6, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(6, 9, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan');
+(6, 9, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
+(7, 2, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
+(8, 8, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan');
 
 -- --------------------------------------------------------
 
@@ -214,7 +216,7 @@ INSERT INTO `kegiatan` (`id`, `nama_kegiatan`, `tglMulai`, `tglSelesai`, `jumlah
 
 CREATE TABLE `kegiatan_diikuti` (
   `id` int(11) NOT NULL,
-  `nama_kegiatan` varchar(255) NOT NULL,
+  `id_kegiatan` varchar(255) NOT NULL,
   `jumlah_peserta` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -222,14 +224,9 @@ CREATE TABLE `kegiatan_diikuti` (
 -- Dumping data for table `kegiatan_diikuti`
 --
 
-INSERT INTO `kegiatan_diikuti` (`id`, `nama_kegiatan`, `jumlah_peserta`) VALUES
-(1, 'Bimtek Peningkatan Kompetensi Guru dan Pembuatan Video Animasi Pembelajaran', '80'),
-(2, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMA Angkatan 1', '100'),
-(3, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMK Angkatan 1', '120'),
-(4, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMA Angkatan 2', '100'),
-(5, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMK Angkatan 2', '70'),
-(6, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMP Angkatan 1', '60'),
-(7, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMP Angkatan 2', '70');
+INSERT INTO `kegiatan_diikuti` (`id`, `id_kegiatan`, `jumlah_peserta`) VALUES
+(9, '6', '39'),
+(10, '9', '70');
 
 -- --------------------------------------------------------
 
@@ -313,7 +310,7 @@ CREATE TABLE `pengguna` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `peran` enum('ADMIN','USER','PEMATERI') DEFAULT NULL,
+  `peran` enum('ADMIN','USER','PEMATERI','') DEFAULT NULL,
   `login_terakhir` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -322,9 +319,9 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id`, `username`, `password`, `peran`, `login_terakhir`) VALUES
-(1, 'admin', '$2y$10$baqQ4zTS37tzcjXzcU9GjO5.a.IIvc1OX1.kwHleKXxjVo9dZXDK2', 'ADMIN', '2022-07-11 11:29:30'),
-(9, 'peserta', '$2y$10$An2JCJV6jUieWp2kbvzAfuTX7w5hG4vnTvb8GSELzuJ4ebAp6sV42', 'USER', '2022-07-11 09:02:05'),
-(12, 'narasumber', '$2y$10$eaaWNdBBFpZBhSESRlFTZeJ1N0xhq0JODCisUBpnrsXjpzARQ3jSe', 'PEMATERI', '2022-07-05 13:53:08');
+(1, 'admin', '$2y$10$baqQ4zTS37tzcjXzcU9GjO5.a.IIvc1OX1.kwHleKXxjVo9dZXDK2', 'ADMIN', '2022-07-17 07:32:54'),
+(9, 'peserta', '$2y$10$An2JCJV6jUieWp2kbvzAfuTX7w5hG4vnTvb8GSELzuJ4ebAp6sV42', 'USER', '2022-07-16 06:43:52'),
+(12, 'narasumber', '$2y$10$eaaWNdBBFpZBhSESRlFTZeJ1N0xhq0JODCisUBpnrsXjpzARQ3jSe', 'PEMATERI', '2022-07-14 12:14:45');
 
 -- --------------------------------------------------------
 
@@ -355,9 +352,11 @@ INSERT INTO `peserta` (`id`, `nama_peserta`, `nik`, `id_kegiatan`, `jenisKelamin
 (10, 'Dina Meilina Siahaan, S.Pd.', '6474011301001223', '6', 'P', '1996-03-01', 'SMAN 2 Paringin Balangan', 'S1 Pendidikan Unlam', '0813336557126', 'dinamelinas@gmail.com'),
 (11, 'Niko Rahmad Apriliyanto, S.Pd.', '6474011301001324', '9', 'L', '1988-12-08', 'SMA GIBS Barito Kuala', 'S1 Pendidikan Uniska', '0895421431231', 'nikorahmad@gmail.com'),
 (12, 'Raihani, S.Pd.', '7722727746127413', '9', 'P', '1995-10-25', 'SMAN 2 Paringin Balangan', 'S1 Pendidikan Unlam', '0813241264615', 'raihani111@gmail.com'),
-(15, 'Fitriani, S. Pd.', '7726261724617826', '6', 'P', '1989-04-29', 'SMAN 1 Batu Ampar', 'Sarjana Pendidikan Unlam', '0895561274617', 'fitri11@gmail.com'),
-(16, 'Muhammad Adi, S.Pd', '7312312381236182', '6', 'L', '1989-01-02', 'SMA 2 Banjarmasin', 'Sarjana Pendidikan Unlam', '0813134618736', 'adi11@gmail.com'),
-(18, 'Amatunnur, S.Pd', '7716672467162317', '6', 'P', '1993-08-12', 'SMA 2 Banjarbaru', 'S1 Pendidikan Unlam', '0895559374178', 'annur22@gmail.com');
+(18, 'Amatunnur, S.Pd', '7716672467162317', '6', 'P', '1993-08-12', 'SMA 2 Banjarbaru', 'S1 Pendidikan Unlam', '0895559374178', 'annur22@gmail.com'),
+(19, 'Khuon, S.Kom.', '7717127371263813', '8', 'L', '1989-07-12', 'SMK 1 Banjarbaru', 'S1 Komputer Stimik', '0813124361823', 'khn21@gmail.com'),
+(20, 'Zainia Putri, M.Kom', '7726263716837121', '8', 'P', '1996-07-24', 'SMK 1 Banjarmasin', 'S1 Komputer Unlam', '0813222741872', 'zain001@gmail.com'),
+(21, 'Fitriani, S. Pd.', '7771273127318231', '6', 'P', '1992-06-27', 'SMAN 1 Batu Ampar', 'S1 Pendidikan Unlam', '0813131231274', 'fitri11@gmail.com'),
+(22, 'Muhammad Adi, S.Pd', '7718282371728318', '8', 'L', '1996-06-07', 'SMK 1 Banjarmasin', 'S1 Komputer Stimik', '0895552127382', 'adi77@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -380,14 +379,14 @@ CREATE TABLE `peserta_aktifitas` (
 --
 
 INSERT INTO `peserta_aktifitas` (`id`, `id_peserta`, `id_kegiatan`, `absen1`, `absen2`, `absen3`, `penilaian`) VALUES
-(1, '8', '6', 'hadir', 'hadir', 'hadir', 'Baik'),
+(1, '8', '6', 'hadir', 'hadir', 'hadir', 'baik'),
 (2, '9', '9', 'hadir', 'hadir', 'hadir', ''),
-(3, '10', '6', 'hadir', 'hadir', 'hadir', ''),
-(5, '11', '9', 'hadir', 'hadir', 'hadir', ''),
-(6, '12', '9', '', '', '', ''),
-(8, '15', '9', '', '', '', ''),
-(9, '16', '2', '', '', '', ''),
-(10, '18', '6', '', '', '', '');
+(3, '10', '6', 'hadir', 'hadir', 'hadir', 'sangat baik'),
+(5, '11', '9', 'hadir', 'hadir', 'hadir', 'baik'),
+(6, '12', '9', 'hadir', 'hadir', 'hadir', ''),
+(8, '15', '9', 'hadir', 'hadir', 'hadir', 'baik'),
+(9, '16', '2', 'hadir', 'hadir', 'hadir', 'sangat baik'),
+(10, '18', '6', 'hadir', 'hadir', 'hadir', 'sangat baik');
 
 -- --------------------------------------------------------
 
@@ -405,7 +404,7 @@ CREATE TABLE `peserta_daftar` (
   `agama` enum('islam','katolik','protestan','hindu','budha','khonghuchu') NOT NULL,
   `kabKota` enum('bjm','bjb','banjar','tapin','hss','hst','hsu','balangan','tabalong','barito kuala','tanah laut','tanah bumbu','kotabaru') NOT NULL,
   `unitKerja` varchar(100) NOT NULL,
-  `alamatSekolah` varchar(100) NOT NULL,
+  `alamatSekolah` varchar(255) NOT NULL,
   `hp` varchar(13) NOT NULL,
   `suratSK` varchar(255) NOT NULL,
   `status_` enum('','diterima','ditolak') NOT NULL,
@@ -417,14 +416,18 @@ CREATE TABLE `peserta_daftar` (
 --
 
 INSERT INTO `peserta_daftar` (`id`, `id_peserta`, `id_kegiatan`, `jenjang`, `jabatan`, `golongan`, `agama`, `kabKota`, `unitKerja`, `alamatSekolah`, `hp`, `suratSK`, `status_`, `keterangan`) VALUES
-(5, '8', '6', 'SMA/MA', 'guru', 'I', 'islam', 'hss', 'SMAN 1 Angkinang Hulu Sungai Selatan', 'hss', '0813124681726', 'fasilitas kamar.png', 'diterima', 'syarat lengkap'),
-(6, '10', '6', 'SMA/MA', 'guru', 'I', 'islam', 'banjar', 'SMAN 1 Gambut PJJ Banjar', 'gambut', '0813547126847', 'appkegbtikp.sql', 'diterima', 'syarat lengkap'),
-(7, '9', '9', 'SMA/MA', 'guru', 'I', 'islam', 'balangan', 'SMAN 2 Paringin Balangan', 'jl balangan', '0895552613716', 'reservasi.png', 'diterima', 'syarat lengkap'),
-(9, '11', '9', 'SMA/MA', 'guru', 'I', 'islam', 'barito kuala', 'SMA GIBS Barito Kuala', 'barito kuala', '0895552153612', 'reservasi.png', 'diterima', 'syarat lengkap'),
+(5, '8', '6', 'SMA/MA', 'guru', 'I', 'islam', 'hss', 'SMAN 1 Angkinang Hulu Sungai Selatan', 'hss', '0813124681726', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
+(6, '10', '6', 'SMA/MA', 'guru', 'I', 'islam', 'banjar', 'SMAN 1 Gambut PJJ Banjar', 'gambut', '0813547126847', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
+(7, '9', '9', 'SMA/MA', 'guru', 'I', 'islam', 'balangan', 'SMAN 2 Paringin Balangan', 'jl balangan', '0895552613716', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
+(9, '11', '9', 'SMA/MA', 'guru', 'I', 'islam', 'barito kuala', 'SMA GIBS Barito Kuala', 'barito kuala', '0895552153612', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
 (10, '12', '9', 'SMA/MA', 'guru', 'I', 'islam', 'balangan', 'SMAN 2 Paringin Balangan', 'jl balangan', '0813124681726', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
-(12, '15', '9', 'SMA/MA', 'guru', 'I', 'islam', 'tanah laut', 'SMAN 1 Batu Ampar', 'batu ampar', '0895517245712', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
-(13, '16', '2', 'SMA/MA', 'guru', 'I', 'islam', 'bjm', 'SMA 2 Banjarmasin', 'Jl. Mulawarman', '0813122427818', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
-(14, '18', '6', 'SMA/MA', 'guru', 'I', 'islam', 'bjb', '', 'Jl. Gunung Sari', '0895127361872', 'surat sk.jpg', 'diterima', 'syarat lengkap');
+(14, '18', '6', 'SMA/MA', 'guru', 'I', 'islam', 'bjb', '', 'Jl. Gunung Sari', '0895127361872', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
+(16, '15', '9', 'SMA/MA', 'guru', 'I', 'islam', 'tanah laut', '', 'batu ampar', '', 'surat sk.jpg', 'diterima', ''),
+(17, '16', '9', 'SMA/MA', 'guru', 'I', 'islam', 'bjm', '', 'Jl. Mulawarman', '', 'surat sk.jpg', 'diterima', ''),
+(18, '19', '8', 'SMK', 'guru', 'I', 'budha', 'bjb', '', 'Jl. A. Yani', '', 'surat sk.jpg', 'diterima', ''),
+(19, '20', '8', 'SMK', 'guru', 'I', 'islam', 'bjm', '', 'Jl. Mulawarman', '', 'surat sk.jpg', 'diterima', ''),
+(20, '21', '6', 'SMA/MA', 'guru', 'I', 'islam', 'tanah laut', '', 'batu ampar', '', 'surat sk.jpg', 'diterima', ''),
+(21, '22', '8', 'SMK', 'guru', 'I', 'islam', 'bjm', '', 'Jl. Mulawarman', '', 'surat sk.jpg', 'diterima', '');
 
 -- --------------------------------------------------------
 
@@ -1021,10 +1024,14 @@ CREATE TABLE `reservasi` (
 INSERT INTO `reservasi` (`id`, `peserta_id`, `kamar_id`, `kegiatan_id`, `checkin`, `checkout`) VALUES
 (7, '9', '2', '9', '2022-06-10', '2022-06-12'),
 (11, '8', '3', '6', '2022-06-01', '2022-06-03'),
-(13, '15', '1', '9', '2022-06-10', '2022-06-12'),
 (14, '12', '2', '9', '2022-06-16', '2022-06-18'),
 (16, '10', '1', '6', '2022-06-01', '2022-06-03'),
-(17, '11', '3', '9', '2022-06-10', '2022-06-12');
+(17, '11', '3', '9', '2022-06-10', '2022-06-12'),
+(21, '19', '4', '8', '2022-06-01', '2022-06-03'),
+(22, '18', '1', '6', '2022-05-29', '2022-05-31'),
+(23, '20', '7', '8', '2022-06-01', '2022-06-03'),
+(24, '21', '7', '6', '2022-05-29', '2022-05-31'),
+(25, '22', '4', '8', '2022-06-01', '2022-06-03');
 
 --
 -- Indexes for dumped tables
@@ -1134,7 +1141,7 @@ ALTER TABLE `bagian_karyawan`
 -- AUTO_INCREMENT for table `detail_kegiatan`
 --
 ALTER TABLE `detail_kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `fasilitas_kamar`
@@ -1164,7 +1171,7 @@ ALTER TABLE `kegiatan`
 -- AUTO_INCREMENT for table `kegiatan_diikuti`
 --
 ALTER TABLE `kegiatan_diikuti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
@@ -1188,7 +1195,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `peserta_aktifitas`
@@ -1200,7 +1207,7 @@ ALTER TABLE `peserta_aktifitas`
 -- AUTO_INCREMENT for table `peserta_daftar`
 --
 ALTER TABLE `peserta_daftar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `presensi`
@@ -1212,7 +1219,7 @@ ALTER TABLE `presensi`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

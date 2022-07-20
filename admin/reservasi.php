@@ -14,21 +14,36 @@ if (!isset($_SESSION["login"])) {
 
 include '../koneksi.php';
 
+// $query_reservasi = "SELECT 
+// reservasi.id, 
+// reservasi.peserta_id, 
+// peserta.nama_peserta, 
+// kamar.no_kamar, 
+// kegiatan.nama_kegiatan, 
+// reservasi.checkin, 
+// reservasi.checkout  
+// FROM 
+// reservasi, peserta, kamar, kegiatan 
+// WHERE 
+// peserta.id = reservasi.peserta_id AND 
+// kamar.id = reservasi.kamar_id AND 
+// kegiatan.id = reservasi.kegiatan_id
+// ORDER BY nama_kegiatan ASC";
 $query_reservasi = "SELECT 
-reservasi.id, 
-reservasi.peserta_id, 
-peserta.nama_peserta, 
-kamar.no_kamar, 
-kegiatan.nama_kegiatan, 
-reservasi.checkin, 
-reservasi.checkout  
-FROM 
-reservasi, peserta, kamar, kegiatan 
-WHERE 
-peserta.id = reservasi.peserta_id AND 
-kamar.id = reservasi.kamar_id AND 
-kegiatan.id = reservasi.kegiatan_id
-ORDER BY nama_kegiatan ASC";
+                    reservasi.*, 
+                    peserta.nama_peserta, 
+                    kamar.no_kamar, 
+                    kamar.jenisKamar, 
+                    kegiatan.nama_kegiatan, 
+                    kegiatan.tglMulai, 
+                    kegiatan.tglSelesai 
+                    FROM 
+                    reservasi, peserta, kamar, kegiatan 
+                    WHERE 
+                    peserta.id = reservasi.peserta_id AND 
+                    kamar.id = reservasi.kamar_id AND 
+                    kegiatan.id = reservasi.kegiatan_id
+                    ORDER BY no_kamar ASC";
 $result_reservasi = mysqli_query($conn, $query_reservasi);
 
 // $query = "SELECT * FROM reservasi";
@@ -49,6 +64,11 @@ $result_reservasi = mysqli_query($conn, $query_reservasi);
     <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <style>
+        th, td:nth-child(1), td:nth-child(2), td:nth-child(6), td:nth-child(7) {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -85,8 +105,23 @@ $result_reservasi = mysqli_query($conn, $query_reservasi);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <a href="reservasi-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
-                                    <a href="../cetak-reservasi.php" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Cetak Data</a>
+                                    <!-- <a href="../cetak-reservasi.php" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Cetak Data</a> -->
+                                    <div class="btn-group">
+                                        <a href="reservasi-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
+                                        <button type="button" class="btn bg-teal dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak [Per Kegiatan]</button>
+                                        <ul class="dropdown-menu">
+                                        <?php 
+                                        $r_cetak = mysqli_query($conn, "SELECT kegiatan.nama_kegiatan FROM kegiatan ORDER BY nama_kegiatan");
+                                        while ($row_cetak = mysqli_fetch_assoc($r_cetak)) { ?>
+                                            <li class="dropdown-item"><a style="color: green;" href="../cetak-reservasi.php?nama_kegiatan=<?= $row_cetak["nama_kegiatan"] ?>" target="_blank"><?= $row_cetak["nama_kegiatan"] ?></a></li>
+                                        <?php } ?>
+                                        </ul>
+                                        <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak [Per Jenis Kamar]</button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item"><a style="color: blue;" href="../cetak-reservasi-jKamar.php?jenisKamar=L" target="_blank">Kamar Laki-Laki</a></li>
+                                            <li class="dropdown-item"><a style="color: purple;" href="../cetak-reservasi-jKamar.php?jenisKamar=P" target="_blank">Kamar Perempuan</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -112,10 +147,10 @@ $result_reservasi = mysqli_query($conn, $query_reservasi);
                                                         <a href="reservasi-hapus.php?id=<?= $row_reservasi["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                     </td>
                                                     <td><?= $row_reservasi["nama_peserta"]; ?></td>
-                                                    <td style="text-align: center;"><?= $row_reservasi["no_kamar"]; ?></td>
+                                                    <td style="text-align: center;"><?= $row_reservasi["no_kamar"]. " || " .$row_reservasi["jenisKamar"]; ?></td>
                                                     <td><?= $row_reservasi["nama_kegiatan"]; ?></td>
-                                                    <td><?= date('d-m-Y', strtotime($row_reservasi["checkin"])) ?></td>
-                                                    <td><?= date('d-m-Y', strtotime($row_reservasi["checkout"])) ?></td>
+                                                    <td><?= date('d-m-Y', strtotime($row_reservasi["tglMulai"])) ?></td>
+                                                    <td><?= date('d-m-Y', strtotime($row_reservasi["tglSelesai"])) ?></td>
                                                     <!-- <td><span class="badge bg-warning">Status</span></td> -->
                                                 </tr>
                                             <?php $no++;
