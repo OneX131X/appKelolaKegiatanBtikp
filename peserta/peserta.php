@@ -14,7 +14,7 @@ session_start();
 
 include '../koneksi.php';
 
-$query = "SELECT * FROM peserta ORDER BY nama_peserta ASC";
+$query = "SELECT peserta.*, kegiatan.nama_kegiatan FROM peserta, kegiatan WHERE kegiatan.id = peserta.id_kegiatan ORDER BY nama_peserta ASC";
 $result = mysqli_query($conn, $query);
 
 
@@ -99,7 +99,7 @@ $result = mysqli_query($conn, $query);
                                                     </td> -->
                                                     <td><?php echo $row["nama_peserta"]; ?></td>
                                                     <td><?php echo $row["nik"]; ?></td>
-                                                    <td><?= $row["kegiatan"]; ?></td>
+                                                    <td><?= $row["nama_kegiatan"]; ?></td>
                                                     <td>
                                                         <?php 
                                                             if ($row["jenisKelamin"] == "L") {
