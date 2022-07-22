@@ -24,7 +24,7 @@
                     <i class="fas fa-key mr-2"></i> Ubah Password
                 </a> -->
                 <a href="logout.php" class="dropdown-item" onClick="javascript: return confirm('Konfirmasi akan logout?');">
-                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                    <i class="fas fa-sign-out-alt mr-2"></i> Keluar
                 </a>
             </div>
         </li>
