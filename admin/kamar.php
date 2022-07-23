@@ -188,7 +188,7 @@ $result = mysqli_query($conn, $query);
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,
-                "lengthChange": false,
+                "lengthChange": true,
                 "autoWidth": false,
                 // "buttons": ["copy", "csv", "excel", "pdf", "print"],
                 "order": [
