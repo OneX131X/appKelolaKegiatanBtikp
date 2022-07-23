@@ -32,12 +32,12 @@ if (isset($_POST["cekNama"])) {
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         header("Location: peserta-aktifitas-detail.php?nama_peserta=$nama_peserta"); 
-    } else {
+    } /* else {
         echo "<script type='text/javascript'>
                 alert('Peserta belum diterima');
                 document.location.href = 'peserta-cek-aktifitas.php';
             </script>";
-    }
+    } */
 
     $error = true;
 }
@@ -101,13 +101,13 @@ if (isset($_POST["cekNama"])) {
                                             <div class="alert alert-warning alert-dismissible">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                                 <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-                                                Anda Belum Terdaftar...!
+                                                Anda Tidak Terdaftar pada Kegiatan ini...!
                                             </div>
                                         <?php } ?>
                                     
                                         <form action="" method="post">
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" name="nama_peserta" placeholder="Nama Peserta" required>
+                                                <input type="text" class="form-control" name="nama_peserta" placeholder="Nama Lengkap Peserta Beserta Gelar" required>
                                                 <div class="input-group-append">
                                                     <div class="input-group-text">
                                                         <span class="fas fa-user"></span>
@@ -117,7 +117,7 @@ if (isset($_POST["cekNama"])) {
                                             <div class="row">
                                                 <!-- /.col -->
                                                 <div class="col">
-                                                    <button type="submit" class="btn btn-block btn-primary" name="cekNama"><i class="fa fa-search"></i>Cek</button>
+                                                    <button type="submit" class="btn btn-block btn-primary" name="cekNama"><i class="fa fa-search"></i> Cek</button>
                                                     <!-- <a href="peserta-daftar-kegiatan.php?id=<?php echo $row["id"]; ?>" name="cekNama" class="btn btn-block btn-primary"><i class="fa fa-search"></i> cek nama</a> -->
                                                     <!-- <a href="register.php" class="btn btn-block btn-danger">Buat Akun</a> -->
                                                 </div>

@@ -112,7 +112,7 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                                 <td><?= $row_peserta["nama_peserta"]; ?></td>
                                             </tr>
                                             <tr>
-                                                <td for="nama_kegiatan">Pilih Kegiatan</td>
+                                                <td for="nama_kegiatan">Nama Kegiatan</td>
                                                 <td>:</td>
                                                 <td><?= $row_peserta["nama_kegiatan"]; ?></td>
                                             </tr>
@@ -139,7 +139,52 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                             <tr>
                                                 <td for="kabKkota">Kab / Kota</td>
                                                 <td>:</td>
-                                                <td><?= $row_peserta["kabKota"]; ?></td>
+                                                <td>
+                                                    <?php 
+                                                        $kabKota = $row_peserta['kabKota']; 
+                                                        switch ($kabKota) {
+                                                            case 'bjm':
+                                                                echo "Banjarmasin";
+                                                                break;
+                                                            case 'bjb':
+                                                                echo "Banjarbaru";
+                                                                break;
+                                                            case 'banjar':
+                                                                echo "Banjar";
+                                                                break;
+                                                            case 'tapin':
+                                                                echo "Tapin";
+                                                                break;
+                                                            case 'hss':
+                                                                echo "Hulu Sungai Selatan";
+                                                                break;
+                                                            case 'hst':
+                                                                echo "Hulu Sungai Tengah";
+                                                                break;
+                                                            case 'hsu':
+                                                                echo "Hulu Sungai Utara";
+                                                                break;
+                                                            case 'balangan':
+                                                                echo "Balangan";
+                                                                break;
+                                                            case 'tabalong':
+                                                                echo "Tabalong";
+                                                                break;
+                                                            case 'barito kuala':
+                                                                echo "Barito Kuala";
+                                                                break;
+                                                            case 'tanah laut':
+                                                                echo "Tanah Laut";
+                                                                break;
+                                                            case 'tanah bumbu':
+                                                                echo "Tanah Bumbu";
+                                                                break;
+                                                            default:
+                                                                echo "Kotabaru";
+                                                                break;
+                                                        }
+                                                    ?>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td for="asalSekolah">Pilih Unit Kerja</td>
