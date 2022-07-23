@@ -37,10 +37,10 @@ $result = mysqli_query($conn, $query);
             width: 2%;
             text-align: center;
         }
-        .back {
+        /* .back { */
             /* position: absolute;  */
             /* padding: 15px 0px 0px 20px; */
-        }
+        /* } */
     </style>
 </head>
 
