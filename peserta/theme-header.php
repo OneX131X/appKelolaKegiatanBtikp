@@ -21,9 +21,9 @@
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span class="dropdown-item dropdown-header">Pengaturan Pengguna</span>
                 <!-- <a href="#" class="dropdown-item">
-                    <i class="fas fa-key mr-2"></i> Ubah Password
+                    <i class="fas fa-key mr-2"></i> Ubah Password onClick="javascript: return confirm('Konfirmasi akan logout?');"
                 </a> -->
-                <a href="logout.php" class="dropdown-item" onClick="javascript: return confirm('Konfirmasi akan logout?');">
+                <a href="logout.php" class="dropdown-item">
                     <i class="fas fa-sign-out-alt mr-2"></i> Keluar
                 </a>
             </div>
