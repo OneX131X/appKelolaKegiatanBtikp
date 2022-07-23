@@ -75,7 +75,7 @@ if (isset($_POST["cekNama"])) {
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active">Peserta</li>
-                                <li class="breadcrumb-item active">Cek Nama</li>
+                                <li class="breadcrumb-item active">Cek Aktifitas Peserta</li>
                             </ol>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ if (isset($_POST["cekNama"])) {
                                             <div class="alert alert-warning alert-dismissible">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                                 <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-                                                Anda Tidak Terdaftar pada Kegiatan ini...!
+                                                Anda Tidak Terdaftar pada Kegiatan apapun...!
                                             </div>
                                         <?php } ?>
                                     

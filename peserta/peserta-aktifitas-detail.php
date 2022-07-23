@@ -107,6 +107,7 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active">Peserta</li>
+                                <li class="breadcrumb-item"><a href="peserta-cek-aktifitas.php">Cek Aktifitas Peserta</a></li>
                                 <li class="breadcrumb-item active">Detail Aktifitas Peserta</li>
                             </ol>
                         </div>
