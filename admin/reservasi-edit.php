@@ -56,7 +56,7 @@ if (isset($_POST["submit"])) {
         } else {
         echo "<script type='text/javascript'>
                 alert('Data GAGAL disimpan...!');
-                document.location.href = 'reservasi-tambah.php';
+                document.location.href = 'reservasi-edit.php?id=$id';
                 </script>";        
         }
 }

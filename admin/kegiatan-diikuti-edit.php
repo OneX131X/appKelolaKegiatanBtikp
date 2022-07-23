@@ -44,7 +44,7 @@ if (isset($_POST["submit"])) {
         } else {
         echo "<script type='text/javascript'>
                 alert('Data GAGAL disimpan...!');
-                document.location.href = 'kegiatan-diikuti-tambah.php';
+                document.location.href = 'kegiatan-diikuti-edit.php?id=$id';
             </script>";
     }
 }

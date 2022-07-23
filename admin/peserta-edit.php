@@ -52,7 +52,7 @@ if (isset($_POST["submit"])) {
         } else {
         echo "<script type='text/javascript'>
                 alert('Data GAGAL disimpan...!');
-                document.location.href = 'peserta-tambah.php';
+                document.location.href = 'peserta-edit.php?id=$id';
                 </script>";        
         }
 }

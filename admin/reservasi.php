@@ -105,8 +105,8 @@ $result_reservasi = mysqli_query($conn, $query_reservasi);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <!-- <a href="../cetak-reservasi.php" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Cetak Data</a> -->
                                     <a href="reservasi-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
+                                    <a href="../cetak-reservasi-semua.php" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Cetak Semua</a>
                                     <div class="btn-group">
                                         <button type="button" class="btn bg-teal dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak [Per Kegiatan]</button>
                                         <ul class="dropdown-menu">
