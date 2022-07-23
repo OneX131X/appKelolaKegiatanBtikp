@@ -62,6 +62,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="peserta-cek-status-daftar.php" class="nav-link" style="color: white;">
+                                        <i class="ml-4"></i>
+                                        <p>Cek Status Pendaftaran</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="peserta-cek-aktifitas.php" class="nav-link" style="color: white;">
                                         <i class="ml-4"></i>
                                         <p>Cek Aktifitas</p>
