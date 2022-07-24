@@ -30,6 +30,15 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <style>
+        th:nth-child(1), th:nth-child(2), th:nth-child(4), th:nth-child(5), th:nth-child(6), th:nth-child(7), th:nth-child(8) 
+        td:nth-child(1), td:nth-child(2), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7), td:nth-child(8) {
+            text-align: center;
+        }
+        .bt {
+            width: 60px;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -90,31 +99,32 @@ $result = mysqli_query($conn, $query);
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
                                                     <td>
-                                                        <a href="kegiatan-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
-                                                        <a href="kegiatan-detail.php?id=<?php echo $row["id"]; ?>" class="btn btn-info btn-xs mr-1"><i class="fa fa-info"></i> Detail</a>
-                                                        <a href="kegiatan-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                        <a href="kegiatan-edit.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
+                                                        <a href="kegiatan-detail.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-info btn-xs mr-1"><i class="fa fa-info"></i> Detail</a>
+                                                        <a href="kegiatan-hapus.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-danger btn-xs mr-1" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                     </td>
                                                     <td><?php echo $row["nama_kegiatan"]; ?></td>
-                                                    <td><?php echo date("d m Y", strtotime(($row["tglMulai"]))); ?></td>
-                                                    <td><?php echo date("d m Y", strtotime(($row["tglSelesai"]))); ?></td>
+                                                    <td><?php echo date("d-m-Y", strtotime(($row["tglMulai"]))); ?></td>
+                                                    <td><?php echo date("d-m-Y", strtotime(($row["tglSelesai"]))); ?></td>
                                                     <td>
                                                         <?php 
                                                             // echo $row["jumlahSesi"];
                                                             // jumlah sesi
-                                                            $q = mysqli_query($conn, "SELECT kegiatan.id, detail_kegiatan.* 
-                                                                                        FROM kegiatan, detail_kegiatan 
-                                                                                        WHERE kegiatan.id = detail_kegiatan.id_kegiatan 
-                                                                                        AND detail_kegiatan.id_kegiatan = '$row[id]'");
-                                                            if ($q) {
-                                                                while ($r = mysqli_fetch_array($q)) {
+                                                            $q = mysqli_query($conn, "SELECT hari_satu, hari_dua, hari_tiga 
+                                                                    FROM detail_kegiatan 
+                                                                    WHERE detail_kegiatan.id_kegiatan = '$row[id]' AND
+                                                                    (hari_satu != ' ' OR hari_dua != ' ' OR hari_tiga)");
+                                                            $r = mysqli_fetch_array($q);
+                                                            if ($r) {
+                                                                // while ($r = mysqli_fetch_array($q)) {
                                                                     $ex1 = count(explode(",", $r["hari_satu"]));
                                                                     $ex2 = count(explode(",", $r["hari_dua"]));
                                                                     $ex3 = count(explode(",", $r["hari_tiga"]));
                                                                     $jSesi = $ex1 + $ex2 + $ex3;
                                                                     echo $jSesi;
-                                                                }
+                                                                // }
                                                             } else {
-                                                                echo "Kosong";
+                                                                echo 0;
                                                             }
                                                         ?>
                                                     </td>
