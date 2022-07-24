@@ -100,6 +100,7 @@ $result = mysqli_query($conn, $query);
                                                 <th>Action</th>
                                                 <th>Nama Peserta</th>
                                                 <th>Kegiatan</th>
+                                                <th>Absensi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -114,6 +115,37 @@ $result = mysqli_query($conn, $query);
                                                     </td>
                                                     <td><?php echo $row["nama_peserta"]; ?></td>
                                                     <td><?php echo $row["nama_kegiatan"]; ?></td>
+                                                    <td>
+                                                        <?php
+                                                            $q1 = mysqli_query($conn, "SELECT absen1, absen2, absen3 
+                                                                    FROM peserta_aktifitas 
+                                                                    WHERE 
+                                                                    peserta_aktifitas.id = '$row[id]' AND
+                                                                    (absen1 = 'hadir' OR absen2 = 'hadir' OR absen3 = 'hadir')");
+                                                            $r1 = mysqli_fetch_array($q1);
+                                                            $absen = mysqli_num_fields($q1);
+                                                            if ($r1) {
+                                                                if($r1["absen1"]){
+                                                                    $a1 = 1;
+                                                                } else {
+                                                                    $a1 = 0;
+                                                                }
+                                                                if ($r1["absen2"]) {
+                                                                    $a2 = 1;
+                                                                } else {
+                                                                    $a2 = 0;
+                                                                }
+                                                                if ($r1["absen3"]) {
+                                                                    $a3 = 1;
+                                                                } else {
+                                                                    $a3 = 0;
+                                                                }
+                                                                echo $a1+$a2+$a3."/3";
+                                                            } else {
+                                                                echo "0/3";
+                                                            }
+                                                        ?>
+                                                    </td>
                                                 </tr>
                                             <?php $no++;
                                             } ?>
@@ -124,6 +156,7 @@ $result = mysqli_query($conn, $query);
                                                 <th>Action</th>
                                                 <th>Nama Peserta</th>
                                                 <th>Kegiatan</th>
+                                                <th>Absensi</th>
                                             </tr>
                                         </tfoot>
                                     </table>
