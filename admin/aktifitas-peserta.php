@@ -45,6 +45,14 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <style>
+        th:nth-child(1), th:nth-child(2), th:nth-child(5), td:nth-child(1), td:nth-child(2), td:nth-child(5) {
+            text-align: center;
+        }
+        .bt {
+            width: 60px;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -109,9 +117,9 @@ $result = mysqli_query($conn, $query);
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
                                                     <td>
-                                                        <a href="aktifitas-peserta-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Edit</a>
-                                                        <a href="aktifitas-peserta-detail.php?id=<?php echo $row["id"]; ?>" class="btn btn-xs bg-info mr-1" ><i class="fa fa-info"></i> Detail</a>
-                                                        <a href="aktifitas-peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                        <a href="aktifitas-peserta-edit.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Edit</a>
+                                                        <a href="aktifitas-peserta-detail.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-xs bg-info mr-1" ><i class="fa fa-info"></i> Detail</a>
+                                                        <a href="aktifitas-peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                     </td>
                                                     <td><?php echo $row["nama_peserta"]; ?></td>
                                                     <td><?php echo $row["nama_kegiatan"]; ?></td>
