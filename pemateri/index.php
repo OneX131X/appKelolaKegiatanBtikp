@@ -48,9 +48,9 @@ $countKgt = mysqli_num_rows($getKegiatan);
         table {
             width: 100%;
         }
-        .tb-data {
+        /* .tb-data {
             line-height: 40px;
-        }
+        } */
         .tb-data td, th {
             margin: 0px 10px 0px 10px;
         }
@@ -93,23 +93,6 @@ $countKgt = mysqli_num_rows($getKegiatan);
             <section class="content">
                 <div class="container-fluid">
                     <div class="row mw-100">
-                        <div class="col-lg-3 col-6">
-                            <!-- small card -->
-                            <div class="small-box bg-purple">
-                                <div class="inner">
-                                    <h3>Peserta</h3>
-                                    <?=$countP;?>
-                                    
-                                    <p></p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <a href="data-peserta.php" class="small-box-footer">
-                                    <i class="fas fa-arrow-circle-right"></i>
-                                </a>
-                            </div>
-                        </div>
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small card -->
@@ -129,6 +112,23 @@ $countKgt = mysqli_num_rows($getKegiatan);
                             </div>
                         </div>
                         <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small card -->
+                            <div class="small-box bg-purple">
+                                <div class="inner">
+                                    <h3>Peserta</h3>
+                                    <?=$countP;?>
+                                    
+                                    <p></p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <a href="data-peserta.php" class="small-box-footer">
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </div>
                         
                     </div>
                     <div class="row">
@@ -260,6 +260,19 @@ $countKgt = mysqli_num_rows($getKegiatan);
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js"></script>
     <!-- Page specific script -->
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                // "buttons": ["copy", "csv", "excel", "pdf", "print"],
+                "order": [
+                    [0, "asc"]
+                ]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+    </script>
     
 </body>
 

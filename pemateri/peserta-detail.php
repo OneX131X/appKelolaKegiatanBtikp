@@ -247,6 +247,7 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                                         <tr>
                                                             <td align="right" class="mr-3" colspan="2">Nilai</td>
                                                             <td align="center">
+                                                                <a href="peserta-edit.php?id=<?= $id; ?>">
                                                                 <?php 
                                                                 $nilai = $row["penilaian"]; 
                                                                 switch ($nilai) {
@@ -261,15 +262,16 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                                                         break;
                                                                 }
                                                                 ?>
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                     <?php $no++;
                                                     } ?>
                                                 </tbody>
                                             </table>
-                                            <div class="sertifikat">
+                                            <!-- <div class="sertifikat">
                                                 <a href="../cetak-peserta-sertifikat2.php?id=<?= $row_peserta['id']; ?>" class="btn btn-sertifikat" target="_blank"><i class="fa fa-download mr-1"></i> Cetak Sertifikat</a>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
