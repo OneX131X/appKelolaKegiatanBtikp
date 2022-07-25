@@ -241,14 +241,14 @@ $countRsv = mysqli_num_rows($getReservasi);
                                             <?php $no++;
                                             } ?>
                                         </tbody>
-                                        <tfoot>
+                                        <!-- <tfoot>
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Kegiatan</th>
                                                 <th>Quota Tersedia</th>
                                                 <th>Jumlah Peserta</th>
                                             </tr>
-                                        </tfoot>
+                                        </tfoot> -->
                                     </table>
                                 </div>
                             <!-- /.card-body -->
