@@ -100,13 +100,13 @@
                                 <li class="nav-item">
                                     <a href="kegiatan.php" class="nav-link" style="color: white;">
                                         <i class="nav-icon far fa-dot-circle ml-3"></i>
-                                        <p>List Kegiatan</p>
+                                        <p>Data Kegiatan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="kegiatan-diikuti.php" class="nav-link" style="color: white;">
                                         <i class="nav-icon far fa-dot-circle ml-3"></i>
-                                        <p>List Kegiatan Diikuti</p>
+                                        <p>Data Kegiatan Diikuti</p>
                                     </a>
                                 </li>
                             </ul>
