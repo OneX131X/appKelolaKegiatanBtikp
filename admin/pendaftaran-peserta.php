@@ -96,7 +96,17 @@ $result = mysqli_query($conn, $query);
                                         <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak Peserta</button>
                                         <ul class="dropdown-menu">
                                         <li class="dropdown-item"><a style="color: green;" href="../cetak-pendaftaran-peserta.php?status_=diterima" target="_blank">Diterima <i class="fas fa-check"></i></a></li>
-                                        <li class="dropdown-item"><a style="color: red;" href="../cetak-pendaftaran-peserta-ditolak.php?status_=ditolak" target="_blank">Ditolak <i class="far fa-times-circle"></i></a></li>
+                                        <li class="dropdown-item"><a style="color: red;" href="../cetak-pendaftaran-peserta.php?status_=ditolak" target="_blank">Ditolak <i class="far fa-times-circle"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak [Per Kegiatan]</button>
+                                        <ul class="dropdown-menu">
+                                        <?php 
+                                        $r_cetak = mysqli_query($conn, "SELECT kegiatan.nama_kegiatan FROM kegiatan ");
+                                        while ($row_cetak = mysqli_fetch_assoc($r_cetak)) { ?>
+                                            <li class="dropdown-item"><a style="color: green;" href="../cetak-pendaftaran-peserta-keg.php?nama_kegiatan=<?= $row_cetak["nama_kegiatan"] ?>" target="_blank"><?= $row_cetak["nama_kegiatan"] ?></a></li>
+                                        <?php } ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -228,7 +238,7 @@ $result = mysqli_query($conn, $query);
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,
-                "lengthChange": false,
+                "lengthChange": true,
                 "autoWidth": false,
                 // "buttons": ["copy", "csv", "excel", "pdf", "print"],
                 "order": [

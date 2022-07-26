@@ -84,7 +84,7 @@ $html = '<!DOCTYPE html>
                     <td>'. $row["jabatan"] .'</td>
                     <td>'. $row["kabKota"] .'</td>
                     <td>'. $row["asalSekolah"] .'</td>
-                    <td>'. $row["hp"] .'</td>
+                    <td>'. $row["noTelp"] .'</td>
                     <td>'. $row["status_"] .'</td>
                     <td>'. $row["keterangan"] .'</td>
             </tr>';

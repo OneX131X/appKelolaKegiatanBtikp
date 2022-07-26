@@ -3,16 +3,17 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 include 'koneksi.php';
+$kegiatan = $_GET["nama_kegiatan"];
 $query = "SELECT 
 peserta_daftar.*, 
 kegiatan.nama_kegiatan, 
-peserta.nama_peserta  
+peserta.* 
 FROM 
 peserta_daftar, kegiatan, peserta 
 WHERE 
 kegiatan.id = peserta_daftar.id_kegiatan AND
 peserta.id = peserta_daftar.id_peserta AND 
-status_ = 'ditolak'
+nama_kegiatan = '$kegiatan'
 ORDER BY nama_peserta ASC";
 $result = mysqli_query($conn, $query);
 
@@ -66,30 +67,26 @@ $html = '<!DOCTYPE html>
             <th>Kegiatan</th>
             <th>Jenjang</th>
             <th>Jabatan</th>
-            <th>Golongan</th>
-            <th>Agama</th>
             <th>Kab/Kota</th>
             <th>Unit Kerja</th>
-            <th>Alamat Sekolah</th>
             <th>No. Hp</th>
             <th>Status</th>
+            
         </tr>';
 
         $i = 1;
         foreach( $result as $row ) {
             $html .= '<tr>
-                    <td align="center">'. $i++ .'</td>
-                    <td>'. $row["nama_peserta"] .'</td>
-                    <td>'. $row["nama_kegiatan"] .'</td>
-                    <td>'. $row["jenjang"] .'</td>
-                    <td>'. $row["jabatan"] .'</td>
-                    <td>'. $row["golongan"] .'</td>
-                    <td>'. $row["agama"] .'</td>
-                    <td>'. $row["kabKota"] .'</td>
-                    <td>'. $row["unitKerja"] .'</td>
-                    <td>'. $row["alamatSekolah"] .'</td>
-                    <td>'. $row["hp"] .'</td>
-                    <td>'. $row["status_"] .'</td>
+                <td align="center">'. $i++ .'</td>
+                <td>'. $row["nama_peserta"] .'</td>
+                <td>'. $row["nama_kegiatan"] .'</td>
+                <td>'. $row["jenjang"] .'</td>
+                <td>'. $row["jabatan"] .'</td>
+                <td>'. $row["kabKota"] .'</td>
+                <td>'. $row["asalSekolah"] .'</td>
+                <td>'. $row["noTelp"] .'</td>
+                <td>'. $row["status_"] .'</td>
+                
             </tr>';
         }
         
@@ -116,6 +113,6 @@ $html .= '</table>
 $mpdf = new \Mpdf\Mpdf();
 // $mpdf->AddPage('L');
 $mpdf->WriteHTML($html);
-$mpdf->Output('daftar-peserta-diterima', 'I');
+$mpdf->Output('pendaftaran-peserta', 'I');
 
 ?>
