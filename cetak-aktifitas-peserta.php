@@ -3,6 +3,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 include 'koneksi.php';
+$kegiatan = $_GET["nama_kegiatan"];
 $query = "SELECT 
             peserta_aktifitas.*, 
             peserta.nama_peserta, 
@@ -11,7 +12,8 @@ $query = "SELECT
             peserta_aktifitas, peserta, kegiatan 
             WHERE 
             peserta.id = peserta_aktifitas.id_peserta AND
-            kegiatan.id = peserta_aktifitas.id_kegiatan 
+            kegiatan.id = peserta_aktifitas.id_kegiatan AND
+            kegiatan.nama_kegiatan = '$kegiatan'
             ORDER BY nama_peserta ASC";
 $result = mysqli_query($conn, $query);
 

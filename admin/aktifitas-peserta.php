@@ -91,13 +91,16 @@ $result = mysqli_query($conn, $query);
                                 <div class="card-header">
                                     <a href="aktifitas-peserta-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
                                     <a href="../cetak-aktifitas-peserta.php" target="_blank" class="btn bg-olive"><i class="fa fa-print"></i> Cetak Data</a>
-                                    <!-- <div class="btn-group">
-                                        <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak Peserta</button>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak [Per Kegiatan]</button>
                                         <ul class="dropdown-menu">
-                                        <li class="dropdown-item"><a style="color: green;" href="../cetak-aktifitas-peserta.php" target="_blank">Diterima <i class="fas fa-check"></i></a></li>
-                                        <li class="dropdown-item"><a style="color: red;" href="../cetak-aktifitas-peserta-ditolak.php" target="_blank">Ditolak <i class="far fa-times-circle"></i></a></li>
+                                        <?php 
+                                        $r_cetak = mysqli_query($conn, "SELECT kegiatan.nama_kegiatan FROM kegiatan ");
+                                        while ($row_cetak = mysqli_fetch_assoc($r_cetak)) { ?>
+                                            <li class="dropdown-item"><a style="color: green;" href="../cetak-aktifitas-peserta.php?nama_kegiatan=<?= $row_cetak["nama_kegiatan"] ?>" target="_blank"><?= $row_cetak["nama_kegiatan"] ?></a></li>
+                                        <?php } ?>
                                         </ul>
-                                    </div> -->
+                                    </div>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
