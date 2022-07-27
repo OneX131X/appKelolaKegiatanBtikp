@@ -35,8 +35,13 @@ $html = '<!DOCTYPE html>
             }
             .right {
                 position: absolute;
-                bottom: 3%;
+                // margin-top: 20px;
+                // margin-left: 70%;
+                bottom: 2%;
                 left: 70%;
+            }
+            .box {
+                margin-top: 40px;
             }
         </style>
     </head>
@@ -114,10 +119,7 @@ $html .= '</table>
         <div class="right">
             Kepala BTIKP
             <br>Provinsi Kalimantan Selatan,
-            <br>
-            <br>
-            <br>
-            <br>
+            <div class="box"></div>
             <b>Eksan Muhtar, S.Pd, M.Pd</b>
             <br>Penata TK.I
             <br>NIP. 19651218 198803 1 009
