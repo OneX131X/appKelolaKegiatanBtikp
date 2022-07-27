@@ -34,6 +34,14 @@ $html = '<!DOCTYPE html>
                 text-align: center;
                 text-decoration: underline;
             }
+            .right {
+                position: absolute;
+                bottom: 5%;
+                left: 70%;
+            }
+            .box {
+                height: 25px;
+            }
         </style>
     </head>
     <body>
@@ -92,22 +100,11 @@ $html = '<!DOCTYPE html>
         }
         
 $html .= '</table>
-        <div align="right">
-        <p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </p>
+        <div class="right">
             Kepala Balai Teknologi Informasi
             <br>Dan Komunikasi Pendidikan
             <br>Provinsi Kalimantan Selatan,
-            <br>
-            <br>
-            <br>
-            <br>
+            <div class="box"></div>
             <b>Eksan Muhtar, S.Pd, M.Pd</b>
             <br>Penata TK.I
             <br>NIP. 19651218 198803 1 009

@@ -29,7 +29,7 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Kegiatan Diikuti | APPGAJI</title>
+    <title>Data Kegiatan | APPGAJI</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -60,13 +60,13 @@ $result = mysqli_query($conn, $query);
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Data Kegiatan Diikuti</h1>
+                            <h1>Data Jumlah Peserta Kegiatan</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active">Kegiatan</li>
-                                <li class="breadcrumb-item active">List Kegiatan Diikuti</li>
+                                <li class="breadcrumb-item active">Jumlah Peserta</li>
                             </ol>
                         </div>
                     </div>

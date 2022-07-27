@@ -106,7 +106,7 @@
                                 <li class="nav-item">
                                     <a href="kegiatan-diikuti.php" class="nav-link" style="color: white;">
                                         <i class="nav-icon far fa-dot-circle ml-3"></i>
-                                        <p>Data Kegiatan Diikuti</p>
+                                        <p>Jumlah Peserta</p>
                                     </a>
                                 </li>
                             </ul>

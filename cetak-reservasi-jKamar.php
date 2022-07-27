@@ -23,6 +23,8 @@ kamar.jenisKamar = '$jenisKamar'
 ORDER BY
 no_kamar ASC";
 $result_reservasi = mysqli_query($conn, $query_reservasi);
+$row_res = mysqli_fetch_assoc($result_reservasi);
+
 
 $html = '<!DOCTYPE html>
 <html lang="en">
@@ -79,6 +81,13 @@ $html = '<!DOCTYPE html>
         </div>
     <hr>
     <h4 class="heading">DAFTAR RESERVASI</h4>
+    <h4 class="heading">'; 
+    if ($jenisKamar == "L") {
+        $html .= "LAKI-LAKI";
+    } else {
+        $html .= "PEREMPUAN";
+    } 
+    $html .='</h4>
     <table align="center" border="1" cellpadding="10" cellspacing="0">
 
         <tr>

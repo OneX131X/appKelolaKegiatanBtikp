@@ -201,7 +201,7 @@ if (isset($_POST["submit"])) {
                                             </div> -->
                                             <div class="input-group mb-3">
                                                 <!-- <label for="suratSK">No HP :</label> -->
-                                                    Pilih file :
+                                                    <label for="">Upload Surat SK :</label>
                                                     <!-- <input type="file" class="ml-2" name="suratSK" id="suratSK"> -->
                                                     <input type="file" class="ml-2" name="suratSK" id="suratSK">
                                                         <i class="fas fa-upload"></i>

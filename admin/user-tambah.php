@@ -110,7 +110,7 @@ if (isset($_POST["submit"])) {
                                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="peran">Kegiatan</label>
+                                            <label for="peran">Peran</label>
                                             <select name="peran" id="peran" class="form-control">
                                                 <option value="">-- Pilih Peran --</option>
                                                 <option value="ADMIN">ADMIN</option>

@@ -152,7 +152,7 @@ if (isset($_POST["submit"])) {
                                             <!-- <input type="text" class="form-control" id="kegiatan_id" name="kegiatan_id" required> -->
                                         </div>
                                         <div class="form-group">
-                                            <label for="kamar_id">Nama Nomor Kamar :</label>
+                                            <label for="kamar_id">Nomor Kamar :</label>
                                             <select class="form-control" id="kamar_id" name="kamar_id" required>
                                                 <option value="">-- Pilih Nomor Kamar --</option>
                                                 <?php

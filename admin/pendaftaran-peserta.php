@@ -71,7 +71,7 @@ $result = mysqli_query($conn, $query);
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Daftar Pendaftaran Peserta</h1>
+                            <h1>Data Pendaftaran Peserta</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">

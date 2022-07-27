@@ -95,7 +95,7 @@ $result = mysqli_query($conn, $query);
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Action</th>
+                                                <!-- <th>Action</th> -->
                                                 <th>Nama Peserta</th>
                                                 <th>NIK</th>
                                                 <th>Kegiatan</th>
@@ -110,11 +110,11 @@ $result = mysqli_query($conn, $query);
                                             while ($row = mysqli_fetch_assoc($result)) { ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
-                                                    <td>
-                                                        <a href="peserta-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
+                                                    <!-- <td> -->
+                                                        <!-- <a href="peserta-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
                                                         <a href="peserta-detail.php?id=<?php echo $row["id"]; ?>" class="btn btn-info btn-xs mr-1"><i class="fa fa-info"></i> Detail</a>
-                                                        <a href="peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
-                                                    </td>
+                                                        <a href="peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a> -->
+                                                    <!-- </td> -->
                                                     <td><?php echo $row["nama_peserta"]; ?></td>
                                                     <td><?php echo $row["nik"]; ?></td>
                                                     <td><?php echo $row["nama_kegiatan"]; ?></td>
@@ -155,7 +155,7 @@ $result = mysqli_query($conn, $query);
                                         <tfoot>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Action</th>
+                                                <!-- <th>Action</th> -->
                                                 <th>Nama Peserta</th>
                                                 <th>NIK</th>
                                                 <th>Kegiatan</th>

@@ -16,6 +16,7 @@ peserta.id = peserta_daftar.id_peserta AND
 status_ = '$status_'
 ORDER BY nama_peserta ASC";
 $result = mysqli_query($conn, $query);
+$row_daf = mysqli_fetch_assoc($result);
 
 $html = '<!DOCTYPE html>
 <html lang="en">
@@ -58,7 +59,13 @@ $html = '<!DOCTYPE html>
             </div>
         </div>
     <hr>
-    <h4 class="heading">DAFTAR PESERTA DITERIMA</h4>
+    <h4 class="heading">DAFTAR PESERTA ';
+    if ($status_ == "diterima") {
+        $html .= "DITERIMA";
+    } else {
+        $html .= "DITOLAK";
+    }
+    $html .='</h4>
     <table align="center" border="1" cellpadding="10" cellspacing="0">
 
         <tr>

@@ -58,7 +58,7 @@ $html = '<!DOCTYPE html>
             </div>
         </div>
     <hr>
-    <h4 class="heading">AKTIFITAS PESERTA</h4>
+    <h4 class="heading">AKTIFITAS PESERTA <br> '.$kegiatan.'</h4>
     <table align="center" border="1" cellpadding="10" cellspacing="0">
 
         <tr>

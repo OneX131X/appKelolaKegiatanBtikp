@@ -59,7 +59,7 @@ $html = '<!DOCTYPE html>
             .right {
                 // position: absolute;
                 // bottom: 3%;
-                margin: 20px 0px 0px 70%;
+                margin: 10px 0px 0px 70%;
             }
         </style>
     </head>

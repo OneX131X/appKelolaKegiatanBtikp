@@ -3,28 +3,24 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 include 'koneksi.php';
-
-$nama_kegiatan = $_GET["nama_kegiatan"];
+// $kegiatan = $_GET["nama_kegiatan"];
 $query = "SELECT 
-        peserta.*, 
-        peserta_daftar.*, 
-        kegiatan.nama_kegiatan  
-        FROM 
-        peserta_daftar, peserta, kegiatan
-        WHERE 
-        peserta.id = peserta_daftar.id_peserta AND 
-        kegiatan.id = peserta.id_kegiatan AND 
-        kegiatan.nama_kegiatan = '$nama_kegiatan' AND 
-        peserta_daftar.status_ = 'diterima'
-        ORDER BY nama_peserta ASC";
+            peserta_aktifitas.*, 
+            peserta.nama_peserta, 
+            kegiatan.nama_kegiatan  
+            FROM 
+            peserta_aktifitas, peserta, kegiatan 
+            WHERE 
+            peserta.id = peserta_aktifitas.id_peserta AND
+            kegiatan.id = peserta_aktifitas.id_kegiatan 
+            ORDER BY nama_peserta ASC";
 $result = mysqli_query($conn, $query);
-$row_pes = mysqli_fetch_assoc($result);
 
 $html = '<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Data Peserta</title>
+        <title>Daftar Peserta</title>
         <style>
             table {
             font-family: arial, sans-serif;
@@ -61,20 +57,16 @@ $html = '<!DOCTYPE html>
             </div>
         </div>
     <hr>
-    <h4 class="heading">DATA PESERTA <br> '. $row_pes["nama_kegiatan"] .'</h4>
+    <h4 class="heading">AKTIFITAS PESERTA</h4>
     <table align="center" border="1" cellpadding="10" cellspacing="0">
 
         <tr>
             <th>No.</th>
             <th>Nama Peserta</th>
-            <th>NIK</th>
-            <th>kegiatan</th>
-            <th>Jenis Kelamin</th>
-            <th>Tanggal Lahir</th>
-            <th>Asal Sekolah</th>
-            <th>Pendidikan Terakhir</th>
-            <th>No Telp</th>
-            <th>Email</th>
+            <th>Kegiatan</th>
+            <th>Hari 1</th>
+            <th>Hari 2</th>
+            <th>Hari 3</th>
         </tr>';
 
         $i = 1;
@@ -82,14 +74,10 @@ $html = '<!DOCTYPE html>
             $html .= '<tr>
                     <td align="center">'. $i++ .'</td>
                     <td>'. $row["nama_peserta"] .'</td>
-                    <td>'. $row["nik"] .'</td>
                     <td>'. $row["nama_kegiatan"] .'</td>
-                    <td align="center">'. $row["jenisKelamin"] .'</td>
-                    <td>'. $row["tglLahir"] .'</td>
-                    <td>'. $row["asalSekolah"] .'</td>
-                    <td>'. $row["pendTerakhir"] .'</td>
-                    <td>'. $row["noTelp"] .'</td>
-                    <td>'. $row["email"] .'</td>
+                    <td>'. $row["absen1"] .'</td>
+                    <td>'. $row["absen2"] .'</td>
+                    <td>'. $row["absen3"] .'</td>
             </tr>';
         }
         
@@ -116,6 +104,6 @@ $html .= '</table>
 $mpdf = new \Mpdf\Mpdf();
 // $mpdf->AddPage('L');
 $mpdf->WriteHTML($html);
-$mpdf->Output('data-peserta', 'I');
+$mpdf->Output('daftar-peserta', 'I');
 
 ?>

@@ -90,7 +90,7 @@ $result = mysqli_query($conn, $query);
                             <div class="card">
                                 <div class="card-header">
                                     <a href="aktifitas-peserta-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
-                                    <a href="../cetak-aktifitas-peserta.php" target="_blank" class="btn bg-olive"><i class="fa fa-print"></i> Cetak Data</a>
+                                    <a href="../cetak-aktifitas-peserta-all.php" target="_blank" class="btn bg-olive"><i class="fa fa-print"></i> Cetak Data</a>
                                     <div class="btn-group">
                                         <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak [Per Kegiatan]</button>
                                         <ul class="dropdown-menu">
