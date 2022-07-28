@@ -53,12 +53,12 @@ if (isset($_POST["submit"])) {
 
     if ($simpan) {
         echo "<script type='text/javascript'>
-                alert('Data berhasil disimpan...!');
+                alert('Detail Kegiatan berhasil diubah...!');
                 document.location.href = 'kegiatan-detail.php?id=$row_detail[id_kegiatan]';
             </script>";
         } else {
         echo "<script type='text/javascript'>
-                alert('Data GAGAL disimpan...!');
+                alert('Detail Kegiatan GAGAL diubah...!');
                 // document.location.href = 'kegiatan-detail-edit.php?id=$id';
                 </script>";        
         }

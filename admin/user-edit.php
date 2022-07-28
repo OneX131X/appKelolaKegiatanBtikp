@@ -37,12 +37,12 @@ if (isset($_POST["submit"])) {
             $exe = mysqli_query($conn, $q);
             if ($exe){
                 echo "<script type='text/javascript'>
-                alert('Data berhasil disimpan...!');
+                alert('Data pengguna berhasil diubah...!');
                 document.location.href = 'user.php';
                 </script>";
             }else{
                 echo "<script type='text/javascript'>
-                alert('Data GAGAL disimpan...!');
+                alert('Data pengguna GAGAL diubah...!');
                 document.location.href = 'user-edit.php';
                 </script>";        
             }

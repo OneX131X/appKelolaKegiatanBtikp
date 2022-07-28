@@ -74,8 +74,8 @@ $result = mysqli_query($conn, $query);
                                     <h3 class="card-title fs-title"><a href="index.php" class="btn bg-primary btn-sm mr-2"><i class="fa fa-chevron-left"></i></a> List Kegiatan</h3>
                                 </div>
                                 <!-- /.card-header -->
+                                <div class="card card-title bg-lightblue p-1"><span class="ml-2 mr-2">*Klik pada nama kegiatan untuk memberikan penilaian pada peserta</span></div>
                                 <div class="card-body">
-                                    <div class="card card-title bg-lightblue p-1"><span class="ml-2 mr-2">*Klik pada nama kegiatan untuk memberikan penilaian pada peserta</span></div>
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>

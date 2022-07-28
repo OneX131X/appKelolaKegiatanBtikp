@@ -124,7 +124,7 @@ if (isset($_POST["submit"])) {
                                         <div class="form-group">
                                             <label for="penilaian">Penilain :</label>
                                             <!-- <input type="text" class="form-control" id="penilaian" name="penilaian" value="<?php echo $row_peserta["penilaian"]; ?>" placeholder="Penilaian Hasil Bimtek" required> -->
-                                            <select class="form-control col-2" id="penilaian" name="penilaian" required>
+                                            <select class="form-control col-4" id="penilaian" name="penilaian" required>
                                                 <option value="">-- Penilaian Hasil Bimtek --</option>
                                                 <option value="sangat baik" <?php if ($row_peserta["penilaian"] == "sangat baik") { echo "selected"; }?>>Sangat Baik</option>
                                                 <option value="baik" <?php if ($row_peserta["penilaian"] == "baik") { echo "selected"; }?>>Baik</option>

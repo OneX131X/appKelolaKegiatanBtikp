@@ -44,12 +44,12 @@ if (isset($_POST["submit"])) {
 
     if ($simpan) {
         echo "<script type='text/javascript'>
-                alert('Data berhasil disimpan...!');
+                alert('Detail Kegiatan berhasil disimpan...!');
                 document.location.href = 'kegiatan-detail.php?id=$id';
             </script>";
         } else {
         echo "<script type='text/javascript'>
-                alert('Data GAGAL disimpan...!');
+                alert('Detail Kegiatan GAGAL disimpan...!');
                 document.location.href = 'kegiatan-detail.php?id=$id';
                 </script>";        
         }

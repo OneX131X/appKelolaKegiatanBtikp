@@ -20,7 +20,7 @@ $delete = mysqli_query($conn, $query);
 
 if ($delete) {
     echo "<script type='text/javascript'>
-            alert('Data berhasil dihapus...!');
+            alert('Data pengguna berhasil dihapus...!');
             document.location.href = 'user.php';
         </script>";
 }
