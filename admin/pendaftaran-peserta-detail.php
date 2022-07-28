@@ -25,7 +25,7 @@ $query_peserta = "SELECT
                     kegiatan.id = peserta.id_kegiatan AND 
                     peserta.id_kegiatan = peserta_daftar.id_kegiatan AND
                     peserta.id = peserta_daftar.id_peserta AND 
-                    peserta_daftar.id_peserta = '$id'";
+                    peserta_daftar.id = '$id'";
 $result_peserta = mysqli_query($conn, $query_peserta);
 $row_peserta = mysqli_fetch_assoc($result_peserta);
 

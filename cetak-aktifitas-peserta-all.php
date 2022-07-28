@@ -6,13 +6,17 @@ include 'koneksi.php';
 // $kegiatan = $_GET["nama_kegiatan"];
 $query = "SELECT 
             peserta_aktifitas.*, 
+            peserta_daftar.id_peserta, 
+            peserta_daftar.status_, 
             peserta.nama_peserta, 
             kegiatan.nama_kegiatan  
             FROM 
-            peserta_aktifitas, peserta, kegiatan 
+            peserta_aktifitas, peserta_daftar, peserta, kegiatan 
             WHERE 
-            peserta.id = peserta_aktifitas.id_peserta AND
-            kegiatan.id = peserta_aktifitas.id_kegiatan 
+            peserta.id = peserta_aktifitas.id_peserta AND 
+            peserta_aktifitas.id_peserta = peserta_daftar.id_peserta AND 
+            kegiatan.id = peserta_aktifitas.id_kegiatan AND 
+            peserta_daftar.status_ = 'diterima'
             ORDER BY nama_peserta ASC";
 $result = mysqli_query($conn, $query);
 

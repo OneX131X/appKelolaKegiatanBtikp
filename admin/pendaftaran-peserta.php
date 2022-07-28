@@ -17,7 +17,9 @@ include '../koneksi.php';
 $query = "SELECT 
         peserta_daftar.*, 
         kegiatan.nama_kegiatan, 
-        peserta.*  
+        peserta.nama_peserta,
+        peserta.noTelp,
+        peserta.asalSekolah
         FROM 
         peserta_daftar, kegiatan, peserta 
         WHERE 

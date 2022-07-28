@@ -26,7 +26,20 @@
 include '../koneksi.php';
 $directory = "../file-upload/";
 $file_name = $_FILES['suratSK']['name'];
-move_uploaded_file($_FILES['suratSK']['tmp_name'], $directory.$file_name);
+// move_uploaded_file($_FILES['suratSK']['tmp_name'], $directory.$file_name);
+if ($_FILES['suratSK']['name'] !=""){
+
+    $rawBaseName = pathinfo($file_name, PATHINFO_FILENAME );
+    $extension = pathinfo($file_name, PATHINFO_EXTENSION );
+    $counter = 0;
+    while(file_exists("filer/".$id."/".$file_name)) {
+        $file_name = $rawBaseName . $counter . '.' . $extension;
+        $counter++;
+    };
+
+    move_uploaded_file($_FILES['suratSK']['tmp_name'], $directory.$file_name);  
+
+} 
 
 $query = "INSERT INTO peserta_daftar VALUES ('', '$_POST[id_peserta]', '$_POST[id_kegiatan]', '$_POST[jenjang]', '$_POST[jabatan]', '$_POST[golongan]', '$_POST[agama]', '$_POST[kabKota]', '', '$_POST[alamatSekolah]', '', '$file_name', '$_POST[status_]', '')";
 

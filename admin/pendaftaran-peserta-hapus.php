@@ -16,14 +16,14 @@ include '../koneksi.php';
 
 $id = $_GET["id"];
 // hapus file
-$file = "SELECT suratSK FROM peserta_daftar WHERE id_peserta = $id";
+$file = "SELECT suratSK FROM peserta_daftar WHERE id = '$id'";
 $result = mysqli_query($conn, $file);
 $row = mysqli_fetch_assoc($result);
 // $directory = "../file-upload/";
 if (file_exists("../file-upload/$row[suratSK]")) {
     unlink("../file-upload/$row[suratSK]");
 }
-$query = "DELETE FROM peserta_daftar WHERE id_peserta = $id";
+$query = "DELETE FROM peserta_daftar WHERE id = '$id'";
 $delete = mysqli_query($conn, $query);
 
 if ($delete) {

@@ -23,7 +23,7 @@ FROM
 peserta_daftar, peserta 
 WHERE 
 peserta.id = peserta_daftar.id_peserta AND 
-peserta_daftar.id_peserta = '$id'";
+peserta_daftar.id = '$id'";
 $result_peserta = mysqli_query($conn, $query_peserta);
 $row_peserta = mysqli_fetch_assoc($result_peserta);
 
@@ -43,6 +43,7 @@ if (isset($_POST["submit"])) {
     $keterangan = htmlspecialchars($_POST["keterangan"]);
 
     $query = "UPDATE peserta_daftar SET  
+                id_peserta = '$namaPeserta', 
                 id_kegiatan = '$namaKegiatan', 
                 jenjang = '$jenjang', 
                 jabatan = '$jabatan', 
@@ -279,10 +280,11 @@ if (isset($_POST["submit"])) {
                                             <input type="file" class="ml-2" name="suratSK" id="suratSK">    
                                                 <i class="fas fa-upload"></i>
                                                 <span class="ml-1 mr-2">Upload file</span>
-                                                <a href="../file-upload/<?= $row_peserta["suratSK"]; ?>">
+                                                <a href="../file-upload/<?= $row_peserta["suratSK"]; ?>" target="_blank">
                                                     <h5><?= $row_peserta["suratSK"]; ?></h5>
                                                 </a>
                                             </input>
+                                            <!-- <input type="text" value="<?= $row_peserta["suratSK"]; ?>" name="suratSK2" > -->
                                             <input type="text" value="<?= $row_peserta["suratSK"]; ?>" name="suratSK2" style="display: none;">
                                         </div>
                                         <div class="table-responsive pad mb-3">
