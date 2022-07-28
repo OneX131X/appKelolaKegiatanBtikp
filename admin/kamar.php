@@ -99,7 +99,7 @@ $result = mysqli_query($conn, $query);
                                                     <td><?php echo $no; ?></td>
                                                     <td>
                                                         <a href="kamar-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
-                                                        <a href="kamar-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                        <a href="kamar-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data kamar ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                     </td>
                                                     <td><?php echo $row["no_kamar"]; ?></td>
                                                     <td>

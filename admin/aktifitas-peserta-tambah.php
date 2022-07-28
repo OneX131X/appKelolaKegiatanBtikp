@@ -26,7 +26,7 @@ if (isset($_POST["submit"])) {
 
     if ($simpan) {
         echo "<script type='text/javascript'>
-                alert('Aktifitas peserta berhasil dikirim...!');
+                alert('Aktifitas peserta berhasil disimpan...!');
                 document.location.href = 'aktifitas-peserta.php?';
                 </script>";
     } else {    

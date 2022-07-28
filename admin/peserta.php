@@ -122,7 +122,7 @@ $result = mysqli_query($conn, $query);
                                                         <a href="peserta-detail.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-info btn-xs mr-1"><i class="fa fa-info"></i> Detail</a>
                                                         <a href="peserta-edit.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
                                                         <a href="../cetak-peserta-satu.php?id=<?php echo $row["id"]; ?>" target="_blank" class="bt btn btn-warning btn-xs mr-1"><i class="fa fa-edit"></i> Cetak</a>
-                                                        <a href="peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                        <a href="peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data peserta ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                     </td>
                                                     <td><?= $row["nama_peserta"]; ?></td>
                                                     <td><?= $row["nik"]; ?></td>

@@ -28,7 +28,7 @@ $delete = mysqli_query($conn, $query);
 
 if ($delete) {
     echo "<script type='text/javascript'>
-            alert('Data berhasil dihapus...!');
+            alert('Data pendaftaran berhasil dihapus...!');
             document.location.href = 'pendaftaran-peserta.php';
         </script>";
     }

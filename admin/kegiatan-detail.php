@@ -197,7 +197,7 @@ if (isset($_POST["submit"])) {
                                                         <tr>
                                                             <td><?php echo $no; ?></td>
                                                             <td>
-                                                                <a href="kegiatan-detail-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onclick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                                <a href="kegiatan-detail-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onclick="javascript: return confirm('Apakah yakin ingin menghapus detail kegiatan ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                                 <a href="kegiatan-detail-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
                                                             </td>
                                                             <td><?php echo $row["nama_kegiatan"]; ?></td>

@@ -152,19 +152,28 @@ if (isset($_POST["submit"])) {
                                             <!-- <input type="text" class="form-control" id="kegiatan_id" name="kegiatan_id" required> -->
                                         </div>
                                         <div class="form-group">
-                                            <label for="kamar_id">Nomor Kamar :</label>
+                                            <label for="kamar_id">Nama Nomor Kamar :</label>
                                             <select class="form-control" id="kamar_id" name="kamar_id" required>
-                                                <option value="">-- Pilih Nomor Kamar --</option>
+                                                <option value="">-- Pilih No Kamar --</option>
                                                 <?php
                                                 $query_kamar = "SELECT * FROM kamar ORDER BY no_kamar";
                                                 $result_kamar = mysqli_query($conn, $query_kamar);
                                                 while ($row_kamar = mysqli_fetch_assoc($result_kamar)) {
+                                                    $q = mysqli_query($conn, "SELECT
+                                                                                kamar.jenisKamar, 
+                                                                                reservasi.kamar_id 
+                                                                                FROM kamar, reservasi 
+                                                                                WHERE kamar.id = reservasi.kamar_id AND
+                                                                                reservasi.kamar_id = '$row_kamar[id]'");
+                                                    $j = mysqli_num_rows($q);
+                                                    $qk = mysqli_query($conn, "SELECT * FROM kamar WHERE id = '$row_kamar[id]'");
+                                                    $jk = mysqli_fetch_assoc($qk);
+                                                    $ada = $jk["kuantitas"] - $j;
                                                     ?>
-                                                    <option value="<?php echo $row_kamar["id"]; ?>">
-                                                        <?php echo $row_kamar["no_kamar"]. " || " .$row_kamar["jenisKamar"]; ?></option>
-                                                        <?php } ?>
-                                                    </select>
-                                            <!-- <input type="text" class="form-control" id="kamar_id" name="kamar_id" required> -->
+                                                        <option value="<?php echo $row_kamar["id"]; ?>">
+                                                        <?php echo $row_kamar["no_kamar"]. " || " .$row_kamar["jenisKamar"]. " || " .$ada. " Tersedia" ; ?></option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="checkin">Tanggal Check In :</label>

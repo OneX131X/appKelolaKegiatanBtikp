@@ -146,7 +146,7 @@ $result_reservasi = mysqli_query($conn, $query_reservasi);
                                                     <td><?= $no; ?></td>
                                                     <td>
                                                         <a href="reservasi-edit.php?id=<?= $row_reservasi["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
-                                                        <a href="reservasi-hapus.php?id=<?= $row_reservasi["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                        <a href="reservasi-hapus.php?id=<?= $row_reservasi["id"]; ?>" class="btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data reservasi ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                     </td>
                                                     <td><?= $row_reservasi["nama_peserta"]; ?></td>
                                                     <td style="text-align: center;"><?= $row_reservasi["no_kamar"]. " || " .$row_reservasi["jenisKamar"]; ?></td>

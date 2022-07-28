@@ -15,13 +15,13 @@ if (!isset($_SESSION["login"])) {
 include '../koneksi.php';
 
 $id = $_GET["id"];
-$query = "DELETE FROM kegiatan WHERE id = $id";
+$query = "DELETE FROM peserta_aktifitas WHERE id = $id";
 $delete = mysqli_query($conn, $query);
 
 if ($delete) {
     echo "<script type='text/javascript'>
-            alert('Data kegiatan berhasil dihapus...!');
-            document.location.href = 'kegiatan.php';
+            alert('Data aktifitas peserta berhasil dihapus...!');
+            document.location.href = 'aktifitas-peserta.php';
         </script>";
     }
 
