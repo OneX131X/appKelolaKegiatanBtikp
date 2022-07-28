@@ -37,12 +37,12 @@ if (isset($_POST["submit"])) {
 
     if ($edit) {
         echo "<script type='text/javascript'>
-                alert('Data berhasil diubah..!');
+                alert('Data Kegiatan berhasil diubah..!');
                 document.location.href = 'kegiatan.php';
             </script>";
     } else {
         echo "<script type='text/javascript'>
-                alert('Data GAGAL diubah..!');
+                alert('Data Kegiatan GAGAL diubah..!');
                 document.location.href = 'kegiatan-edit.php?id=$id';
             </script>";
     }

@@ -26,12 +26,12 @@ if (isset($_POST["submit"])) {
 
     if ($simpan) {
         echo "<script type='text/javascript'>
-                alert('Data berhasil disimpan...!');
+                alert('Data Fasilitas Kamar berhasil disimpan...!');
                 document.location.href = 'fasilitas-kamar.php';
             </script>";
         } else {
         echo "<script type='text/javascript'>
-                alert('Data GAGAL disimpan...!');
+                alert('Data Fasilitas Kamar GAGAL disimpan...!');
                 document.location.href = 'fasilitas-kamar-tambah.php';
             </script>";        
         }

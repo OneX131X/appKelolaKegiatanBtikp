@@ -58,12 +58,12 @@ if (isset($_POST["submit"])) {
 
     if ($edit) {
         echo "<script type='text/javascript'>
-                alert('Data berhasil disimpan...!');
+                alert('Pendaftaran Peserta berhasil diubah...!');
                 document.location.href = 'pendaftaran-peserta.php?';
                 </script>";
     } else {    
         echo "<script type='text/javascript'>
-                alert('Data GAGAL disimpan...!');
+                alert('Pendaftaran Peserta GAGAL diubah...!');
                 document.location.href = 'pendaftaran-peserta-edit.php?id=$id';
             </script>";;
     }

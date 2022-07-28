@@ -40,12 +40,12 @@ if (isset($_POST["submit"])) {
 
     if ($simpan) {
         echo "<script type='text/javascript'>
-                alert('Data berhasil dikirim...!');
+                alert('Data Pendaftaran berhasil dikirim...!');
                 document.location.href = 'peserta-cek-nama.php';
                 </script>";
     } else {    
         echo "<script type='text/javascript'>
-                alert('Data GAGAL disimpan...!');
+                alert('Data Pendaftaran GAGAL disimpan...!');
                 document.location.href = 'peserta-daftar-kegiatan.php?nama_peserta=$nama_peserta';
             </script>";;
     }
@@ -122,7 +122,7 @@ if (isset($_POST["submit"])) {
                                                     $result_keg = mysqli_query($conn, $query_keg);
                                                     while ($row_keg = mysqli_fetch_assoc($result_keg)) {
                                                         ?>
-                                                        <option value="<?php echo $row_keg["nama_kegiatan"]; ?>">
+                                                        <option value="<?php echo $row_keg["id"]; ?>">
                                                         <?php echo $row_keg["nama_kegiatan"]; ?></option>
                                                     <?php } ?>
                                                 </select>

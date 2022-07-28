@@ -29,12 +29,12 @@ if (isset($_POST["submit"])) {
 
     if ($simpan) {
         echo "<script type='text/javascript'>
-                alert('Data berhasil disimpan...!');
+                alert('Data Pegawai berhasil disimpan...!');
                 document.location.href = 'pegawai.php';
             </script>";
         } else {
         echo "<script type='text/javascript'>
-                alert('Data GAGAL disimpan...!');
+                alert('Data Pegawai GAGAL disimpan...!');
                 document.location.href = 'pegawai-tambah.php';
             </script>";
     }

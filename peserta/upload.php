@@ -11,12 +11,12 @@ $simpan = mysqli_query($conn, $query);
 if ($simpan)
 {
     echo "<script type='text/javascript'>
-            alert('Data Berhasil Dikirim...!');
+            alert('Data Pendaftaran Berhasil Dikirim...!');
             document.location.href = 'peserta-cek-nama.php?';
         </script>";
 } else {
     echo "<script type='text/javascript'>
-            alert('Data Gagal Dikirim...!');
+            alert('Data Pendaftaran Gagal Dikirim...!');
             document.location.href = 'peserta-daftar-kegiatan.php';
         </script>";
 }

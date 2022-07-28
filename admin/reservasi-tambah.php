@@ -43,12 +43,12 @@ if (isset($_POST["submit"])) {
 
     if ($simpan) {
         echo "<script type='text/javascript'>
-                alert('Data berhasil disimpan...!');
+                alert('Data Reservasi berhasil disimpan...!');
                 document.location.href = 'reservasi.php';
             </script>";
         } else {
         echo "<script type='text/javascript'>
-                alert('Data GAGAL disimpan...!');
+                alert('Data Reservasi GAGAL disimpan...!');
                 document.location.href = 'reservasi-tambah.php';
             </script>";        
         }

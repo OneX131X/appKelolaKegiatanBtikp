@@ -43,12 +43,12 @@ $simpan = mysqli_query($conn, $query);
 if ($simpan)
 {
     echo "<script type='text/javascript'>
-            alert('Data Berhasil disimpan...!');
+            alert('Pendaftaran Berhasil diubah...!');
         </script>";
     header('location:pendaftaran-peserta.php');
 } else {
     echo "<script type='text/javascript'>
-            alert('Data GAGAL disimpan...!');
+            alert('Pendaftaran GAGAL diubah...!');
             document.location.href = 'pendaftaran-peserta-tambah.php';
         </script>";
 }

@@ -34,12 +34,12 @@ $simpan = mysqli_query($conn, $query);
 if ($simpan)
 {
     echo "<script type='text/javascript'>
-        alert('Data Berhasil Disimpan...!');
+        alert('Pendaftaran Berhasil Disimpan...!');
             document.location.href = 'pendaftaran-peserta.php?';
         </script>";
 } else {
     echo "<script type='text/javascript'>
-            alert('File GAGAL diupload...!');
+            alert('Pendaftaran GAGAL disimpan...!');
             document.location.href = 'pendaftaran-peserta-tambah.php';
         </script>";
 }

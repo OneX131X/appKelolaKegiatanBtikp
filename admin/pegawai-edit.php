@@ -38,12 +38,12 @@ if (isset($_POST["submit"])) {
 
     if ($edit) {
         echo "<script type='text/javascript'>
-                alert('Data berhasil disimpan...!');
+                alert('Data Pegawai berhasil diubah...!');
                 document.location.href = 'pegawai.php';
             </script>";
         } else {
         echo "<script type='text/javascript'>
-                alert('Data GAGAL disimpan...!');
+                alert('Data Pegawai GAGAL diubah...!');
                 document.location.href = 'pegawai-edit.php?id=$id';
                 </script>";        
         }

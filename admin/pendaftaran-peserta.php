@@ -125,7 +125,7 @@ $result = mysqli_query($conn, $query);
                                                 <th>Agama</th>
                                                 <th>Kab/Kota</th>
                                                 <th>Unit Kerja</th>
-                                                <th>Alamat Sekolah</th>
+                                                <!-- <th>Alamat Sekolah</th> -->
                                                 <th>No. Hp</th>
                                                 <th>Surat SK</th>
                                                 <th>Status</th>
@@ -151,7 +151,7 @@ $result = mysqli_query($conn, $query);
                                                     <td><?php echo $row["agama"]; ?></td>
                                                     <td><?php echo $row["kabKota"]; ?></td>
                                                     <td><?php echo $row["asalSekolah"]; ?></td>
-                                                    <td><?php echo $row["alamatSekolah"]; ?></td>
+                                                    <!-- <td><?php echo $row["alamatSekolah"]; ?></td> -->
                                                     <td><?php echo $row["noTelp"]; ?></td>
                                                     <td>
                                                         <a href="../file-upload/<?php echo $row["suratSK"]; ?>" target="_blank">
@@ -184,7 +184,7 @@ $result = mysqli_query($conn, $query);
                                                 <th>Agama</th>
                                                 <th>Kab/Kota</th>
                                                 <th>Unit Kerja</th>
-                                                <th>Alamat Sekolah</th>
+                                                <!-- <th>Alamat Sekolah</th> -->
                                                 <th>No. Hp</th>
                                                 <th>Surat SK</th>
                                                 <th>Status</th>

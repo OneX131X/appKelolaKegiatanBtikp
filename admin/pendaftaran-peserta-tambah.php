@@ -33,12 +33,12 @@ if (isset($_POST["submit"])) {
 
     if ($simpan) {
         echo "<script type='text/javascript'>
-                alert('Data berhasil dikirim...!');
+                alert('Pendaftaran Peserta berhasil disimpan...!');
                 document.location.href = 'pendaftaran-peserta.php?';
                 </script>";
     } else {    
         echo "<script type='text/javascript'>
-                alert('Data GAGAL disimpan...!');
+                alert('Pendaftaran Peserta GAGAL disimpan...!');
                 document.location.href = 'pendaftaran-peserta-tambah.php';
             </script>";;
     }
