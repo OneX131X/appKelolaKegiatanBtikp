@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2022 at 06:15 PM
+-- Generation Time: Aug 08, 2022 at 01:45 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -70,10 +70,15 @@ CREATE TABLE `detail_kegiatan` (
 --
 
 INSERT INTO `detail_kegiatan` (`id`, `id_kegiatan`, `hari_satu`, `hari_dua`, `hari_tiga`) VALUES
-(2, 6, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(6, 9, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
 (7, 2, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(8, 8, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan');
+(8, 8, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
+(9, 10, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
+(10, 11, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
+(11, 12, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
+(15, 6, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
+(17, 9, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
+(18, 13, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
+(19, 15, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan');
 
 -- --------------------------------------------------------
 
@@ -94,9 +99,9 @@ CREATE TABLE `fasilitas_kamar` (
 --
 
 INSERT INTO `fasilitas_kamar` (`id`, `nama_fasilitas_kmr`, `jumlah`, `kondisi`, `keterangan`) VALUES
-(1, 'Ranjang', '40', 'baik', ''),
-(2, 'AC', '20', 'baik', ''),
-(3, 'TV', '20', 'baik', '');
+(1, 'Ranjang', '40', 'baik', 'tidak ada kerusakan'),
+(2, 'AC', '20', 'baik', 'tidak ada kerusakan'),
+(3, 'TV', '20', 'kurang baik', '2 unit perlu diperiksa');
 
 -- --------------------------------------------------------
 
@@ -161,7 +166,6 @@ INSERT INTO `kamar` (`id`, `no_kamar`, `kuantitas`, `jenisKamar`, `letakLantai`)
 (2, '02', 2, 'P', '1'),
 (3, '11', 2, 'L', '2'),
 (4, '12', 2, 'L', '2'),
-(6, '13', 2, 'L', '2'),
 (7, '03', 2, 'P', '1'),
 (8, '04', 2, 'P', '1'),
 (9, '05', 2, 'P', '1'),
@@ -175,10 +179,7 @@ INSERT INTO `kamar` (`id`, `no_kamar`, `kuantitas`, `jenisKamar`, `letakLantai`)
 (17, '16', 2, 'L', '2'),
 (18, '17', 2, 'L', '2'),
 (19, '18', 2, 'L', '2'),
-(20, '19', 2, 'L', '2'),
-(21, '20', 2, 'L', '2'),
-(22, '21', 3, 'P', '2'),
-(23, '22', 3, 'L', '2');
+(25, '13', 2, 'L', '2');
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,8 @@ INSERT INTO `kegiatan` (`id`, `nama_kegiatan`, `tglMulai`, `tglSelesai`, `jumlah
 (9, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMA Angkatan 2', '2022-06-10', '2022-06-12', 4, '40'),
 (10, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMK Angkatan 2', '2022-06-07', '2022-06-09', 4, '40'),
 (11, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMP Angkatan 1', '2022-06-13', '2022-06-15', 4, '40'),
-(12, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMP Angkatan 2', '2022-06-16', '2022-06-18', 4, '40');
+(12, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMP Angkatan 2', '2022-06-16', '2022-06-18', 4, '40'),
+(15, 'Bimtek Pengelolaan Informasi Sekolah Berbasis TIK Jenjang SMK Angkatan 3', '2022-07-14', '2022-07-16', 0, '40');
 
 -- --------------------------------------------------------
 
@@ -319,9 +321,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id`, `username`, `password`, `peran`, `login_terakhir`) VALUES
-(1, 'admin', '$2y$10$baqQ4zTS37tzcjXzcU9GjO5.a.IIvc1OX1.kwHleKXxjVo9dZXDK2', 'ADMIN', '2022-07-17 07:32:54'),
-(9, 'peserta', '$2y$10$An2JCJV6jUieWp2kbvzAfuTX7w5hG4vnTvb8GSELzuJ4ebAp6sV42', 'USER', '2022-07-16 06:43:52'),
-(12, 'narasumber', '$2y$10$eaaWNdBBFpZBhSESRlFTZeJ1N0xhq0JODCisUBpnrsXjpzARQ3jSe', 'PEMATERI', '2022-07-14 12:14:45');
+(1, 'admin', '$2y$10$baqQ4zTS37tzcjXzcU9GjO5.a.IIvc1OX1.kwHleKXxjVo9dZXDK2', 'ADMIN', '2022-08-04 12:40:25'),
+(12, 'narasumber', '$2y$10$GpUIMnLTwouPHDBJdpxdReblRN57fj7oOtXKiPEwOkvQz42sv5LTy', 'PEMATERI', '2022-07-28 16:57:54');
 
 -- --------------------------------------------------------
 
@@ -356,7 +357,9 @@ INSERT INTO `peserta` (`id`, `nama_peserta`, `nik`, `id_kegiatan`, `jenisKelamin
 (19, 'Khuon, S.Kom.', '7717127371263813', '8', 'L', '1989-07-12', 'SMK 1 Banjarbaru', 'S1 Komputer Stimik', '0813124361823', 'khn21@gmail.com'),
 (20, 'Zainia Putri, M.Kom', '7726263716837121', '8', 'P', '1996-07-24', 'SMK 1 Banjarmasin', 'S1 Komputer Unlam', '0813222741872', 'zain001@gmail.com'),
 (21, 'Fitriani, S. Pd.', '7771273127318231', '6', 'P', '1992-06-27', 'SMAN 1 Batu Ampar', 'S1 Pendidikan Unlam', '0813131231274', 'fitri11@gmail.com'),
-(22, 'Muhammad Adi, S.Pd', '7718282371728318', '8', 'L', '1996-06-07', 'SMK 1 Banjarmasin', 'S1 Komputer Stimik', '0895552127382', 'adi77@gmail.com');
+(22, 'Muhammad Adi, S.Pd', '7718282371728318', '8', 'L', '1996-06-07', 'SMK 1 Banjarmasin', 'S1 Komputer Stimik', '0895552127382', 'adi77@gmail.com'),
+(23, 'Amelia Utami, S.Pd', '7717727361827361', '6', 'P', '1995-05-25', 'SMA 2 Banjarmasin', 'S1 Pendidikan Unlam', '0813144423871', 'amel292@gmail.com'),
+(25, 'Muhammad Okti, S.Kom', '7782718723713412', '8', 'L', '1994-10-13', 'SMK 1 Banjarbaru', 'S1 Komputer Stimik', '0813331274618', 'm_okti13@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -380,13 +383,18 @@ CREATE TABLE `peserta_aktifitas` (
 
 INSERT INTO `peserta_aktifitas` (`id`, `id_peserta`, `id_kegiatan`, `absen1`, `absen2`, `absen3`, `penilaian`) VALUES
 (1, '8', '6', 'hadir', 'hadir', 'hadir', 'baik'),
-(2, '9', '9', 'hadir', 'hadir', 'hadir', ''),
+(2, '9', '9', 'hadir', 'hadir', 'hadir', 'baik'),
 (3, '10', '6', 'hadir', 'hadir', 'hadir', 'sangat baik'),
 (5, '11', '9', 'hadir', 'hadir', 'hadir', 'baik'),
-(6, '12', '9', 'hadir', 'hadir', 'hadir', ''),
+(6, '12', '9', 'hadir', 'hadir', 'hadir', 'baik'),
 (8, '15', '9', 'hadir', 'hadir', 'hadir', 'baik'),
 (9, '16', '2', 'hadir', 'hadir', 'hadir', 'sangat baik'),
-(10, '18', '6', 'hadir', 'hadir', 'hadir', 'sangat baik');
+(10, '18', '6', 'hadir', 'hadir', 'hadir', 'sangat baik'),
+(11, '19', '6', 'hadir', 'hadir', 'hadir', 'baik'),
+(12, '20', '8', 'hadir', 'hadir', 'hadir', 'sangat baik'),
+(15, '24', '8', 'hadir', 'hadir', 'hadir', ''),
+(17, '25', '8', 'hadir', 'hadir', 'hadir', 'baik'),
+(19, '22', '8', 'hadir', 'hadir', 'hadir', '');
 
 -- --------------------------------------------------------
 
@@ -416,18 +424,21 @@ CREATE TABLE `peserta_daftar` (
 --
 
 INSERT INTO `peserta_daftar` (`id`, `id_peserta`, `id_kegiatan`, `jenjang`, `jabatan`, `golongan`, `agama`, `kabKota`, `unitKerja`, `alamatSekolah`, `hp`, `suratSK`, `status_`, `keterangan`) VALUES
-(5, '8', '6', 'SMA/MA', 'guru', 'I', 'islam', 'hss', 'SMAN 1 Angkinang Hulu Sungai Selatan', 'hss', '0813124681726', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
-(6, '10', '6', 'SMA/MA', 'guru', 'I', 'islam', 'banjar', 'SMAN 1 Gambut PJJ Banjar', 'gambut', '0813547126847', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
-(7, '9', '9', 'SMA/MA', 'guru', 'I', 'islam', 'balangan', 'SMAN 2 Paringin Balangan', 'jl balangan', '0895552613716', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
-(9, '11', '9', 'SMA/MA', 'guru', 'I', 'islam', 'barito kuala', 'SMA GIBS Barito Kuala', 'barito kuala', '0895552153612', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
-(10, '12', '9', 'SMA/MA', 'guru', 'I', 'islam', 'balangan', 'SMAN 2 Paringin Balangan', 'jl balangan', '0813124681726', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
-(14, '18', '6', 'SMA/MA', 'guru', 'I', 'islam', 'bjb', '', 'Jl. Gunung Sari', '0895127361872', 'surat sk.jpg', 'diterima', 'syarat lengkap'),
+(5, '8', '6', 'SMA/MA', 'guru', 'I', 'islam', 'hss', 'SMAN 1 Angkinang Hulu Sungai Selatan', 'hss', '0813124681726', 'surat sk6.jpg', 'diterima', 'persyaratan lengkap dan sesuai'),
+(7, '9', '9', 'SMA/MA', 'guru', 'I', 'islam', 'balangan', 'SMAN 2 Paringin Balangan', 'jl balangan', '0895552613716', 'surat sk2.jpg', 'ditolak', 'quota sudah full'),
+(9, '11', '9', 'SMA/MA', 'guru', 'I', 'islam', 'barito kuala', 'SMA GIBS Barito Kuala', 'barito kuala', '0895552153612', 'surat sk3.jpg', 'diterima', 'persyaratan lengkap dan sesuai'),
+(10, '12', '9', 'SMA/MA', 'guru', 'I', 'islam', 'balangan', 'SMAN 2 Paringin Balangan', 'jl balangan', '0813124681726', 'surat sk4.jpg', 'ditolak', 'persyaratan kurang lengkap / sesuai'),
+(14, '18', '6', 'SMA/MA', 'guru', 'I', 'islam', 'bjb', '', 'Jl. Gunung Sari', '0895127361872', 'surat-sk5.jpg', 'diterima', 'persyaratan lengkap dan sesuai'),
 (16, '15', '9', 'SMA/MA', 'guru', 'I', 'islam', 'tanah laut', '', 'batu ampar', '', 'surat sk.jpg', 'diterima', ''),
 (17, '16', '9', 'SMA/MA', 'guru', 'I', 'islam', 'bjm', '', 'Jl. Mulawarman', '', 'surat sk.jpg', 'diterima', ''),
-(18, '19', '8', 'SMK', 'guru', 'I', 'budha', 'bjb', '', 'Jl. A. Yani', '', 'surat sk.jpg', 'diterima', ''),
-(19, '20', '8', 'SMK', 'guru', 'I', 'islam', 'bjm', '', 'Jl. Mulawarman', '', 'surat sk.jpg', 'diterima', ''),
-(20, '21', '6', 'SMA/MA', 'guru', 'I', 'islam', 'tanah laut', '', 'batu ampar', '', 'surat sk.jpg', 'diterima', ''),
-(21, '22', '8', 'SMK', 'guru', 'I', 'islam', 'bjm', '', 'Jl. Mulawarman', '', 'surat sk.jpg', 'diterima', '');
+(18, '19', '8', 'SMK', 'guru', 'I', 'budha', 'bjb', '', 'Jl. A. Yani', '', 'surat sk5.jpg', 'diterima', 'persyaratan lengkap dan sesuai'),
+(19, '20', '8', 'SMK', 'guru', 'I', 'islam', 'bjm', '', 'Jl. Mulawarman', '', 'surat sk.jpg', 'diterima', 'persyaratan lengkap dan sesuai'),
+(20, '21', '6', 'SMA/MA', 'guru', 'I', 'islam', 'tanah laut', '', 'batu ampar', '', 'surat sk5.jpg', 'ditolak', 'quota sudah full'),
+(21, '22', '8', 'SMK', 'guru', 'I', 'islam', 'bjm', '', 'Jl. Mulawarman', '', 'surat-sk4.jpg', 'diterima', 'persyaratan lengkap dan sesuai'),
+(22, '23', '6', 'SMA/MA', 'guru', 'I', 'islam', 'bjm', '', 'Jl. Mulawarman', '', 'surat-sk2.jpg', 'diterima', 'persyaratan lengkap dan sesuai'),
+(26, '24', '8', 'SMK', 'guru', 'I', 'islam', 'bjb', '', 'Jl. Ahmad Yani KM. 32, 5, Loktabat Selatan, Banjarbaru Selatan, Guntung Payung, Kec. Landasan Ulin, Kota Banjar Baru, Kalimantan Selatan 70721', '', 'surat sk.jpg', 'diterima', 'persyaratan lengkap dan sesuai'),
+(30, '25', '8', 'SMK', 'guru', 'I', 'islam', 'bjb', '', 'Jl. Ahmad Yani KM. 32, 5, Loktabat Selatan, Banjarbaru Selatan, Guntung Payung, Kec. Landasan Ulin, Kota Banjar Baru, Kalimantan Selatan 70721', '', 'surat sk8.jpg', 'diterima', 'persyaratan lengkap dan sesuai'),
+(32, '10', '6', 'SMA/MA', 'guru', 'I', 'islam', 'balangan', '', 'JL. A. YANI KOMPLEK PENDIDIKAN TERPADU KELURAHAN BATU PIRING, HARAPAN BARU, Kec. Paringin Selatan, Kab. Balangan Prov. Kalimantan Selatan', '', 'surat-sk.jpg', 'diterima', 'persyaratan lengkap dan sesuai');
 
 -- --------------------------------------------------------
 
@@ -1027,11 +1038,10 @@ INSERT INTO `reservasi` (`id`, `peserta_id`, `kamar_id`, `kegiatan_id`, `checkin
 (14, '12', '2', '9', '2022-06-16', '2022-06-18'),
 (16, '10', '1', '6', '2022-06-01', '2022-06-03'),
 (17, '11', '3', '9', '2022-06-10', '2022-06-12'),
-(21, '19', '4', '8', '2022-06-01', '2022-06-03'),
 (22, '18', '1', '6', '2022-05-29', '2022-05-31'),
 (23, '20', '7', '8', '2022-06-01', '2022-06-03'),
 (24, '21', '7', '6', '2022-05-29', '2022-05-31'),
-(25, '22', '4', '8', '2022-06-01', '2022-06-03');
+(28, '24', '4', '8', '2022-06-01', '2022-06-03');
 
 --
 -- Indexes for dumped tables
@@ -1141,13 +1151,13 @@ ALTER TABLE `bagian_karyawan`
 -- AUTO_INCREMENT for table `detail_kegiatan`
 --
 ALTER TABLE `detail_kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `fasilitas_kamar`
 --
 ALTER TABLE `fasilitas_kamar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `jabatan_karyawan`
@@ -1159,13 +1169,13 @@ ALTER TABLE `jabatan_karyawan`
 -- AUTO_INCREMENT for table `kamar`
 --
 ALTER TABLE `kamar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_diikuti`
@@ -1177,7 +1187,7 @@ ALTER TABLE `kegiatan_diikuti`
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `penggajian`
@@ -1189,25 +1199,25 @@ ALTER TABLE `penggajian`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `peserta_aktifitas`
 --
 ALTER TABLE `peserta_aktifitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `peserta_daftar`
 --
 ALTER TABLE `peserta_daftar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `presensi`
@@ -1219,7 +1229,7 @@ ALTER TABLE `presensi`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
