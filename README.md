@@ -1,12 +1,13 @@
 # appKelolaKegiatanBtikp
 
-This is A Web App Project for my thesis (?) in my last semester in college
+This Web App Project is for my thesis (? That thing that you make in the last semester of college) 
 
-This app is to manage all data of a study activity for teachers.
+This app is to manage data of activities (such as the registration, reservation, details of the activity, etc) from a study activity that held for teachers.
 
-Teachers that will participate in a study activity can do registration for it. they also can check the details of their activites and can print/download the certificate from this app.
+Teachers that will participate in a study activity can do the registration, they also can check the details of their activites and they can print/download the certificate with this app.
 
 these are how some of the interfaces looks like
+
 ![login](https://user-images.githubusercontent.com/87486976/183406465-2c5e3a2a-742c-4d3c-bdb5-24ad7bbbfdbb.jpg)
 ![admin dashboard](https://user-images.githubusercontent.com/87486976/183406477-34c5453f-4c8d-4bd3-b193-d5011adba1a3.jpg)
 ![admin pendaftaran](https://user-images.githubusercontent.com/87486976/183406547-f874c815-fc26-4d9e-94be-75a50f823329.jpg)
@@ -25,3 +26,5 @@ these are how some of the interfaces looks like
 ![pemateri kegiatan daftar peserta](https://user-images.githubusercontent.com/87486976/183406955-9e0d641a-f021-497b-a592-f390bc9503da.jpg)
 ![pemateri kegiatan penilaian](https://user-images.githubusercontent.com/87486976/183406972-6a453382-40e0-4272-8cac-255780f017e5.jpg)
 ![pemateri kegiatan peserta detail](https://user-images.githubusercontent.com/87486976/183406983-1667b690-9076-4b4f-bfba-58c0153f58dd.jpg)
+
+*this is my first full web app I've made, I'm still a beginner (: 
