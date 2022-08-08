@@ -2,9 +2,9 @@
 
 This Web App Project is for my thesis (? That thing that you make in the last semester of college) 
 
-This app is to manage data of activities (such as the registration, reservation, details of the activity, etc) from a study activity that held for teachers.
+This app is to manage data of activities from a study activity that held for teachers, such as the registration, reservation, details of the activity, etc. 
 
-Teachers that will participate in a study activity can do the registration, they also can check the details of their activites and they can print/download the certificate with this app.
+Teacher that will participate in a study activity can do the registration with this app, they also can check the details of their activites and they can print/download the certificate. 
 
 these are how some of the interfaces looks like
 
