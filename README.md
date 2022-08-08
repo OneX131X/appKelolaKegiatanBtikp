@@ -1,6 +1,6 @@
 # appKelolaKegiatanBtikp
 
-This is A Web App Project for my last semester in college
+This is A Web App Project for my thesis (?) in my last semester in college
 
 This app is to manage all data of a study activity for teachers.
 
