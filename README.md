@@ -1,5 +1,4 @@
 # appKelolaKegiatanBtikp
-projek skripsi 
 
 This is A Web App Project for my last semester in college
 
