@@ -14,7 +14,7 @@ if (!isset($_SESSION["login"])) {
 
 include '../koneksi.php';
 
-$query = "SELECT * FROM kegiatan ORDER BY tglMulai ASC";
+$query = "SELECT * FROM kegiatan ORDER BY nama_kegiatan ASC";
 $result = mysqli_query($conn, $query);
 ?>
 <!DOCTYPE html>

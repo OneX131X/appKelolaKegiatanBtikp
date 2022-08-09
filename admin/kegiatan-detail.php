@@ -139,15 +139,15 @@ if (isset($_POST["submit"])) {
                                         </div>
                                         <div class="form-group">
                                             <label for="hari_satu">Hari I :</label>
-                                            <textarea type="text" class="form-control" id="hari_satu" name="hari_satu" placeholder="Kegiatan-kegiatan di hari pertama" rows="3" required></textarea>
+                                            <textarea type="text" class="form-control" id="hari_satu" name="hari_satu" placeholder="Kegiatan-kegiatan di hari pertama (pisahkan dengan tanda koma)" rows="3" required></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="hari_dua">Hari II :</label>
-                                            <textarea type="text" class="form-control" id="hari_dua" name="hari_dua" placeholder="Kegiatan-kegiatan di hari kedua" rows="3" required></textarea>
+                                            <textarea type="text" class="form-control" id="hari_dua" name="hari_dua" placeholder="Kegiatan-kegiatan di hari kedua (pisahkan dengan tanda koma)" rows="3" required></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="hari_tiga">Hari III :</label>
-                                            <textarea type="text" class="form-control" id="hari_tiga" name="hari_tiga" placeholder="Kegiatan-kegiatan di hari ketiga" rows="3" required></textarea>
+                                            <textarea type="text" class="form-control" id="hari_tiga" name="hari_tiga" placeholder="Kegiatan-kegiatan di hari ketiga (pisahkan dengan tanda koma)" rows="3" required></textarea>
                                         </div>
                                         <input type="hidden" name="id_kegiatan" value="<?php echo $id; ?>">
                                     </div>
