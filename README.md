@@ -1,6 +1,6 @@
 # appKelolaKegiatanBtikp
 
-This Web App Project is for my thesis (? That thing that you make in the last semester of college) 
+This Web App Project is for a case study from my thesis (? That thing that you make in the last semester of college) 
 
 This app is to manage data of activities from a study activity that held for teachers, such as the registration, reservation, details of the activity, etc. 
 
