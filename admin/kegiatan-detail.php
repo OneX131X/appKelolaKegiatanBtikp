@@ -85,7 +85,7 @@ if (isset($_POST["submit"])) {
         .b-right {
             display: block;
             width: 10%;
-            margin: 0px 0px 10px 90%;
+            /* margin: 0px 0px 10px 90%; */
             
         }
     </style>
@@ -153,7 +153,7 @@ if (isset($_POST["submit"])) {
                                     </div>
                                     <!-- /.card-body -->
 
-                                    <div class="card-footer">
+                                    <div class="card-footer" style="margin-top: -2%;">
                                         <button type="submit" class="btn btn-primary mr-1" name="submit">Simpan</button>
                                         <a href="kegiatan.php" class="btn btn-secondary">Cancel</a>
                                     </div>
@@ -177,7 +177,6 @@ if (isset($_POST["submit"])) {
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body">
-                                            <a class="btn btn-warning b-right" href="../cetak-kegiatan-detail.php?id=<?php echo $id; ?>" target="_blank"><i class="fa fa-print"></i> Cetak Detail</a>
                                             <table id="example1" class="table table-bordered table-striped">
                                                 <thead>
                                                     <tr>
@@ -239,6 +238,7 @@ if (isset($_POST["submit"])) {
                                                     </tr>
                                                 </tfoot>
                                             </table>
+                                            <a class="btn btn-warning b-right" href="../cetak-kegiatan-detail.php?id=<?php echo $id; ?>" target="_blank"><i class="fa fa-print"></i> Cetak Detail</a>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->

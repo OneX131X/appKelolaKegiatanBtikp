@@ -19,7 +19,7 @@ include '../koneksi.php';
 //             WHERE 
 //             kegiatan.id = kegiatan_diikuti.id_kegiatan 
 //             ORDER BY nama_kegiatan ASC";
-$query = "SELECT * FROM kegiatan ";
+$query = "SELECT * FROM kegiatan ORDER BY nama_kegiatan";
 $result = mysqli_query($conn, $query);
 
 ?>

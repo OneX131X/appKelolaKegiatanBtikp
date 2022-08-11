@@ -119,7 +119,7 @@ if (isset($_POST["submit"])) {
                                             <select name="peran" id="peran" class="form-control">
                                                 <option value="">-- Pilih Peran --</option>
                                                 <option value="ADMIN" <?php if ($row_psw['peran'] == 'ADMIN') echo 'selected'; ?>>ADMIN</option>
-                                                <option value="USER" <?php if ($row_psw['peran'] == 'USER') echo 'selected'; ?>>USER</option>
+                                                <!-- <option value="USER" <?php if ($row_psw['peran'] == 'USER') echo 'selected'; ?>>USER</option> -->
                                                 <option value="PEMATERI" <?php if ($row_psw['peran'] == 'PEMATERI') echo 'selected'; ?>>PEMATERI</option>
                                             </select>
                                         </div>

@@ -136,7 +136,7 @@ if (isset($_POST["submit"])) {
                                             <select class="form-control" id="kegiatan_id" name="kegiatan_id" required>
                                                 <option value="">-- Pilih Kegiatan --</option>
                                                 <?php
-                                                $query_kegiatan = "SELECT * FROM kegiatan";
+                                                $query_kegiatan = "SELECT * FROM kegiatan ORDER BY nama_kegiatan";
                                                 $result_kegiatan = mysqli_query($conn, $query_kegiatan);
                                                 while ($row_kegiatan = mysqli_fetch_assoc($result_kegiatan)) {
                                                 ?>

@@ -114,7 +114,7 @@ if (isset($_POST["submit"])) {
                                             <select name="peran" id="peran" class="form-control">
                                                 <option value="">-- Pilih Peran --</option>
                                                 <option value="ADMIN">ADMIN</option>
-                                                <option value="USER">USER</option>
+                                                <!-- <option value="USER">USER</option> -->
                                                 <option value="PEMATERI">PEMATERI</option>
                                             </select>
                                         </div>

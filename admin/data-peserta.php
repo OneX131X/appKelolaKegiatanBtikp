@@ -81,7 +81,7 @@ $result = mysqli_query($conn, $query);
                                         <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak Data</button>
                                         <ul class="dropdown-menu">
                                         <?php 
-                                        $r_cetak = mysqli_query($conn, "SELECT kegiatan.nama_kegiatan FROM kegiatan ");
+                                        $r_cetak = mysqli_query($conn, "SELECT kegiatan.nama_kegiatan FROM kegiatan ORDER BY nama_kegiatan");
                                         while ($row_cetak = mysqli_fetch_assoc($r_cetak)) { ?>
                                             <li class="dropdown-item"><a style="color: green;" href="../cetak-peserta.php?nama_kegiatan=<?= $row_cetak["nama_kegiatan"] ?>" target="_blank"><?= $row_cetak["nama_kegiatan"] ?></a></li>
                                         <?php } ?>

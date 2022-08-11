@@ -14,7 +14,7 @@
 
 include '../koneksi.php';
 
-$query = "SELECT * FROM kegiatan ";
+$query = "SELECT * FROM kegiatan ORDER BY nama_kegiatan";
 $result = mysqli_query($conn, $query);
 
 $jmlhPeserta = mysqli_query($conn, "SELECT * FROM kegiatan ORDER BY nama_kegiatan ASC");
