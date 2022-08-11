@@ -1,5 +1,5 @@
 <?php
-include "koneksi.php";
+include 'koneksi.php';
 if (isset($_POST["submit"])) {
     $no_kamar=$_POST["no_kamar"];
     $kuantitas=$_POST["kuantitas"];
@@ -7,15 +7,15 @@ if (isset($_POST["submit"])) {
     $lantai=$_POST["lantai"];
     $simpan=mysqli_query($conn, "INSERT INTO kamar VALUES ('', '$no_kamar', '$kuantitas', '$jenis_kamar', '$lantai')");
     if ($simpan) {
-        echo "<script type='text/javascript'>
-            alert ('Data berhasil ditambah');
-            document.location.href='index.php'; 
-            </script>";
+        echo "<script type=text/javascript>
+            alert ('DATA BERHASIL DITAMBAH');
+            document.location.href='index.php';
+        </script>";
     }else{
-        echo "<script type='text/javascript'>
-            alert ('Data berhasil ditambah');
-            document.location.href='tambah.php'; 
-            </script>";
+        echo "<script type=text/javascript>
+            alert ('DATA GAGAL DITAMBAH');
+            document.location.href='tambah.php';
+        </script>";
     }
 }
 ?>
@@ -27,69 +27,54 @@ if (isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAMAR</title>
     <style>
-        .isi{
+        body{
+            padding: 10px;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            border: 1px solid black;
-            padding: 20px;
-        }
-        .box{
-            display: grid;
-            grid-template-columns: auto auto;
-        }
-        .item{
-            padding: 10px;
+            box-shadow: 0 0 .5em darkgray;
         }
         .bt{
+            padding-inline: 5px;
             border: 1px solid black;
-            padding-inline: 10px;
             text-decoration: none;
+        }
+        .item{
+            padding: 5px;
         }
     </style>
 </head>
 <body>
+    <h1>Tambah Kamar</h1>
     <form action="" method="post">
-        <div class="isi">
-            <div class="box">
-                <div class="item">
-                    <label for="no_kamar">No Kamar</label>
-                </div>
-                <div class="item">
-                    <input type="text" name="no_kamar" id="no_kamar">
-                </div>
-                <div class="item">
-                    <label for="kuantitas">Kuantitas</label>
-                </div>
-                <div class="item">
-                    <input type="text" name="kuantitas" id="kuantitas">
-                </div>
-                <div class="item">
-                    <label for="jenis_kamar">Jenis Kamar</label>
-                </div>
-                <div class="item">
-                    <select name="jenis_kamar" id="jenis_kamar">
-                        <option value="">--pilih--</option>
-                        <option value="Pria">Pria</option>
-                        <option value="Wanita">Wanita</option>
-                    </select>
-                </div>
-                <div class="item">
-                    <label for="lantai">Lantai</label>
-                </div>
-                <div class="item">
-                    <select name="lantai" id="lantai">
-                        <option value="">--pilih--</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <button type="submit" name="submit">Simpan</button>
-                <a href="index.php" class="bt">Batal</a>
-            </div>
+        <div class="item">
+            <label for="no_kamar">No Kamar</label>
+            <input type="text" name="no_kamar" id="no_kamar">
+        </div>
+        <div class="item">
+            <label for="kuantitas">kuantitas Kamar</label>
+            <input type="text" name="kuantitas" id="kuantitas">
+        </div>
+        <div class="item">
+            <label for="jenis_kamar">Jenis Kamar</label>
+            <select name="jenis_kamar" id="jenis_kamar">
+                <option value="">--pilih--</option>
+                <option value="Pria">Pria</option>
+                <option value="Wanita">Wanita</option>
+            </select>
+        </div>
+        <div class="item">
+            <label for="lantai">Lantai</label>
+            <select name="lantai" id="lantai">
+                <option value="">--pilih--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </div>
+        <div class="item">
+            <button type="submit" name="submit">Simpan</button>
+            <a href="index.php" class="bt">batal</a>
         </div>
     </form>
 </body>

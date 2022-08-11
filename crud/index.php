@@ -1,6 +1,6 @@
 <?php
-include "koneksi.php";
-$q=mysqli_query($conn, "SELECT * FROM kamar ORDER BY no_kamar");
+include 'koneksi.php';
+$query=mysqli_query($conn, "SELECT * FROM kamar ORDER BY no_kamar");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,68 +10,62 @@ $q=mysqli_query($conn, "SELECT * FROM kamar ORDER BY no_kamar");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAMAR</title>
     <style>
-        .isi{
+        body{
+            padding: 20px;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            border: 1px solid black;
-            padding: 20px;
+            box-shadow: 0 0 .5em darkgray;
+            width: 1000px;
         }
         .bt{
-            border: 1px solid black;
             padding-inline: 5px;
+            border: 1px solid black;
             text-decoration: none;
         }
         table{
-            margin-top: 10px;
             border-collapse: collapse;
+            margin-top: 10px;
             width: 100%;
         }
         tr, td, th{
-            padding: 10px;
             border: 1px solid black;
-            margin: 10px;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="isi">
-        <h1><a href="index.php" style="text-decoration: none; color: black;">DATA KAMAR</a></h1>
-        <div>
-            <a href="tambah.php" class="bt">Tambah</a>
-            <a href="cetak.php" target="_blank" class="bt">Cetak</a>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>No Kamar</th>
-                    <th>Kuantitas</th>
-                    <th>Jenis Kamar</th>
-                    <th>Lantai</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $no=1;
-                while ($row=mysqli_fetch_assoc($q)) { ?>
-                <tr>
-                    <td><?= $no; ?></td>
-                    <td><?= $row["no_kamar"]; ?></td>
-                    <td><?= $row["kuantitas"]; ?></td>
-                    <td><?= $row["jenis_kamar"]; ?></td>
-                    <td><?= $row["lantai"]; ?></td>
-                    <td>
-                        <div>
-                            <a href="ubah.php?id=<?= $row["id"]; ?>" class="bt">Ubah</a>
-                            <a href="hapus.php?id=<?= $row["id"]; ?>" class="bt">Hapus</a>
-                        </div>
-                    </td>
-                </tr>
-                <?php $no++; }?>
-            </tbody>
-        </table>
-    </div>
+    <h1>DATA KAMAR</h1>
+    <a href="tambah.php" class="bt">Tambah</a>
+    <a href="cetak.php" target="_blank" class="bt">Cetak</a>
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>No Kamar</th>
+                <th>Kuantitas</th>
+                <th>Jenis Kamar</th>
+                <th>Lantai</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $no=1; 
+            while ($row=mysqli_fetch_assoc($query)) { ?>
+            <tr>
+                <td><?= $no; ?></td>
+                <td><?= $row["no_kamar"]; ?></td>
+                <td><?= $row["kuantitas"]; ?></td>
+                <td><?= $row["jenis_kamar"]; ?></td>
+                <td><?= $row["lantai"]; ?></td>
+                <td>
+                    <a href="ubah.php?id=<?= $row["id"]; ?>" class="bt">Ubah</a>
+                    <a href="hapus.php?id=<?= $row["id"]; ?>" class="bt">Hapus</a>
+                </td>
+            </tr>
+            <?php $no++;} ?>
+        </tbody>
+    </table>
 </body>
 </html>
