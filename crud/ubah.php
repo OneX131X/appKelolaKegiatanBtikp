@@ -1,26 +1,26 @@
 <?php
 include 'koneksi.php';
 $id=$_GET["id"];
-$row=mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM kamar WHERE id=$id"));
+$row=mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM dataBuku"));
 if (isset($_POST["submit"])) {
-    $no_kamar=$_POST["no_kamar"];
-    $kuantitas=$_POST["kuantitas"];
-    $jenis_kamar=$_POST["jenis_kamar"];
-    $lantai=$_POST["lantai"];
-    $simpan=mysqli_query($conn, "UPDATE kamar SET 
-    no_kamar='$no_kamar',
-    kuantitas='$kuantitas',
-    jenis_kamar='$jenis_kamar',
-    lantai='$lantai'
+    $kode_buku=$_POST["kode_buku"];
+    $judul=$_POST["judul"];
+    $pengarang=$_POST["pengarang"];
+    $penerbit=$_POST["penerbit"];
+    $simpan=mysqli_query($conn, "UPDATE dataBuku SET 
+    kode_buku='$kode_buku',
+    judul='$judul',
+    pengarang='$pengarang',
+    penerbit='$penerbit'
     WHERE id=$id");
     if ($simpan) {
         echo "<script type=text/javascript>
-            alert ('DATA BERHASIL DIUBAH');
-            document.location.href='index.php';
+        alert('Data berhasil diubah');
+        document.location.href='index.php';
         </script>";
     }else{
         echo "<script type=text/javascript>
-            alert ('DATA GAGAL DIUBAH');
+            alert('Data buku gagal diubah');
             document.location.href='ubah.php?id=$id';
         </script>";
     }
@@ -32,20 +32,14 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAMAR</title>
+    <title>Data Buku</title>
     <style>
         body{
             padding: 10px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 .5em darkgray;
+
         }
         .bt{
-            padding-inline: 5px;
             border: 1px solid black;
-            text-decoration: none;
         }
         .item{
             padding: 5px;
@@ -53,35 +47,27 @@ if (isset($_POST["submit"])) {
     </style>
 </head>
 <body>
-    <h1>Ubah Kamar</h1>
+    <h1>Tambah Buku</h1>
     <form action="" method="post">
         <div class="item">
-            <label for="no_kamar">No Kamar</label>
-            <input value="<?= $row["no_kamar"]; ?>" type="text" name="no_kamar" id="no_kamar">
+            <label for="kode_buku">Kode Buku : </label>
+            <input value="<?= $row["kode_buku"]; ?>" type="text" name="kode_buku" id="kode_buku">
         </div>
         <div class="item">
-            <label for="kuantitas">kuantitas Kamar</label>
-            <input value="<?= $row["kuantitas"]; ?>" type="text" name="kuantitas" id="kuantitas">
+            <label for="judul">Judul Buku : </label>
+            <input value="<?= $row["judul"]; ?>" type="text" name="judul" id="judul">
         </div>
         <div class="item">
-            <label for="jenis_kamar">Jenis Kamar</label>
-            <select name="jenis_kamar" id="jenis_kamar">
-                <option value="">--pilih--</option>
-                <option <?php if($row["jenis_kamar"]=="Pria"){ echo "selected"; } ?> value="Pria">Pria</option>
-                <option <?php if($row["jenis_kamar"]=="Wanita"){ echo "selected"; } ?> value="Wanita">Wanita</option>
-            </select>
+            <label for="pengarang">Pengarang Buku : </label>
+            <input value="<?= $row["pengarang"]; ?>" type="text" name="pengarang" id="pengarang">
         </div>
         <div class="item">
-            <label for="lantai">Lantai</label>
-            <select name="lantai" id="lantai">
-                <option value="">--pilih--</option>
-                <option <?php if($row["lantai"]=="1"){ echo "selected"; } ?> value="1">1</option>
-                <option <?php if($row["lantai"]=="2"){ echo "selected"; } ?> value="2">2</option>
-            </select>
+            <label for="penerbit">Penerbit Buku : </label>
+            <input value="<?= $row["penerbit"]; ?>" type="text" name="penerbit" id="penerbit">
         </div>
         <div class="item">
             <button type="submit" name="submit">Simpan</button>
-            <a href="index.php" class="bt">batal</a>
+            <a href="index.php" class="bt">Batal</a>
         </div>
     </form>
 </body>
