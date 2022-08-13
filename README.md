@@ -1,4 +1,5 @@
 # appKelolaKegiatanBtikp
+Hi! i'm Kurniawan R. a college student from Uniska Banjarmasin, Indonesia.
 
 This Web App Project is for a case study from my thesis (? That thing that you make in the last semester of college) 
 
