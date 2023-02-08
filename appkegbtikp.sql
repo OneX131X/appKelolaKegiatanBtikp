@@ -2,8 +2,8 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 13, 2022 at 09:48 AM
+-- Host: localhost:3306
+-- Generation Time: Feb 08, 2023 at 02:20 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -209,8 +209,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id`, `username`, `password`, `peran`, `login_terakhir`) VALUES
-(1, 'admin', '$2y$10$baqQ4zTS37tzcjXzcU9GjO5.a.IIvc1OX1.kwHleKXxjVo9dZXDK2', 'ADMIN', '2022-08-11 02:10:00'),
-(12, 'narasumber', '$2y$10$GpUIMnLTwouPHDBJdpxdReblRN57fj7oOtXKiPEwOkvQz42sv5LTy', 'PEMATERI', '2022-08-11 01:11:02');
+(1, 'admin', '$2y$10$baqQ4zTS37tzcjXzcU9GjO5.a.IIvc1OX1.kwHleKXxjVo9dZXDK2', 'ADMIN', '2023-02-07 08:06:57'),
+(12, 'narasumber', '$2y$10$GpUIMnLTwouPHDBJdpxdReblRN57fj7oOtXKiPEwOkvQz42sv5LTy', 'PEMATERI', '2023-02-07 17:55:19');
 
 -- --------------------------------------------------------
 
@@ -279,11 +279,13 @@ INSERT INTO `peserta_aktifitas` (`id`, `id_peserta`, `id_kegiatan`, `absen1`, `a
 (8, '15', '9', 'hadir', 'hadir', 'hadir', 'baik'),
 (9, '16', '2', 'hadir', 'hadir', 'hadir', 'sangat baik'),
 (10, '18', '6', 'hadir', 'hadir', 'hadir', 'sangat baik'),
-(11, '19', '6', 'hadir', 'hadir', 'hadir', 'baik'),
 (12, '20', '8', 'hadir', 'hadir', 'hadir', 'sangat baik'),
 (15, '24', '8', 'hadir', 'hadir', 'hadir', ''),
 (17, '25', '8', 'hadir', 'hadir', 'hadir', 'baik'),
-(19, '22', '8', 'hadir', 'hadir', 'hadir', '');
+(19, '22', '8', 'hadir', 'hadir', 'hadir', ''),
+(26, '23', '6', 'hadir', 'hadir', 'hadir', ''),
+(31, '19', '8', 'hadir', 'hadir', 'hadir', ''),
+(32, '26', '8', 'hadir', 'hadir', 'hadir', '');
 
 -- --------------------------------------------------------
 
@@ -487,7 +489,7 @@ ALTER TABLE `peserta`
 -- AUTO_INCREMENT for table `peserta_aktifitas`
 --
 ALTER TABLE `peserta_aktifitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `peserta_daftar`
