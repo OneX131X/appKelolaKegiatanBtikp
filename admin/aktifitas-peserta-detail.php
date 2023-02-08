@@ -33,7 +33,7 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Detail Peserta | APPKelolaKegiatanBTIKP</title>
+    <title>Detail Aktifitas | APPKelolaKegiatanBTIKP</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
@@ -65,9 +65,6 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
             line-height: 30px;
             /* margin-top: 40px; */
         }
-        /* .detail td, th, tr{
-            border: 1px solid black;
-        } */
         .detail td, th{
             padding: 10px 15px 10px 15px;
         }
@@ -87,6 +84,12 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
             justify-content: center;
             align-items: center;
         }
+        .bt-con{
+            margin-top: 10px;
+        }
+        .label {
+            color: white;
+        }
     </style>
 </head>
 
@@ -104,14 +107,15 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Detail Peserta</h1>
+                            <h1>Detail Aktifitas Peserta</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active">Peserta</li>
                                 <li class="breadcrumb-item"><a href="aktifitas-peserta.php">Aktifitas Peserta</a></li>
-                                <li class="breadcrumb-item active">Detail Aktifitas Peserta</li>
+                                <li class="breadcrumb-item"><a href="aktifitas-peserta-tambah.php?id=<?= $row_peserta["id_peserta"]; ?>">Aktifitas</a></li>
+                                <li class="breadcrumb-item active">Detail Aktifitas</li>
                             </ol>
                         </div>
                     </div>
@@ -126,7 +130,7 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                             <!-- general form elements -->
                             <div class="card card-info">
                                 <div class="card-header">
-                                    <h3 class="card-title">Detail Data Peserta</h3>
+                                    <h3 class="card-title">Peserta</h3>
                                 </div>
                                 <!-- /.card-header -->
                                     <div class="card-body table-responsive pad">
@@ -166,7 +170,7 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                         <!-- /.card-header -->
                                         <div class="card-body">
                                             <div class="card-header bg-orange">
-                                                <h3 class="card-title"><?php echo $row_peserta["nama_kegiatan"]; ?></h3>
+                                                <h3 class="card-title label"><?php echo $row_peserta["nama_kegiatan"]; ?></h3>
                                             </div>
                                             <table id="example1" class="table table-bordered table-striped detail">
                                                 <thead>
@@ -264,7 +268,8 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                                     } ?>
                                                 </tbody>
                                             </table>
-                                            <div class="sertifikat">
+                                            <div class="bt-con">
+                                                <a href="aktifitas-peserta-edit.php?id=<?= $row_peserta['id']; ?>" class="bt btn btn-success  mr-1"><i class="fa fa-edit"></i> Edit</a>
                                                 <a href="../cetak-peserta-sertifikat2.php?id=<?= $row_peserta['id']; ?>" class="btn btn-sertifikat" target="_blank"><i class="fa fa-download mr-1"></i> Cetak Sertifikat</a>
                                             </div>
                                         </div>

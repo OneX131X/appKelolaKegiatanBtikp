@@ -126,8 +126,8 @@ if (isset($_POST["submit"])) {
             </section>
 
             <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
+            <div class="container-fluid">
+                <section class="content">
                     <div class="row">
                         <div class="col-md-12">
                             <!-- general form elements -->
@@ -145,15 +145,16 @@ if (isset($_POST["submit"])) {
                                         </div>
                                         <div class="form-group">
                                             <label for="hari_satu">Hari I :</label>
-                                            <input type="text" class="form-control hari" id="hari_satu" name="hari_satu" placeholder="Kegiatan-kegiatan di hari pertama" value="<?= $row_detail["hari_satu"]; ?>" required></input>
+                                            <input type="text" class="form-control hari" id="hari_satu" name="hari_satu" placeholder="Kegiatan-kegiatan di hari pertama" value="<?= $row_detail["hari_satu"]; ?>" required>
+                                            <!-- <textarea type="text" class="form-control" id="hari_satu" name="hari_satu" placeholder="Kegiatan-kegiatan di hari pertama (pisahkan dengan tanda koma)" rows="3" required></textarea> -->
                                         </div>
                                         <div class="form-group">
                                             <label for="hari_dua">Hari II :</label>
-                                            <input type="text" class="form-control hari" id="hari_dua" name="hari_dua" placeholder="Kegiatan-kegiatan di hari kedua" value="<?= $row_detail["hari_dua"]; ?>" required></input>
+                                            <input type="text" class="form-control hari" id="hari_dua" name="hari_dua" placeholder="Kegiatan-kegiatan di hari kedua" value="<?= $row_detail["hari_dua"]; ?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="hari_tiga">Hari III :</label>
-                                            <input type="text" class="form-control hari" id="hari_tiga" name="hari_tiga" placeholder="Kegiatan-kegiatan di hari ketiga" value="<?= $row_detail["hari_tiga"]; ?>" required></input>
+                                            <input type="text" class="form-control hari" id="hari_tiga" name="hari_tiga" placeholder="Kegiatan-kegiatan di hari ketiga" value="<?= $row_detail["hari_tiga"]; ?>" required>
                                         </div>
                                         <!-- <input type="hidden" name="id_kegiatan" value="<?php echo $id; ?>"> -->
                                     </div>

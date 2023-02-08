@@ -71,15 +71,15 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data-peserta.php" class="nav-link" style="color: white;">
-                                        <i class="nav-icon far fa-dot-circle ml-3"></i>
-                                        <p>Data Peserta</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="pendaftaran-peserta.php" class="nav-link" style="color: white;">
                                         <i class="nav-icon far fa-dot-circle ml-3"></i>
                                         <p>Pendaftaran Peserta</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="data-peserta.php" class="nav-link" style="color: white;">
+                                        <i class="nav-icon far fa-dot-circle ml-3"></i>
+                                        <p>Data Peserta</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

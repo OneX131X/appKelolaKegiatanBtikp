@@ -14,22 +14,21 @@ if (!isset($_SESSION["login"])) {
 
 include '../koneksi.php';
 
-$query = "SELECT 
-            peserta_aktifitas.*, 
-            peserta_daftar.id_peserta, 
-            peserta_daftar.status_, 
-            peserta.nama_peserta, 
-            kegiatan.nama_kegiatan  
-            FROM 
-            peserta_aktifitas, peserta_daftar, peserta, kegiatan 
-            WHERE 
-            peserta.id = peserta_aktifitas.id_peserta AND 
-            peserta_aktifitas.id_peserta = peserta_daftar.id_peserta AND 
-            kegiatan.id = peserta_aktifitas.id_kegiatan AND 
-            peserta_daftar.status_ = 'diterima' 
-            ORDER BY nama_kegiatan ASC";
+$query = "SELECT peserta.*, ( SELECT kegiatan.nama_kegiatan FROM peserta_aktifitas INNER JOIN kegiatan ON peserta_aktifitas.id_kegiatan = kegiatan.id WHERE id_peserta = peserta.id ORDER BY peserta_aktifitas.id DESC LIMIT 1 ) kegiatan_terakhir FROM peserta;";
 $result = mysqli_query($conn, $query);
 
+$r_peserta = mysqli_query($conn, "SELECT 
+                                    peserta.*, 
+                                    peserta_daftar.id_peserta, peserta_daftar.status_, 
+                                    kegiatan.nama_kegiatan, kegiatan.tglMulai, 
+                                    ( SELECT kegiatan.nama_kegiatan FROM peserta_aktifitas INNER JOIN kegiatan ON peserta_aktifitas.id_kegiatan = kegiatan.id WHERE id_peserta = peserta.id ORDER BY peserta_aktifitas.id DESC LIMIT 1 ) kegiatan_terakhir 
+                                    FROM 
+                                    peserta_daftar, peserta, kegiatan 
+                                    WHERE 
+                                    peserta.id = peserta_daftar.id_peserta AND
+                                    peserta_daftar.status_ = 'diterima' AND 
+                                    kegiatan.id = peserta.id_kegiatan 
+                                    ORDER BY nama_peserta ASC");
 
 ?>
 <!DOCTYPE html>
@@ -49,8 +48,8 @@ $result = mysqli_query($conn, $query);
         th:nth-child(1), th:nth-child(2), th:nth-child(5), td:nth-child(1), td:nth-child(2), td:nth-child(5) {
             text-align: center;
         }
-        .bt {
-            width: 60px;
+        th:nth-child(3) {
+            /* width: 85%; */
         }
     </style>
 </head>
@@ -89,7 +88,7 @@ $result = mysqli_query($conn, $query);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <a href="aktifitas-peserta-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a>
+                                    <!-- <a href="aktifitas-peserta-tambah.php" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Tambah Data</a> -->
                                     <a href="../cetak-aktifitas-peserta-all.php" target="_blank" class="btn bg-olive"><i class="fa fa-print"></i> Cetak Data</a>
                                     <div class="btn-group">
                                         <button type="button" class="btn bg-olive dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Cetak [Per Kegiatan]</button>
@@ -110,23 +109,27 @@ $result = mysqli_query($conn, $query);
                                                 <th>No</th>
                                                 <th>Action</th>
                                                 <th>Nama Peserta</th>
-                                                <th>Kegiatan</th>
-                                                <th>Absensi</th>
+                                                <th>Kegiatan Terakhir</th>
+                                                <th>Tanggal Mulai</th>
+                                                <!-- <th>Kegiatan</th> -->
+                                                <!-- <th>Absensi</th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $no = 1;
-                                            while ($row = mysqli_fetch_assoc($result)) { ?>
+                                            while ($row = mysqli_fetch_assoc($r_peserta)) { ?>
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
                                                     <td>
-                                                        <a href="aktifitas-peserta-edit.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Edit</a>
-                                                        <a href="aktifitas-peserta-detail.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-xs bg-info mr-1" ><i class="fa fa-info"></i> Detail</a>
-                                                        <a href="aktifitas-peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data aktifitas peserta ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                        <a href="aktifitas-peserta-tambah.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Aktifitas</a>
+                                                        <!-- <a href="aktifitas-peserta-detail.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-xs bg-info mr-1" ><i class="fa fa-info"></i> Detail</a> -->
+                                                        <!-- <a href="aktifitas-peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data aktifitas peserta ini...?');"><i class="fa fa-trash"></i> Hapus</a> -->
                                                     </td>
                                                     <td><?php echo $row["nama_peserta"]; ?></td>
-                                                    <td><?php echo $row["nama_kegiatan"]; ?></td>
-                                                    <td>
+                                                    <td><?php echo $row["kegiatan_terakhir"]; ?></td>
+                                                    <td><?php echo $row["tglMulai"]; ?></td>
+                                                    <!-- <td><?php echo $row["nama_kegiatan"]; ?></td> -->
+                                                    <!-- <td>
                                                         <?php
                                                             $q1 = mysqli_query($conn, "SELECT absen1, absen2, absen3 
                                                                     FROM peserta_aktifitas 
@@ -156,7 +159,7 @@ $result = mysqli_query($conn, $query);
                                                                 echo "0/3";
                                                             }
                                                         ?>
-                                                    </td>
+                                                    </td> -->
                                                 </tr>
                                             <?php $no++;
                                             } ?>
@@ -166,8 +169,10 @@ $result = mysqli_query($conn, $query);
                                                 <th>No</th>
                                                 <th>Action</th>
                                                 <th>Nama Peserta</th>
-                                                <th>Kegiatan</th>
-                                                <th>Absensi</th>
+                                                <th>Kegiatan Terakhir</th>
+                                                <th>Tanggal Mulai</th>
+                                                <!-- <th>Kegiatan</th> -->
+                                                <!-- <th>Absensi</th> -->
                                             </tr>
                                         </tfoot>
                                     </table>

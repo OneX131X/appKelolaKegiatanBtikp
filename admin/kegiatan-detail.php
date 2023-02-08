@@ -82,11 +82,14 @@ if (isset($_POST["submit"])) {
         td:nth-child(6) {
             width: 30%;
         }
-        .b-right {
-            display: block;
-            width: 10%;
-            /* margin: 0px 0px 10px 90%; */
-            
+        .grid {
+            display: grid;
+            grid-template-rows: auto auto;
+            row-gap: .2em;
+        }
+        .bt {
+            /* border: 1px solid red; */
+            width: 100%;
         }
     </style>
 </head>
@@ -120,8 +123,8 @@ if (isset($_POST["submit"])) {
             </section>
 
             <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
+            <div class="container-fluid">
+                <section class="content">
                     <div class="row">
                         <div class="col-md-12">
                             <!-- general form elements -->
@@ -196,8 +199,10 @@ if (isset($_POST["submit"])) {
                                                         <tr>
                                                             <td><?php echo $no; ?></td>
                                                             <td>
-                                                                <a href="kegiatan-detail-hapus.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-xs text-light" onclick="javascript: return confirm('Apakah yakin ingin menghapus detail kegiatan ini...?');"><i class="fa fa-trash"></i> Hapus</a>
-                                                                <a href="kegiatan-detail-edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
+                                                                <div class="grid">
+                                                                    <a href="kegiatan-detail-hapus.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-danger btn-xs text-light" onclick="javascript: return confirm('Apakah yakin ingin menghapus detail kegiatan ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                                    <a href="kegiatan-detail-edit.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
+                                                                </div>
                                                             </td>
                                                             <td><?php echo $row["nama_kegiatan"]; ?></td>
                                                             <td>
@@ -238,7 +243,9 @@ if (isset($_POST["submit"])) {
                                                     </tr>
                                                 </tfoot>
                                             </table>
-                                            <a class="btn btn-warning b-right" href="../cetak-kegiatan-detail.php?id=<?php echo $id; ?>" target="_blank"><i class="fa fa-print"></i> Cetak Detail</a>
+                                            <div class="mt-2" align="right">
+                                                <a class="btn btn-warning" href="../cetak-kegiatan-detail.php?id=<?php echo $id; ?>" target="_blank"><i class="fa fa-print"></i> Cetak Detail</a>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->

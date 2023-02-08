@@ -21,7 +21,7 @@ $delete = mysqli_query($conn, $query);
 if ($delete) {
     echo "<script type='text/javascript'>
             alert('Data aktifitas peserta berhasil dihapus...!');
-            document.location.href = 'aktifitas-peserta.php';
+            history.go(-1);
         </script>";
     }
 

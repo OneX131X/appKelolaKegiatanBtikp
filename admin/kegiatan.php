@@ -35,8 +35,14 @@ $result = mysqli_query($conn, $query);
         td:nth-child(1), td:nth-child(2), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7), td:nth-child(8) {
             text-align: center;
         }
+        .bt-con {
+            display: grid;
+            grid-template-rows: auto auto auto;
+            row-gap: .2em;
+            /* border: 1px solid black; */
+        }
         .bt {
-            width: 60px;
+            /* border: 1px solid black; */
         }
     </style>
 </head>
@@ -99,9 +105,11 @@ $result = mysqli_query($conn, $query);
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
                                                     <td>
-                                                        <a href="kegiatan-edit.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
-                                                        <a href="kegiatan-detail.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-info btn-xs mr-1"><i class="fa fa-info"></i> Detail</a>
-                                                        <a href="kegiatan-hapus.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-danger btn-xs mr-1" onClick="javascript: return confirm('Apakah yakin ingin menghapus data kegiatan ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                        <div class="bt-con">
+                                                            <a href="kegiatan-edit.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
+                                                            <a href="kegiatan-detail.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-info btn-xs mr-1"><i class="fa fa-info"></i> Detail</a>
+                                                            <a href="kegiatan-hapus.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-danger btn-xs mr-1" onClick="javascript: return confirm('Apakah yakin ingin menghapus data kegiatan ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                        </div>
                                                     </td>
                                                     <td><?php echo $row["nama_kegiatan"]; ?></td>
                                                     <td><?php echo date("d-m-Y", strtotime(($row["tglMulai"]))); ?></td>

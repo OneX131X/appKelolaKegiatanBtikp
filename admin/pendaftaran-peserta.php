@@ -140,10 +140,10 @@ $result = mysqli_query($conn, $query);
                                                 <tr>
                                                     <td><?php echo $no; ?></td>
                                                     <td>
-                                                        <a href="pendaftaran-peserta-edit.php?id=<?php echo $row["id"]; ?>" class="col-btn btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
-                                                        <a href="pendaftaran-peserta-detail.php?id=<?php echo $row["id"]; ?>" class="col-btn btn btn-xs bg-info mr-1" ><i class="fa fa-info"></i> Detail</a>
-                                                        <a href="../cetak-pendaftaran-peserta-satu.php?id=<?php echo $row["id"]; ?>" target="_blank" class="col-btn btn btn-warning btn-xs mr-1"><i class="fa fa-edit"></i> Cetak</a>
-                                                        <a href="pendaftaran-peserta-hapus.php?id=<?php echo $row["id"]; ?>" class="col-btn btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data pendaftaran ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                        <a href="pendaftaran-peserta-edit.php?id=<?php echo $row["id_peserta"]; ?>" class="col-btn btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
+                                                        <a href="pendaftaran-peserta-detail.php?id=<?php echo $row["id_peserta"]; ?>" class="col-btn btn btn-xs bg-info mr-1" ><i class="fa fa-info"></i> Detail</a>
+                                                        <a href="../cetak-pendaftaran-peserta-satu.php?id=<?php echo $row["id_peserta"]; ?>" target="_blank" class="col-btn btn btn-warning btn-xs mr-1"><i class="fa fa-edit"></i> Cetak</a>
+                                                        <a href="pendaftaran-peserta-hapus.php?id=<?php echo $row["id_peserta"]; ?>" class="col-btn btn btn-danger btn-xs text-light" onClick="javascript: return confirm('Apakah yakin ingin menghapus data pendaftaran ini...?');"><i class="fa fa-trash"></i> Hapus</a>
                                                     </td>
                                                     <td><?php echo $row["nama_peserta"]; ?></td>
                                                     <td><?php echo $row["nama_kegiatan"]; ?></td>
