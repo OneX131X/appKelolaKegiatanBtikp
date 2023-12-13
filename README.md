@@ -29,3 +29,7 @@ these are how some of the interfaces looks like
 ![pemateri kegiatan peserta detail](https://user-images.githubusercontent.com/87486976/183406983-1667b690-9076-4b4f-bfba-58c0153f58dd.jpg)
 
 *this is my first full web app I've made, I'm still a beginner (: 
+
+Sebuah aplikasi web yang telah saya bangun sampai selesai yaitu Aplikasi Kelola Kegiatan BTIKP, dimana aplikasi ini berfungsi untuk admin untuk mengatur data aktifitas kegiatan bimbingan teknis pembelajaran (bimtek) yang diadakan kepada para guru dari daerah Kalimantan Selatan. Data - data yang diatur yaitu seperti data registrasi peserta, reservasi kamar peserta, detail aktifitas yang dijalani, dan beberapa data lainnya.
+Para guru peserta bimtek juga dapat menggunakan aplikasi ini untuk melakukan registrasi bimtek, memeriksa detail aktifitas mereka, dan juga dapat melihat serta mencetak sertifikat hasil bimtek tersebut.
+Tantangan yang saya hadapi pada saat proses development aplikasi ini yaitu karena pada saat itu skill dan ilmu programming saya masih agak kurang untuk dapat membuat sebuah aplikasi sampai selesai, maka saya mempelajari lebih dalam lagi pada bagian programming php native, framework bootstrap css, dan beberapa ilmu programming lainnya sehingga saya mampu menyelesaikan projek aplikasi web ini. 
