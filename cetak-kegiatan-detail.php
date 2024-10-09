@@ -26,10 +26,13 @@ $html = '<!DOCTYPE html>
 
                 td, th {
                 border: 1px solid #000000;
-                text-align: left;
+                text-align: center;
                 padding: 8px;
                 }
-                td:nth-child(1), th:nth-child(1) {
+                td:nth-child(1) {
+                    text-align: left;
+                }
+                th:nth-child(1) {
                     text-align: center;
                 }
                 .heading{
@@ -62,8 +65,8 @@ $html = '<!DOCTYPE html>
         <table id="example1" class="table table-bordered table-striped detail">
             <thead>
                 <tr>
-                    <th>Hari</th>
-                    <th>Aktifitas</th>
+                    <th>Aktifitas Hari I</th>
+                    <th>Jam Pelatihan (JP)</th>
                 </tr>
             </thead>
             <tbody>';
@@ -78,7 +81,6 @@ $html = '<!DOCTYPE html>
                             detail_kegiatan.id_kegiatan = '$id'");
                 while ($row = mysqli_fetch_assoc($result)) {
             $html .= '<tr>
-                        <th>Hari I</th>
                         <td>';
                             $arr = explode(",", $row["hari_satu"]); 
                             $tes = count($arr);
@@ -86,24 +88,43 @@ $html = '<!DOCTYPE html>
                                 $html .= '<b>-> </b>' . $i . '<br>';
                             }
                 $html .='</td>
+                        <td class="tw">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>4</div>
+                        </td>
                     </tr>
                     <tr>
-                        <th>Hari II</th>
                         <td>'; 
                             $arr = explode(",", $row["hari_dua"]); 
                             foreach ($arr as $i) {
                                 $html .= '<b>-> </b>' . $i . '<br>';
                             }
                 $html .='</td>
+                        <td class="tw">
+                            <div>2</div>
+                            <div>3</div>
+                            <div>3</div>
+                            <div>3</div>
+                            <div>2</div>
+                            <div>4</div>
+                        </td>
                     </tr>
                     <tr>
-                        <th>Hari III</th>
                         <td>'; 
                             $arr = explode(",", $row["hari_tiga"]); 
                             foreach ($arr as $i) {
                                 $html .= '<b>-> </b>' . $i . '<br>';
                             }
                 $html .= '</td>
+                        <td class="tw">
+                            <div>2</div>
+                            <div>1</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">Total JP</td>
+                        <td class="tw">27</td>
                     </tr>'. 
                     $no++;
                 }

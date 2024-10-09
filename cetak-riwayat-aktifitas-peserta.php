@@ -68,7 +68,8 @@ $row_peserta = mysqli_fetch_assoc($query_peserta);
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3" style="text-align: center">
-                    <img src="img/logoW.png" alt="logo" style="width: 80px; height: 80px; float: left; align: left">
+                    <!-- <img src="img/logoW.png" alt="logo" style="width: 80px; height: 80px; float: left; align: left"> -->
+                    <img src="img/logoW.png" alt="logo" style="width: 80px; height: 80px; float: left;">
                     <b>PEMERINTAH PROVINSI KALIMANTAN SELATAN
                     <br style="font-size: larger">DINAS PENDIDIKAN
                     <br>BALAI TEKNOLOGI INFORMASI DAN KOMUNIKASI PENDIDIKAN

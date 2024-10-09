@@ -4,7 +4,7 @@ setlocale(LC_ALL, 'id_ID');
 
 include 'koneksi.php';
 
-$tanggal= mktime(date("m"),date("d"),date("Y"));
+$tanggal = mktime(date("m"), date("d"), date("Y"));
 $nama_peserta = $_GET["nama_peserta"];
 $query_peserta = "SELECT 
 peserta_aktifitas.*, 
@@ -29,12 +29,16 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <style type="text/css" media="print">
+    <style type="text/css" media="print">
         @page {
-            size: landscape;   /* auto is the initial value */
-            margin: 0;  /* this affects the margin in the printer settings */
+            size: landscape;
+            /* auto is the initial value */
+            margin: 0;
+            /* this affects the margin in the printer settings */
         }
+
         .sertifikat {
             /* display: flex; */
             /* justify-content: center; */
@@ -44,6 +48,7 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
             font-weight: bold;
             font-size: 40px;
         }
+
         .tabel2 {
             font-family: sans-serif;
             color: #232323;
@@ -53,33 +58,44 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
             line-height: 30px;
             margin-top: 40px;
         }
-        .tabel2 td, th,tr{
+
+        .tabel2 td,
+        th,
+        tr {
             border: 1px solid black;
         }
-        .tabel2 td, th{
+
+        .tabel2 td,
+        th {
             padding: 10px 15px 10px 15px;
         }
-        .tabel2 th:nth-child(1){
-            width: 10%;
+
+        .tabel2 th:nth-child(1) {
+            width: 80%;
         }
-        .tabel2 td:nth-child(3){
+
+        .tabel2 td:nth-child(3) {
             text-align: center;
         }
+
         .ttd-box {
             position: absolute;
             bottom: 14%;
             right: 41%;
         }
+
         .ttd {
             height: 40px;
             margin-left: 29%;
             /* border: 1px solid black; */
         }
+
         .bar {
             position: absolute;
             height: 71px;
             bottom: 36%;
         }
+
         /* .right {
             margin-left: 78%;
             margin-top: 20px;
@@ -91,29 +107,33 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
             font-size: 25px;
             /* padding-top: 50px; */
         }
+
         .justify {
             text-align: justify;
         }
+
         body {
             /* background-image: url(img/sertifikat.png);  */
             /* background-size: contain;  */
             /* background-size: 1055px auto;  */
             /* background-position: center 8%; */
             /* background-repeat: no-repeat;  */
-            margin-left: 100px; 
+            margin-left: 100px;
             margin-right: 100px;
             margin-top: 100px;
         }
+
         .hal-satu {
             margin-top: -40px;
             width: 1055px;
             height: 700px;
             background-color: #fcfcf0;
-            background-image: url('img/sertifikat.png'); 
-            background-size: 1055px auto; 
-            background-repeat: no-repeat; 
-            margin-left: -100px; 
+            background-image: url('img/sertifikat.png');
+            background-size: 1055px auto;
+            background-repeat: no-repeat;
+            margin-left: -100px;
         }
+
         .hal-dua {
             margin-top: 60px;
             width: 1055px;
@@ -121,22 +141,29 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
             /* background: grey; */
             margin-left: -100px;
         }
+
         .isi {
             margin: 0px 100px 0px 100px;
         }
+
         .text {
             padding: 50px;
         }
-        </style>
-    </head>
-    <body onload="script:window.print()">
+
+        .tw {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body onload="script:window.print()">
     <div class="hal-satu">
         <div class="text">
             <div style="text-align: center">
                 <img src="img/sertifikat.png" style="height: 70px; align-items: center; margin-top: 50px; display: none;">
                 <img src="img/logoW.png" style="height: 70px; align-items: center; margin-top: 50px;">
                 <br><span><b>PEMERINTAH PROVINSI KALIMANTAN SELATAN
-                <br>BALAI TEKNOLOGI INFORMASI DAN KOMUNIKASI PENDIDIKAN</b></span>
+                        <br>BALAI TEKNOLOGI INFORMASI DAN KOMUNIKASI PENDIDIKAN</b></span>
             </div>
             <div class="sertifikat">
                 <p align="center">SERTIFIKAT</p>
@@ -144,22 +171,22 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
             <div class="isi">
                 Diberikan kepada
                 <table style="margin-left: 70px;">
-                <tr>
-                    <td style="width: 18%">Nama</td>
-                    <td style="width: 2%;">:</td>
-                    <td><?= $row_peserta['nama_peserta'] ?></td>
-                </tr>
-                <tr>
-                    <td>Sekolah/Unit Kerja</td>
-                    <td>:</td>
-                    <td><?= $row_peserta['asalSekolah'] ?></td>
-                </tr>
-                <tr>
-                    <td>Kabupaten/Kota</td>
-                    <td>:</td>
-                    <td>
-                        <?php 
-                            $kabKota = $row_peserta['kabKota']; 
+                    <tr>
+                        <td style="width: 18%">Nama</td>
+                        <td style="width: 2%;">:</td>
+                        <td><?= $row_peserta['nama_peserta'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Sekolah/Unit Kerja</td>
+                        <td>:</td>
+                        <td><?= $row_peserta['asalSekolah'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Kabupaten/Kota</td>
+                        <td>:</td>
+                        <td>
+                            <?php
+                            $kabKota = $row_peserta['kabKota'];
                             switch ($kabKota) {
                                 case 'bjm':
                                     echo "Banjarmasin";
@@ -201,9 +228,9 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                     echo "Kotabaru";
                                     break;
                             }
-                        ?>
-                    </td>
-                </tr>
+                            ?>
+                        </td>
+                    </tr>
                 </table>
                 <div class="justify">
                     <p>
@@ -214,7 +241,7 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                     <p align="center">
                         Banjarmasin, <?= date('d M Y', $tanggal) ?> <br>
                         Kepala BTIKP, <br>
-                        <div class="ttd"><img src="img/barcode.jpg" class="bar"></div>
+                    <div class="ttd"><img src="img/barcode.jpg" class="bar"></div>
                     <p align="center">
                         <b>Eksan Muhtar, S.Pd, M.Pd</b> <br>
                         Penata TK.I <br>
@@ -223,16 +250,16 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
             </div>
         </div>
     </div>
-    
-    <div class="hal-dua" style="page-break-before: always;">
+
+    <div class="hal-dua">
         <div style="padding: 50px; margin-top: 50px;">
             <p class="heading"><?= $row_peserta['nama_kegiatan'] ?></p>
             <table id="example1" class="tabel2">
                 <thead>
                     <tr>
-                        <th>Hari</th>
-                        <th>Aktifitas</th>
-                        <th>Absensi</th>
+                        <th>Aktifitas Hari I</th>
+                        <th class="tw">JP</th>
+                        <th style="text-align: center;">Absensi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -251,60 +278,101 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                 peserta.nama_peserta = '$nama_peserta'");
                     while ($row = mysqli_fetch_assoc($result)) { ?>
                         <tr>
-                            <th>Hari I</th>
                             <td>
-                                <?php 
-                                $arr = explode(",", $row["hari_satu"]); 
+                                <?php
+                                $arr = explode(",", $row["hari_satu"]);
                                 $tes = count($arr);
-                            
+
                                 foreach ($arr as $i) {
                                     echo '<b>-> </b>' . $i . '<br>';
-                                }   
+                                }
+                                ?>
+                            </td>
+                            <td class="tw">
+                                <?php
+                                $arr = explode(",", $row["jp1"]);
+                                $tes = count($arr);
+
+                                foreach ($arr as $i) {
+                                    echo $i . '<br>';
+                                }
                                 ?>
                             </td>
                             <td><?php if ($row["absen1"] == "hadir") {
-                                echo "Hadir";
-                            } else { 
-                                echo "Tidak Hadir";
-                            }?></td>
+                                    echo "Hadir";
+                                } else {
+                                    echo "Tidak Hadir";
+                                } ?></td>
                         </tr>
+                        <th>Aktifitas Hari II</th>
                         <tr>
-                            <th>Hari II</th>
                             <td>
-                                <?php 
-                                $arr = explode(",", $row["hari_dua"]); 
+                                <?php
+                                $arr = explode(",", $row["hari_dua"]);
                                 foreach ($arr as $i) {
                                     echo '<b>-> </b>' . $i . '<br>';
-                                }   
+                                }
+                                ?>
+                            </td>
+                            <td class="tw">
+                                <?php
+                                $arr = explode(",", $row["jp2"]);
+                                $tes = count($arr);
+
+                                foreach ($arr as $i) {
+                                    echo $i . '<br>';
+                                }
                                 ?>
                             </td>
                             <td><?php if ($row["absen2"] == "hadir") {
-                                echo "Hadir";
-                            } else { 
-                                echo "Tidak Hadir";
-                            }?></td>
+                                    echo "Hadir";
+                                } else {
+                                    echo "Tidak Hadir";
+                                } ?></td>
                         </tr>
+                        <th>Aktifitas Hari III</th>
                         <tr>
-                            <th>Hari III</th>
                             <td>
-                                <?php 
-                                $arr = explode(",", $row["hari_tiga"]); 
+                                <?php
+                                $arr = explode(",", $row["hari_tiga"]);
                                 foreach ($arr as $i) {
                                     echo '<b>-> </b>' . $i . '<br>';
-                                }   
+                                }
+                                ?>
+                            </td>
+                            <td class="tw">
+                                <?php
+                                $arr = explode(",", $row["jp3"]);
+                                $tes = count($arr);
+
+                                foreach ($arr as $i) {
+                                    echo $i . '<br>';
+                                }
                                 ?>
                             </td>
                             <td><?php if ($row["absen3"] == "hadir") {
-                                echo "Hadir";
-                            } else { 
-                                echo "Tidak Hadir";
-                            }?></td>
+                                    echo "Hadir";
+                                } else {
+                                    echo "Tidak Hadir";
+                                } ?></td>
                         </tr>
                         <tr>
-                            <td align="right" class="mr-3" colspan="2">Nilai</td>
+                            <td style="text-align: right;">Total JP</td>
+                            <td class="tw">
+                                <?php
+                                // Sum jp1, jp2, and jp3 values by exploding, converting to integers, and summing them
+                                $total_jp = array_sum(array_map('intval', explode(",", $row["jp1"]))) +
+                                    array_sum(array_map('intval', explode(",", $row["jp2"]))) +
+                                    array_sum(array_map('intval', explode(",", $row["jp3"])));
+    
+                                // Display the result
+                                echo $total_jp;
+                                ?>
+                            </td>
+                            <!-- <td align="right" class="mr-3" colspan="2">Nilai</td> -->
                             <td align="center">
-                                <?php 
-                                $nilai = $row["penilaian"]; 
+                                <?php
+                                $nilai = $row["penilaian"];
                                 switch ($nilai) {
                                     case "sangat baik":
                                         echo "Sangat Baik";
@@ -325,9 +393,6 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
             </table>
         </div>
     </div>
-    </body>
+</body>
+
 </html>
-
-
-
-
