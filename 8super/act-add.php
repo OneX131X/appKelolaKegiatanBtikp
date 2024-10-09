@@ -79,6 +79,10 @@ if (isset($_POST["submit"])) {
             margin-right: auto;
             width: 80%;
         }
+        .head{
+            text-decoration: none;
+            color: black;
+        }
         .bt-box{
             /* border: 1px solid black; */
             display: grid;
@@ -89,10 +93,6 @@ if (isset($_POST["submit"])) {
             margin-left: auto;
             margin-right: auto;
             width: 50%;
-        }
-        .head{
-            text-decoration: none;
-            color: black;
         }
         .bt{
             border: 1px solid black;
