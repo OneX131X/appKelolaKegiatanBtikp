@@ -7,6 +7,8 @@ This app is to manage data of activities from a study activity that held for tea
 
 Teacher that will participate in a study activity can do the registration with this app, they also can check the details of their activites and they can print/download the certificate. 
 
+[Usernames & Passwords *click here](./usernames_passwords.txt)
+
 these are how some of the interfaces looks like
 
 ![login](https://user-images.githubusercontent.com/87486976/183406465-2c5e3a2a-742c-4d3c-bdb5-24ad7bbbfdbb.jpg)
