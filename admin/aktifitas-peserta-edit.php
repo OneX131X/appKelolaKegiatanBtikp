@@ -3,7 +3,7 @@ session_start();
 if (!$_SESSION["peran"] == "ADMIN") {
     header("Location: logout.php");
     exit;
-} 
+}
 if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
@@ -42,7 +42,7 @@ if (isset($_POST["submit"])) {
                 alert('Data Aktifitas Peserta berhasil diubah...!');
                 document.location.href = 'aktifitas-peserta-detail.php?id=$id';
                 </script>";
-    } else {    
+    } else {
         echo "<script type='text/javascript'>
                 alert('Data Aktifitas Peserta GAGAL diubah...!');
                 document.location.href = 'aktifitas-peserta-edit.php?id=$id';
@@ -109,21 +109,21 @@ if (isset($_POST["submit"])) {
                                     <h3 class="card-title">Peserta</h3>
                                 </div>
                                 <!-- /.card-header -->
-                                    <div class="card-body table-responsive pad">
-                                        <table>
-                                            <tr>
-                                                <td for="nama_peserta" style="width: 23%;">Nama Peserta</td>
-                                                <td style="width: 2%;">:</td>
-                                                <td><?= $row_peserta["nama_peserta"]; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td for="nama_kegiatan">Kegiatan</td>
-                                                <td>:</td>
-                                                <td><?= $row_peserta["nama_kegiatan"]; ?></td>
-                                            </tr>
-                                        </table>
-                                        <!-- /.card-body -->
-                                    </div>
+                                <div class="card-body table-responsive pad">
+                                    <table>
+                                        <tr>
+                                            <td for="nama_peserta" style="width: 23%;">Nama Peserta</td>
+                                            <td style="width: 2%;">:</td>
+                                            <td><?= $row_peserta["nama_peserta"]; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td for="nama_kegiatan">Kegiatan</td>
+                                            <td>:</td>
+                                            <td><?= $row_peserta["nama_kegiatan"]; ?></td>
+                                        </tr>
+                                    </table>
+                                    <!-- /.card-body -->
+                                </div>
                                 <!-- /.card-body -->
                             </div>
                         </div>
@@ -135,31 +135,31 @@ if (isset($_POST["submit"])) {
             </section>
             <!-- /.content -->
             <section class="content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card ">
-                                        <form action="" method="post">
-                                            <div class="card-header bg-lime">
-                                                <h3 class="card-title">Detail Kegiatan</h3>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card ">
+                                    <form action="" method="post">
+                                        <div class="card-header bg-lime">
+                                            <h3 class="card-title">Detail Kegiatan</h3>
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <div class="card-body">
+                                            <div class="card-header bg-orange">
+                                                <h3 class="card-title label"><?php echo $row_peserta["nama_kegiatan"]; ?></h3>
                                             </div>
-                                            <!-- /.card-header -->
-                                            <div class="card-body">
-                                                <div class="card-header bg-orange">
-                                                    <h3 class="card-title label"><?php echo $row_peserta["nama_kegiatan"]; ?></h3>
-                                                </div>
-                                                <table id="example1" class="table table-bordered table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Hari</th>
-                                                            <th>Aktifitas</th>
-                                                            <th>Absensi</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php $no = 1;
-                                                        $result = mysqli_query($conn, "SELECT 
+                                            <table id="example1" class="table table-bordered table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Aktifitas Hari I</th>
+                                                        <th class="tw">JP</th>
+                                                        <th style="text-align: center;">Absensi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php $no = 1;
+                                                    $result = mysqli_query($conn, "SELECT 
                                                                     detail_kegiatan.*, 
                                                                     peserta_aktifitas.*, 
                                                                     peserta.nama_peserta, 
@@ -171,98 +171,127 @@ if (isset($_POST["submit"])) {
                                                                     kegiatan.id = peserta_aktifitas.id_kegiatan AND 
                                                                     peserta_aktifitas.id_kegiatan = detail_kegiatan.id_kegiatan AND 
                                                                     peserta_aktifitas.id = $id");
-                                                        while ($row = mysqli_fetch_assoc($result)) { ?>
-                                                            <tr>
-                                                                <th>Hari I</th>
-                                                                <td>
-                                                                    <?php 
-                                                                    $arr = explode(",", $row["hari_satu"]); 
-                                                                    foreach ($arr as $i) {
-                                                                        echo '<b>-> </b>' . $i . '<br>';
-                                                                    }   
-                                                                    ?>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="btn-group btn-group-toggle ml-2" data-toggle="buttons">
-                                                                        <label class="btn bg-success active">
-                                                                            <input type="radio" name="absen1" id="absen1" autocomplete="off" value="hadir"> Hadir
-                                                                        </label>
-                                                                        <label class="btn bg-warning active">
-                                                                            <input type="radio" name="absen1" id="absen1" autocomplete="off" value="tidak hadir"> Tidak Hadir
-                                                                        </label>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Hari II</th>
-                                                                <td>
-                                                                    <?php 
-                                                                    $arr = explode(",", $row["hari_dua"]); 
-                                                                    foreach ($arr as $i) {
-                                                                        echo '<b>-> </b>' . $i . '<br>';
-                                                                    }   
-                                                                    ?>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="btn-group btn-group-toggle ml-2" data-toggle="buttons">
-                                                                        <label class="btn bg-success active">
-                                                                            <input type="radio" name="absen2" id="absen2" autocomplete="off" value="hadir"> Hadir
-                                                                        </label>
-                                                                        <label class="btn bg-warning active">
-                                                                            <input type="radio" name="absen2" id="absen2" autocomplete="off" value="tidak hadir"> Tidak Hadir
-                                                                        </label>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Hari III</th>
-                                                                <td>
-                                                                    <?php 
-                                                                    $arr = explode(",", $row["hari_tiga"]); 
-                                                                    foreach ($arr as $i) {
-                                                                        echo '<b>-> </b>' . $i . '<br>';
-                                                                    }   
-                                                                    ?>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="btn-group btn-group-toggle ml-2" data-toggle="buttons">
-                                                                        <label class="btn bg-success active">
-                                                                            <input type="radio" name="absen3" id="absen3" autocomplete="off" value="hadir"> Hadir
-                                                                        </label>
-                                                                        <label class="btn bg-warning active">
-                                                                            <input type="radio" name="absen3" id="absen3" autocomplete="off" value="tidak hadir"> Tidak Hadir
-                                                                        </label>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        <?php $no++;
-                                                        } ?>
-                                                    </tbody>
-                                                    <tfoot>
-                                                    <tr>
-                                                            <th>Hari</th>
-                                                            <th>Aktifitas</th>
-                                                            <th>Absensi</th>
+                                                    while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_satu"]);
+                                                                foreach ($arr as $i) {
+                                                                    echo '<b>-> </b>' . $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp1"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <div class="btn-group btn-group-toggle ml-2" data-toggle="buttons">
+                                                                    <label class="btn bg-success active">
+                                                                        <input type="radio" name="absen1" id="absen1" autocomplete="off" value="hadir"> Hadir
+                                                                    </label>
+                                                                    <label class="btn bg-warning active">
+                                                                        <input type="radio" name="absen1" id="absen1" autocomplete="off" value="tidak hadir"> Tidak Hadir
+                                                                    </label>
+                                                                </div>
+                                                            </td>
                                                         </tr>
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                            <div class="card-footer">
-                                                <button type="submit" class="btn btn-primary mr-1" name="submit">Simpan</button>
-                                                <a href="aktifitas-peserta.php" class="btn btn-secondary">Batal</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!-- /.card-body -->
+                                                        <th>Aktifitas Hari II</th>
+                                                        <tr>
+                                                            <td>
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_dua"]);
+                                                                foreach ($arr as $i) {
+                                                                    echo '<b>-> </b>' . $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp2"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <div class="btn-group btn-group-toggle ml-2" data-toggle="buttons">
+                                                                    <label class="btn bg-success active">
+                                                                        <input type="radio" name="absen2" id="absen2" autocomplete="off" value="hadir"> Hadir
+                                                                    </label>
+                                                                    <label class="btn bg-warning active">
+                                                                        <input type="radio" name="absen2" id="absen2" autocomplete="off" value="tidak hadir"> Tidak Hadir
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <th>Aktifitas Hari III</th>
+                                                        <tr>
+                                                            <td>
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_tiga"]);
+                                                                foreach ($arr as $i) {
+                                                                    echo '<b>-> </b>' . $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp3"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td>
+                                                                <div class="btn-group btn-group-toggle ml-2" data-toggle="buttons">
+                                                                    <label class="btn bg-success active">
+                                                                        <input type="radio" name="absen3" id="absen3" autocomplete="off" value="hadir"> Hadir
+                                                                    </label>
+                                                                    <label class="btn bg-warning active">
+                                                                        <input type="radio" name="absen3" id="absen3" autocomplete="off" value="tidak hadir"> Tidak Hadir
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php $no++;
+                                                    } ?>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Hari</th>
+                                                        <th>Aktifitas</th>
+                                                        <th>Absensi</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="submit" class="btn btn-primary mr-1" name="submit">Simpan</button>
+                                            <a href="aktifitas-peserta-detail.php?id=<?= $id ?>3" class="btn btn-secondary">Batal</a>
+                                        </div>
+                                    </form>
                                 </div>
-                                <!-- /.card -->
+                                <!-- /.card-body -->
                             </div>
-                            <!-- /.col -->
+                            <!-- /.card -->
                         </div>
-                        <!-- /.row -->
+                        <!-- /.col -->
                     </div>
-                    <!-- /.container-fluid -->
-                </section>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </section>
         </div>
         <!-- /.content-wrapper -->
 

@@ -90,6 +90,9 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
         .label {
             color: white;
         }
+        .tw {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -175,8 +178,8 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                             <table id="example1" class="table table-bordered table-striped detail">
                                                 <thead>
                                                     <tr>
-                                                        <th>Hari</th>
-                                                        <th>Aktifitas</th>
+                                                        <th>Aktifitas Hari I</th>
+                                                        <th class="tw">JP</th>
                                                         <th style="text-align: center;">Absensi</th>
                                                     </tr>
                                                 </thead>
@@ -196,7 +199,6 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                                                 peserta_aktifitas.id = $id");
                                                     while ($row = mysqli_fetch_assoc($result)) { ?>
                                                         <tr>
-                                                            <th>Hari I</th>
                                                             <td>
                                                                 <?php 
                                                                 $arr = explode(",", $row["hari_satu"]); 
@@ -207,14 +209,24 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                                                 }   
                                                                 ?>
                                                             </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp1"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
                                                             <td><?php if ($row["absen1"] == "hadir") {
                                                                 echo "Hadir";
                                                             } else { 
                                                                 echo "Tidak Hadir";
                                                             }?></td>
                                                         </tr>
+                                                        <th>Aktifitas Hari II</th>
                                                         <tr>
-                                                            <th>Hari II</th>
                                                             <td>
                                                                 <?php 
                                                                 $arr = explode(",", $row["hari_dua"]); 
@@ -223,20 +235,40 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
                                                                 }   
                                                                 ?>
                                                             </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp2"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
                                                             <td><?php if ($row["absen2"] == "hadir") {
                                                                 echo "Hadir";
                                                             } else { 
                                                                 echo "Tidak Hadir";
                                                             }?></td>
                                                         </tr>
+                                                        <th>Aktifitas Hari III</th>
                                                         <tr>
-                                                            <th>Hari III</th>
                                                             <td>
                                                                 <?php 
                                                                 $arr = explode(",", $row["hari_tiga"]); 
                                                                 foreach ($arr as $i) {
                                                                     echo '<b>-> </b>' . $i . '<br>';
                                                                 }   
+                                                                ?>
+                                                            </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp3"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
                                                                 ?>
                                                             </td>
                                                             <td><?php if ($row["absen3"] == "hadir") {

@@ -21,7 +21,10 @@ $query_detail = "SELECT
         kegiatan.nama_kegiatan, 
         detail_kegiatan.hari_satu, 
         detail_kegiatan.hari_dua, 
-        detail_kegiatan.hari_tiga 
+        detail_kegiatan.hari_tiga, 
+        detail_kegiatan.jp1,
+        detail_kegiatan.jp2,
+        detail_kegiatan.jp3
         FROM 
         detail_kegiatan, kegiatan 
         WHERE 
@@ -39,7 +42,10 @@ if (isset($_POST["submit"])) {
     $hari_satu = htmlspecialchars($_POST["hari_satu"]);
     $hari_dua = htmlspecialchars($_POST["hari_dua"]);
     $hari_tiga = htmlspecialchars($_POST["hari_tiga"]);
-    $query = "INSERT INTO detail_kegiatan VALUES ('', '$id_kegiatan', '$hari_satu', '$hari_dua', '$hari_tiga')";
+    $jp1 = htmlspecialchars($_POST["jp1"]);
+    $jp2 = htmlspecialchars($_POST["jp2"]);
+    $jp3 = htmlspecialchars($_POST["jp3"]);
+    $query = "INSERT INTO detail_kegiatan VALUES ('', '$id_kegiatan', '$hari_satu', '$hari_dua', '$hari_tiga', '$jp1', '$jp2', '$jp3')";
     $simpan = mysqli_query($conn, $query);
 
     if ($simpan) {
@@ -47,12 +53,12 @@ if (isset($_POST["submit"])) {
                 alert('Detail Kegiatan berhasil disimpan...!');
                 document.location.href = 'kegiatan-detail.php?id=$id';
             </script>";
-        } else {
+    } else {
         echo "<script type='text/javascript'>
                 alert('Detail Kegiatan GAGAL disimpan...!');
                 document.location.href = 'kegiatan-detail.php?id=$id';
-                </script>";        
-        }
+                </script>";
+    }
 }
 
 ?>
@@ -73,23 +79,39 @@ if (isset($_POST["submit"])) {
         td:nth-child(3) {
             width: 13%;
         }
+
         td:nth-child(4) {
             width: 30%;
         }
+
         td:nth-child(5) {
             width: 30%;
         }
+
         td:nth-child(6) {
             width: 30%;
         }
+
         .grid {
             display: grid;
             grid-template-rows: auto auto;
             row-gap: .2em;
         }
+
         .bt {
             /* border: 1px solid red; */
             width: 100%;
+        }
+
+        .tw {
+            width: 15%;
+            text-align: center;
+        }
+
+        th {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
         }
     </style>
 </head>
@@ -140,17 +162,37 @@ if (isset($_POST["submit"])) {
                                             <label for="nama_kegiatan">Nama Kegiatan :</label>
                                             <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" value="<?php echo $row_k["nama_kegiatan"]; ?>" readonly>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="hari_satu">Hari I :</label>
-                                            <textarea type="text" class="form-control" id="hari_satu" name="hari_satu" placeholder="Kegiatan-kegiatan di hari pertama (pisahkan dengan tanda koma)" rows="3" required></textarea>
+                                        <div class="form-group row">
+                                            <label for="hari_satu">Aktifitas Hari I :</label>
+                                            <textarea type="text" class="form-control" id="hari_satu" name="hari_satu" placeholder="Kegiatan-kegiatan ketik dengan dipisahkan dengan tanda koma (misalkan 'kegiatan 1, kegiatan 2, kegiatan 3, ...')" rows="3" required></textarea>
+                                            <label for="jp1" class="col-sm-2 col-form-label">Jam Pelatihan h1 (JP) :</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="jp1" name="jp1" placeholder="JP untuk masing-masing kegiatan ketik dengan dipisahkan dengan tanda koma (misalkan '1, ,2, 2, 4, ...')" required>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="hari_dua">Hari II :</label>
-                                            <textarea type="text" class="form-control" id="hari_dua" name="hari_dua" placeholder="Kegiatan-kegiatan di hari kedua (pisahkan dengan tanda koma)" rows="3" required></textarea>
+                                        <div class="">
+                                            <div class="card-header">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="hari_tiga">Hari III :</label>
-                                            <textarea type="text" class="form-control" id="hari_tiga" name="hari_tiga" placeholder="Kegiatan-kegiatan di hari ketiga (pisahkan dengan tanda koma)" rows="3" required></textarea>
+                                        <div class="form-group row">
+                                            <label for="hari_dua">Aktifitas Hari II :</label>
+                                            <textarea type="text" class="form-control" id="hari_dua" name="hari_dua" placeholder="Kegiatan-kegiatan ketik dengan dipisahkan dengan tanda koma (misalkan 'kegiatan 1, kegiatan 2, kegiatan 3, ...')" rows="3" required></textarea>
+                                            <label for="jp2" class="col-sm-2 col-form-label">Jam Pelatihan h2 (JP) :</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="jp2" name="jp2" placeholder="JP untuk masing-masing kegiatan ketik dengan dipisahkan dengan tanda koma (misalkan '2, 3, 3, ...')" required>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="card-header">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="hari_tiga">Aktifitas Hari III :</label>
+                                            <textarea type="text" class="form-control" id="hari_tiga" name="hari_tiga" placeholder="Kegiatan-kegiatan ketik dengan dipisahkan dengan tanda koma (misalkan 'kegiatan 1, kegiatan 2, kegiatan 3, ...')" rows="3" required></textarea>
+                                            <label for="jp3" class="col-sm-2 col-form-label">Jam Pelatihan h3 (JP) :</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="jp3" name="jp3" placeholder="JP untuk masing-masing kegiatan ketik dengan dipisahkan dengan tanda koma (misalkan '2, 1, ...')" required>
+                                            </div>
                                         </div>
                                         <input type="hidden" name="id_kegiatan" value="<?php echo $id; ?>">
                                     </div>
@@ -180,69 +222,190 @@ if (isset($_POST["submit"])) {
                                         </div>
                                         <!-- /.card-header -->
                                         <div class="card-body">
+                                            <!-- $result = mysqli_query($conn, "SELECT 
+                                            detail_kegiatan.*, 
+                                            peserta_aktifitas.*, 
+                                            peserta.nama_peserta, 
+                                            kegiatan.nama_kegiatan 
+                                            FROM 
+                                            detail_kegiatan, peserta_aktifitas, peserta, kegiatan 
+                                            WHERE 
+                                            peserta.id = peserta_aktifitas.id_peserta AND 
+                                            kegiatan.id = peserta_aktifitas.id_kegiatan AND 
+                                            peserta_aktifitas.id_kegiatan = detail_kegiatan.id_kegiatan AND 
+                                            peserta_aktifitas.id = $id"); -->
                                             <table id="example1" class="table table-bordered table-striped">
                                                 <thead>
+                                                    <!-- <th class="tw">Hari</th> -->
+                                                    <th>Aktifitas Hari I</th>
+                                                    <th>Jam Pelatihan (JP)</th>
+                                                </thead>
+                                                <tbody>
+                                                    <?php $no = 1;
+                                                    $result = mysqli_query($conn, "SELECT * FROM detail_kegiatan WHERE id_kegiatan = $id");
+
+                                                    while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_satu"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo '<b>-> </b>' . $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp1"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                        </tr>
+                                                        <!-- H 2 -->
+                                                        <th>Aktifitas Hari II</th>
+                                                        <th> </th>
+                                                        <tr>
+                                                            <!-- <td>aktifitas h2 1</td> -->
+                                                            <td>
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_dua"]);
+                                                                foreach ($arr as $i) {
+                                                                    echo '<b>-> </b>' . $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp2"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                        </tr>
+                                                        <!-- H 3 -->
+                                                        <th>Aktifitas Hari III</th>
+                                                        <th> </th>
+                                                        <tr>
+                                                            <!-- <td>aktifitas h3 1</td> -->
+                                                            <td>
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_tiga"]);
+                                                                foreach ($arr as $i) {
+                                                                    echo '<b>-> </b>' . $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp3"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                        </tr>
+                                                        <td style="text-align: right;">Total JP</td>
+                                                        <td class="tw">
+                                                            <?php
+                                                            // Sum jp1, jp2, and jp3 values by exploding, converting to integers, and summing them
+                                                            $total_jp = array_sum(array_map('intval', explode(",", $row["jp1"]))) +
+                                                                array_sum(array_map('intval', explode(",", $row["jp2"]))) +
+                                                                array_sum(array_map('intval', explode(",", $row["jp3"])));
+
+                                                            // Display the result
+                                                            echo $total_jp;
+                                                            ?>
+                                                        </td>
+                                                    <?php $no++;
+                                                    } ?>
+                                                </tbody>
+
+                                                <tfoot>
+                                                    <?php
+                                                    while ($row = mysqli_fetch_assoc($result_detail)) { ?>
+                                                        <tr>
+                                                            <td colspan="6">
+                                                                <div class="">
+                                                                    <a href="kegiatan-detail-hapus.php?id=<?php echo $row["id"]; ?>" class=" btn btn-danger btn-xs text-light" onclick="javascript: return confirm('Apakah yakin ingin menghapus detail kegiatan ini...?');"><i class="fa fa-trash"></i> Hapus</a>
+                                                                    <a href="kegiatan-detail-edit.php?id=<?php echo $row["id"]; ?>" class=" btn btn-success btn-xs"><i class="fa fa-edit"></i> Ubah</a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                </tfoot>
+                                            </table>
+                                            <!-- <table id="example2" class="table table-bordered table-striped">
+                                                <thead>
                                                     <tr>
-                                                        <th>No</th>
-                                                        <th>Action</th>
-                                                        <th>Nama Kegiatan</th>
-                                                        <th>Hari I</th>
-                                                        <th>Hari II</th>
-                                                        <th>Hari III</th>
+                                                        <th>Hari</th>
+                                                        <th>Aktifitas</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php $no = 1;
-                                                    // $hari = mysqli_query($conn, "SELECT hari_satu, hari_dua, hari_tiga FROM detail_kegiatan");
-                                                    // $rh = mysqli_fetch_assoc($hari);
-                                                    while ($row = mysqli_fetch_assoc($result_detail)) { ?>
+                                                    $result = mysqli_query($conn, "SELECT 
+                                                                detail_kegiatan.*, 
+                                                                peserta_aktifitas.*, 
+                                                                peserta.nama_peserta, 
+                                                                kegiatan.nama_kegiatan 
+                                                                FROM 
+                                                                detail_kegiatan, peserta_aktifitas, peserta, kegiatan 
+                                                                WHERE 
+                                                                peserta.id = peserta_aktifitas.id_peserta AND 
+                                                                kegiatan.id = peserta_aktifitas.id_kegiatan AND 
+                                                                peserta_aktifitas.id_kegiatan = detail_kegiatan.id_kegiatan AND 
+                                                                peserta_aktifitas.id = $id");
+                                                    while ($row = mysqli_fetch_assoc($result)) { ?>
                                                         <tr>
-                                                            <td><?php echo $no; ?></td>
+                                                            <th>Hari I</th>
                                                             <td>
-                                                                <div class="grid">
-                                                                    <a href="kegiatan-detail-hapus.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-danger btn-xs text-light" onclick="javascript: return confirm('Apakah yakin ingin menghapus detail kegiatan ini...?');"><i class="fa fa-trash"></i> Hapus</a>
-                                                                    <a href="kegiatan-detail-edit.php?id=<?php echo $row["id"]; ?>" class="bt btn btn-success btn-xs mr-1"><i class="fa fa-edit"></i> Ubah</a>
-                                                                </div>
-                                                            </td>
-                                                            <td><?php echo $row["nama_kegiatan"]; ?></td>
-                                                            <td>
-                                                                <?php 
-                                                                $arr = explode(",", $row["hari_satu"]); 
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_satu"]);
+                                                                $tes = count($arr);
+
                                                                 foreach ($arr as $i) {
                                                                     echo '<b>-> </b>' . $i . '<br>';
-                                                                }   
+                                                                }
                                                                 ?>
                                                             </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Hari II</th>
                                                             <td>
-                                                                <?php 
-                                                                $arr = explode(",", $row["hari_dua"]); 
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_dua"]);
                                                                 foreach ($arr as $i) {
                                                                     echo '<b>-> </b>' . $i . '<br>';
-                                                                }   
-                                                                ?></td>
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Hari III</th>
                                                             <td>
-                                                                 <?php 
-                                                                $arr = explode(",", $row["hari_tiga"]); 
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_tiga"]);
                                                                 foreach ($arr as $i) {
                                                                     echo '<b>-> </b>' . $i . '<br>';
-                                                                }   
+                                                                }
                                                                 ?>
                                                             </td>
                                                         </tr>
                                                     <?php $no++;
                                                     } ?>
                                                 </tbody>
-                                                <tfoot>
-                                                <tr>
-                                                        <th>No</th>
-                                                        <th>Action</th>
-                                                        <th>Nama Kegiatan</th>
-                                                        <th>Hari I</th>
-                                                        <th>Hari II</th>
-                                                        <th>Hari III</th>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
+                                            </table> -->
                                             <div class="mt-2" align="right">
                                                 <a class="btn btn-warning" href="../cetak-kegiatan-detail.php?id=<?php echo $id; ?>" target="_blank"><i class="fa fa-print"></i> Cetak Detail</a>
                                             </div>
