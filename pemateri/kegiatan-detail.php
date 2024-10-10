@@ -45,14 +45,17 @@ $row_k = mysqli_fetch_assoc($result_k);
     <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
     <style>
-        td:nth-child(1) {
+        th {
             text-align: center;
             font-weight: bold;
             background: #17a2b8;
-            /* border: 1px solid grey; */
+            border: 1px solid grey;
         }
         td {
             line-height: 40px;
+        }
+        .tw {
+            text-align: center;
         }
         .hari {
             color: white;
@@ -118,45 +121,98 @@ $row_k = mysqli_fetch_assoc($result_k);
                                                         <!-- <th>Hari III</th> -->
                                                     </tr>
                                                 </thead>
+                                                <thead>
+                                                    <!-- <th class="tw">Hari</th> -->
+                                                    <th>Aktifitas Hari I</th>
+                                                    <th>Jam Pelatihan (JP)</th>
+                                                </thead>
                                                 <tbody>
                                                     <?php $no = 1;
-                                                    // $hari = mysqli_query($conn, "SELECT hari_satu, hari_dua, hari_tiga FROM detail_kegiatan");
-                                                    // $rh = mysqli_fetch_assoc($hari);
-                                                    while ($row = mysqli_fetch_assoc($result_detail)) { ?>
+                                                    $result = mysqli_query($conn, "SELECT * FROM detail_kegiatan WHERE id_kegiatan = $id");
+
+                                                    while ($row = mysqli_fetch_assoc($result)) { ?>
                                                         <tr>
-                                                            <!-- <td><?php echo $no; ?></td> -->
-                                                            <!-- <td><?php echo $row["nama_kegiatan"]; ?></td> -->
-                                                            <td><span class="hari">Hari 1</span></td>
                                                             <td>
-                                                                <?php 
-                                                                $arr = explode(",", $row["hari_satu"]); 
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_satu"]);
+                                                                $tes = count($arr);
+
                                                                 foreach ($arr as $i) {
                                                                     echo '<b>-> </b>' . $i . '<br>';
-                                                                }   
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp1"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
                                                                 ?>
                                                             </td>
                                                         </tr>
+                                                        <!-- H 2 -->
+                                                        <th>Aktifitas Hari II</th>
+                                                        <th> </th>
                                                         <tr>
-                                                            <td><span class="hari">Hari 2</span></td>
+                                                            <!-- <td>aktifitas h2 1</td> -->
                                                             <td>
-                                                                <?php 
-                                                                $arr = explode(",", $row["hari_dua"]); 
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_dua"]);
                                                                 foreach ($arr as $i) {
                                                                     echo '<b>-> </b>' . $i . '<br>';
-                                                                }   
-                                                                ?></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="hari">Hari 3</span></td>
-                                                            <td>
-                                                                <?php 
-                                                                $arr = explode(",", $row["hari_tiga"]); 
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp2"]);
+                                                                $tes = count($arr);
+
                                                                 foreach ($arr as $i) {
-                                                                    echo '<b>-> </b>' . $i . '<br>';
-                                                                }   
+                                                                    echo $i . '<br>';
+                                                                }
                                                                 ?>
                                                             </td>
                                                         </tr>
+                                                        <!-- H 3 -->
+                                                        <th>Aktifitas Hari III</th>
+                                                        <th> </th>
+                                                        <tr>
+                                                            <!-- <td>aktifitas h3 1</td> -->
+                                                            <td>
+                                                                <?php
+                                                                $arr = explode(",", $row["hari_tiga"]);
+                                                                foreach ($arr as $i) {
+                                                                    echo '<b>-> </b>' . $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td class="tw">
+                                                                <?php
+                                                                $arr = explode(",", $row["jp3"]);
+                                                                $tes = count($arr);
+
+                                                                foreach ($arr as $i) {
+                                                                    echo $i . '<br>';
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                        </tr>
+                                                        <td style="text-align: right;">Total JP</td>
+                                                        <td class="tw">
+                                                            <?php
+                                                            // Sum jp1, jp2, and jp3 values by exploding, converting to integers, and summing them
+                                                            $total_jp = array_sum(array_map('intval', explode(",", $row["jp1"]))) +
+                                                                array_sum(array_map('intval', explode(",", $row["jp2"]))) +
+                                                                array_sum(array_map('intval', explode(",", $row["jp3"])));
+
+                                                            // Display the result
+                                                            echo $total_jp;
+                                                            ?>
+                                                        </td>
                                                     <?php $no++;
                                                     } ?>
                                                 </tbody>
