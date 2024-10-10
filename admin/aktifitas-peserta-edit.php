@@ -267,13 +267,13 @@ if (isset($_POST["submit"])) {
                                                     <?php $no++;
                                                     } ?>
                                                 </tbody>
-                                                <tfoot>
+                                                <!-- <tfoot>
                                                     <tr>
                                                         <th>Hari</th>
                                                         <th>Aktifitas</th>
                                                         <th>Absensi</th>
                                                     </tr>
-                                                </tfoot>
+                                                </tfoot> -->
                                             </table>
                                         </div>
                                         <div class="card-footer">

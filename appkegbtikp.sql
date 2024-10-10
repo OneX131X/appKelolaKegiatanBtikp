@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 08, 2023 at 02:20 PM
+-- Generation Time: Oct 09, 2024 at 01:50 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -32,24 +32,26 @@ CREATE TABLE `detail_kegiatan` (
   `id_kegiatan` int(255) NOT NULL,
   `hari_satu` varchar(500) NOT NULL,
   `hari_dua` varchar(500) NOT NULL,
-  `hari_tiga` varchar(500) NOT NULL
+  `hari_tiga` varchar(500) NOT NULL,
+  `jp1` varchar(500) NOT NULL,
+  `jp2` varchar(500) NOT NULL,
+  `jp3` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `detail_kegiatan`
 --
 
-INSERT INTO `detail_kegiatan` (`id`, `id_kegiatan`, `hari_satu`, `hari_dua`, `hari_tiga`) VALUES
-(8, 8, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(9, 10, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(10, 11, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(11, 12, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(15, 6, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(17, 9, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(18, 13, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(19, 15, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan'),
-(21, 16, 'Pembukaan, Laporan Ketua, Implementasi Pendidikan Karakter dan Perubahan Mindset Pendidikan Untuk Pengembangan Kurikulum Merdeka dengan Platform Merdeka Mengajar, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi', 'Teknik Dasar Pembuatan Animasi dan Karakter Animasi, Pemanfaatan Games Animasi Edukasi Berbasis HTML dan Smartphone, Android Administrasi Kelas Akun Belajar.id, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline, Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Grafik dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan dan Penyelesaian Administrasi'),
-(22, 2, 'Pembukaan, Laporan Ketua, Implementasi Pendidikan Karakter dan Perubahan Mindset Pendidikan Untuk Pengembangan Kurikulum Merdeka dengan Platform Merdeka Mengajar, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi', 'Teknik Dasar Pembuatan Animasi dan Karakter Animasi, Pemanfaatan Games Animasi Edukasi Berbasis HTML dan Smartphone, Android Administrasi Kelas Akun Belajar.id, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline, Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Grafik dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan dan Penyelesaian Administrasi');
+INSERT INTO `detail_kegiatan` (`id`, `id_kegiatan`, `hari_satu`, `hari_dua`, `hari_tiga`, `jp1`, `jp2`, `jp3`) VALUES
+(8, 8, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan', '', '', ''),
+(9, 10, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan', '', '', ''),
+(10, 11, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan', '', '', ''),
+(11, 12, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan', '', '', ''),
+(15, 6, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan', '1, 2, 4', '2, 3, 3, 3, 2, 4', '2, 1'),
+(17, 9, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan', '', '', ''),
+(19, 15, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan', '', '', ''),
+(21, 16, 'Pembukaan, Laporan Ketua, Implementasi Pendidikan Karakter dan Perubahan Mindset Pendidikan Untuk Pengembangan Kurikulum Merdeka dengan Platform Merdeka Mengajar, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi', 'Teknik Dasar Pembuatan Animasi dan Karakter Animasi, Pemanfaatan Games Animasi Edukasi Berbasis HTML dan Smartphone, Android Administrasi Kelas Akun Belajar.id, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline, Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Grafik dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan dan Penyelesaian Administrasi', '', '', ''),
+(22, 2, 'Pembukaan, Laporan Ketua, Implementasi Pendidikan Karakter dan Perubahan Mindset Pendidikan Untuk Pengembangan Kurikulum Merdeka dengan Platform Merdeka Mengajar, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi', 'Teknik Dasar Pembuatan Animasi dan Karakter Animasi, Pemanfaatan Games Animasi Edukasi Berbasis HTML dan Smartphone, Android Administrasi Kelas Akun Belajar.id, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline, Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Grafik dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan dan Penyelesaian Administrasi', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -193,6 +195,42 @@ INSERT INTO `pegawai` (`id`, `nama_pegawai`, `nik`, `jK`, `NoTelp`, `waktuTugas`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pending_h_1`
+--
+
+CREATE TABLE `pending_h_1` (
+  `id` int(11) NOT NULL,
+  `nama_aktifitas` varchar(255) NOT NULL,
+  `jam_pelatihan` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pending_h_2`
+--
+
+CREATE TABLE `pending_h_2` (
+  `id` int(11) NOT NULL,
+  `nama_aktifitas` varchar(255) NOT NULL,
+  `jam_pelatihan` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pending_h_3`
+--
+
+CREATE TABLE `pending_h_3` (
+  `id` int(11) NOT NULL,
+  `nama_aktifitas` varchar(255) NOT NULL,
+  `jam_pelatihan` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pengguna`
 --
 
@@ -209,8 +247,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id`, `username`, `password`, `peran`, `login_terakhir`) VALUES
-(1, 'admin', '$2y$10$baqQ4zTS37tzcjXzcU9GjO5.a.IIvc1OX1.kwHleKXxjVo9dZXDK2', 'ADMIN', '2023-02-07 08:06:57'),
-(12, 'narasumber', '$2y$10$GpUIMnLTwouPHDBJdpxdReblRN57fj7oOtXKiPEwOkvQz42sv5LTy', 'PEMATERI', '2023-02-07 17:55:19');
+(1, 'admin', '$2y$10$baqQ4zTS37tzcjXzcU9GjO5.a.IIvc1OX1.kwHleKXxjVo9dZXDK2', 'ADMIN', '2024-10-05 17:06:03'),
+(12, 'narasumber', '$2y$10$GpUIMnLTwouPHDBJdpxdReblRN57fj7oOtXKiPEwOkvQz42sv5LTy', 'PEMATERI', '2024-10-09 10:43:00');
 
 -- --------------------------------------------------------
 
@@ -283,7 +321,7 @@ INSERT INTO `peserta_aktifitas` (`id`, `id_peserta`, `id_kegiatan`, `absen1`, `a
 (15, '24', '8', 'hadir', 'hadir', 'hadir', ''),
 (17, '25', '8', 'hadir', 'hadir', 'hadir', 'baik'),
 (19, '22', '8', 'hadir', 'hadir', 'hadir', ''),
-(26, '23', '6', 'hadir', 'hadir', 'hadir', ''),
+(26, '23', '6', 'hadir', 'hadir', 'hadir', 'baik'),
 (31, '19', '8', 'hadir', 'hadir', 'hadir', ''),
 (32, '26', '8', 'hadir', 'hadir', 'hadir', '');
 
@@ -404,6 +442,24 @@ ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `pending_h_1`
+--
+ALTER TABLE `pending_h_1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pending_h_2`
+--
+ALTER TABLE `pending_h_2`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pending_h_3`
+--
+ALTER TABLE `pending_h_3`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
@@ -441,7 +497,7 @@ ALTER TABLE `reservasi`
 -- AUTO_INCREMENT for table `detail_kegiatan`
 --
 ALTER TABLE `detail_kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `fasilitas_kamar`
@@ -472,6 +528,24 @@ ALTER TABLE `kegiatan_diikuti`
 --
 ALTER TABLE `pegawai`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `pending_h_1`
+--
+ALTER TABLE `pending_h_1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pending_h_2`
+--
+ALTER TABLE `pending_h_2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pending_h_3`
+--
+ALTER TABLE `pending_h_3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
