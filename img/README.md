@@ -1,4 +1,4 @@
-#Galery
+# Galery
 ![admin pendaftaran](https://user-images.githubusercontent.com/87486976/183406547-f874c815-fc26-4d9e-94be-75a50f823329.jpg)
 ![admin pendaftaran tambah](https://user-images.githubusercontent.com/87486976/183406562-4fd3c53c-c0cf-49b9-b18c-432b26583d6e.jpg)
 ![admin aktifitas](https://user-images.githubusercontent.com/87486976/183406704-2e64d1af-7463-4415-ab88-de92630e8dc4.jpg)
