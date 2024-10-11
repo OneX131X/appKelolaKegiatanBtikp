@@ -88,11 +88,18 @@ $html = '<!DOCTYPE html>
                                 $html .= '<b>-> </b>' . $i . '<br>';
                             }
                 $html .='</td>
-                        <td class="tw">
-                            <div>1</div>
-                            <div>2</div>
-                            <div>4</div>
-                        </td>
+                        <td class="tw">';
+                        $arr = explode(",", $row["jp1"]);
+                        $tes = count($arr);
+
+                        foreach ($arr as $i) {
+                            $html .= $i . '<br>';
+                        }
+                $html .='</td>
+                    </tr>
+                    <tr>
+                    <th>Aktifitas Hari II</th>
+                    <td></td>
                     </tr>
                     <tr>
                         <td>'; 
@@ -101,14 +108,18 @@ $html = '<!DOCTYPE html>
                                 $html .= '<b>-> </b>' . $i . '<br>';
                             }
                 $html .='</td>
-                        <td class="tw">
-                            <div>2</div>
-                            <div>3</div>
-                            <div>3</div>
-                            <div>3</div>
-                            <div>2</div>
-                            <div>4</div>
-                        </td>
+                        <td class="tw">';
+                        $arr = explode(",", $row["jp2"]);
+                        $tes = count($arr);
+
+                        foreach ($arr as $i) {
+                            $html .= $i . '<br>';
+                        }
+                $html .='</td>
+                    </tr>
+                    <tr>
+                    <th>Aktifitas Hari III</th>
+                    <td></td>
                     </tr>
                     <tr>
                         <td>'; 
@@ -116,11 +127,15 @@ $html = '<!DOCTYPE html>
                             foreach ($arr as $i) {
                                 $html .= '<b>-> </b>' . $i . '<br>';
                             }
-                $html .= '</td>
-                        <td class="tw">
-                            <div>2</div>
-                            <div>1</div>
-                        </td>
+                $html .='</td>
+                        <td class="tw">';
+                        $arr = explode(",", $row["jp3"]);
+                        $tes = count($arr);
+
+                        foreach ($arr as $i) {
+                            $html .= $i . '<br>';
+                        }
+                $html .='</td>
                     </tr>
                     <tr>
                         <td style="text-align: right;">Total JP</td>
