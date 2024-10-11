@@ -16,6 +16,8 @@ these are how some of the interfaces looks like
 ![peserta dashboard](https://user-images.githubusercontent.com/87486976/183406771-b5ce6258-536c-4126-8aa1-b04ab2dafed4.jpg)
 ![pemateri dashboard](https://user-images.githubusercontent.com/87486976/183406867-486fce12-d376-4159-9fbb-9d33576f73ef.jpg)
 
+[More Screenshots here ](./img/README.md)
+
 *this is my first full web app I've made, I'm still a beginner (: 
 
 Sebuah aplikasi web yang telah saya bangun sampai selesai yaitu Aplikasi Kelola Kegiatan BTIKP, dimana aplikasi ini berfungsi untuk admin untuk mengatur data aktifitas kegiatan bimbingan teknis pembelajaran (bimtek) yang diadakan kepada para guru dari daerah Kalimantan Selatan. Data - data yang diatur yaitu seperti data registrasi peserta, reservasi kamar peserta, detail aktifitas yang dijalani, dan beberapa data lainnya.
