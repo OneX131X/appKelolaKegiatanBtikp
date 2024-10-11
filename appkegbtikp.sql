@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 09, 2024 at 01:50 PM
+-- Generation Time: Oct 11, 2024 at 12:41 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -51,7 +51,7 @@ INSERT INTO `detail_kegiatan` (`id`, `id_kegiatan`, `hari_satu`, `hari_dua`, `ha
 (17, 9, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Ediuting dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan', '', '', ''),
 (19, 15, 'Pembukaan, Konsep Kurikulum Merdeka dengan platform Merdeka Mengajar, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline', 'Idea Visualization, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan', '', '', ''),
 (21, 16, 'Pembukaan, Laporan Ketua, Implementasi Pendidikan Karakter dan Perubahan Mindset Pendidikan Untuk Pengembangan Kurikulum Merdeka dengan Platform Merdeka Mengajar, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi', 'Teknik Dasar Pembuatan Animasi dan Karakter Animasi, Pemanfaatan Games Animasi Edukasi Berbasis HTML dan Smartphone, Android Administrasi Kelas Akun Belajar.id, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline, Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Grafik dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan dan Penyelesaian Administrasi', '', '', ''),
-(22, 2, 'Pembukaan, Laporan Ketua, Implementasi Pendidikan Karakter dan Perubahan Mindset Pendidikan Untuk Pengembangan Kurikulum Merdeka dengan Platform Merdeka Mengajar, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi', 'Teknik Dasar Pembuatan Animasi dan Karakter Animasi, Pemanfaatan Games Animasi Edukasi Berbasis HTML dan Smartphone, Android Administrasi Kelas Akun Belajar.id, Pembuatan dan Pengembangan Media Pembelajaran Interaktif Berbasis Aplikasi Storyline, Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Grafik dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan dan Penyelesaian Administrasi', '', '', '');
+(26, 2, 'Pembukaan, Laporan Ketua, Implementasi Pendidikan Karakter dan Perubahan Mindset Pendidikan Untuk Pengembangan Kurikulum Merdeka dengan Platform Merdeka Mengajar, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi', 'Idea Visualization, Motion Graphic ala KOKBISA, Pemanfaatan Games Animasi Edukasi Berbasis Html dan Smartphone, Praktek Pembuatan Skenario Naskah dan Storytelling dalam Animasi,  Praktek Penerapan Sound Efek dan Voiceover dalam Pengisian Video Animasi Pembelajaran, Praktek Editing dalam Pembuatan Motion Graphic dan Animasi Pembelajaran', 'Presentasi Hasil Karya dan Upload Konten Video Pembelajaran, Penutupan', '1, 1,2, 3', '2, 3, 3, 3, 2, 4', '1, 1');
 
 -- --------------------------------------------------------
 
@@ -247,8 +247,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id`, `username`, `password`, `peran`, `login_terakhir`) VALUES
-(1, 'admin', '$2y$10$baqQ4zTS37tzcjXzcU9GjO5.a.IIvc1OX1.kwHleKXxjVo9dZXDK2', 'ADMIN', '2024-10-05 17:06:03'),
-(12, 'narasumber', '$2y$10$GpUIMnLTwouPHDBJdpxdReblRN57fj7oOtXKiPEwOkvQz42sv5LTy', 'PEMATERI', '2024-10-09 10:43:00');
+(1, 'admin', '$2y$10$baqQ4zTS37tzcjXzcU9GjO5.a.IIvc1OX1.kwHleKXxjVo9dZXDK2', 'ADMIN', '2024-10-11 09:57:04'),
+(12, 'narasumber', '$2y$10$GpUIMnLTwouPHDBJdpxdReblRN57fj7oOtXKiPEwOkvQz42sv5LTy', 'PEMATERI', '2024-10-11 10:32:50');
 
 -- --------------------------------------------------------
 
@@ -497,7 +497,7 @@ ALTER TABLE `reservasi`
 -- AUTO_INCREMENT for table `detail_kegiatan`
 --
 ALTER TABLE `detail_kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `fasilitas_kamar`

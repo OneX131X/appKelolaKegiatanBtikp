@@ -113,11 +113,11 @@ $row_peserta = mysqli_fetch_assoc($result_peserta);
         }
 
         body {
-            /* background-image: url(img/sertifikat.png);  */
-            /* background-size: contain;  */
-            /* background-size: 1055px auto;  */
-            /* background-position: center 8%; */
-            /* background-repeat: no-repeat;  */
+            background-image: url(img/sertifikat.png); 
+            background-size: contain; 
+            background-size: 1055px auto; 
+            background-position: center 8%;
+            background-repeat: no-repeat; 
             margin-left: 100px;
             margin-right: 100px;
             margin-top: 100px;
